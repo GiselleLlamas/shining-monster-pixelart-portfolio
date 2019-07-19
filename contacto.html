@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Pixel Syndrome</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<div id="standard">
+		<header>
+			<div id="logops">
+				<a href="index.html"><img src="img/ps-logo.png" alt="Ilustración del logo de Pixel Syndrome"></a>
+			</div>
+			<nav id="navmain">
+				<ul>
+					<li><a href="portfolio.html">Portfolio</a></li>
+					<li><a href="multimedia.html">Arte Multimedia</a></li>
+					<li><a href="cv.html">CV</a></li>
+					<li><a href="blog.html">A/V Blog</a></li>
+					<li>
+						<a href="aboutme.html">Acerca de mí</a>
+						<ul>
+							<li>
+								<a href="contacto.html">Contacto</a>
+							</li>
+						</ul>
+					</li>
+					<li><a href="juego.html">Juego</a></li>
+					<li><a href="fichagiselle.html">Ficha Personal</a></li>
+				</ul>
+			</nav>
+		</header>
+	<div id="contactmain">
+		<h1>¡Hola! Por favor contame un poco más acerca de vos._</h1>
+		<h2>Si tenés cualquier consulta acerca de mis trabajos o querés contactate conmigo, podés hacerlo rellenando el siguiente formulario:</h2>
+		<h3>[ Formulario de contacto: ]</h3>
+		<div id="contenedorformulario">
+			<h3>Tu nombre:</h3>
+			<input type="text" name="nombre" placeholder="Ingresá tu nombre.">
+			<h3>Tu email:</h3>
+			<input type="text" name="email"  placeholder="Ingresá tu email.">
+			<h3>Seleccioná tu región:</h3>
+			<select id="region" name="regionsel" placeholder="Seleccioná tu región..." required>
+				<option value="none">Seleccioná tu región...</option>
+			   <option value="africacentral">África</option>
+			   <option value="americacentral">América Central</option>
+			   <option value="americadelsur">América del Sur</option>
+			   <option value="americadelnorte">América del norte</option>
+			   <option value="asia">Asia y Sudeste Asiático</option>
+			   <option value="caribe">Islas del Caribe</option>
+			   <option value="oceania">Melanesia, Micronesia y Polinesia</option>
+			   <option value="australiaynuevazelanda">Australia y Nueva Zelanda</option>
+			</select>
+			<h3>Tu mensaje:</h3>
+			<textarea  placeholder="Ingresá tu mensaje."></textarea>
+			<h3>¿Querés recibir noticias mías?</h3>
+			<input type="checkbox" name="mailing" value="simailing">Sí, quisiera suscribirme a novedades del trabajo de Pixel Syndrome.<br>
+			<input type="submit" value="Enviar">
+			<!--Aca va el codigo de javascript que valida el formulario-->
+		</div>
+	</div>
+		<footer>
+			<p>Lorem ipsum</p><br/>
+			<p>Lorem ipsum</p><br/>
+			<p>Lorem ipsum</p><br/>
+		</footer>
+	</div>
+</body>
+</html>
