@@ -1,0 +1,114 @@
+/* Estilo General */
+
+*{
+	padding: 0px;
+	margin: 0px;
+}
+
+body{
+
+}
+
+p{
+
+}
+
+img{
+}
+
+/* Div contenedor del menu (estoy usando flex para la alineacion)*/
+.menu{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	overflow: hidden;
+}
+
+/* Clase para el estilo de los 2 navs adentro del div contenedor de menu */
+.navi{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	justify-content: space-around;
+	flex: 0 1 40vw;
+	text-align: center;
+}
+
+.navi li{
+	list-style: none;
+}
+
+/*Estilo del logo central del div menu*/
+.logo{
+	flex: 0 1 20vw;
+	text-align: center;
+}
+
+/* Los botones que hacen de dropdown en el menu */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: #000;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* Estilo del hover de los botones de dropdown */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+/* Estilo del contenido del dropdown */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Estilo de los links adentro del dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Estilo del hover sobre los links */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Mostrar el dropdown al hacer hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+a{
+
+}
+
+a:visited{
+
+}
+
+a:hover{
+
+}
+
+footer{
+	clear: both;
+	text-align: center;
+}
+
+/*Estilo de páginas particulares*/
+
+/*Pagina xx*/
+
