@@ -3,18 +3,26 @@
 <head>
 	<title>Pixel Syndrome</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/base-context.css">
+	<link rel="stylesheet" href="css/buttons.css">
+	<link rel="stylesheet" href="css/forms-nr.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/funciones.js"></script>
 </head>
 <body>
 	<div id="standard">
 		<header>
 			<div class="menu">
 			<nav class="navi" id="navuno">
+				<div class="aico">
+				<a href="fichagiselle.html">A</a>
+				</div>
 				<div class="dropdown" id="bio">
 	    			<button class="dropbtn">
-	    			<a href="aboutme.html">BIO</a>
-	      			<i class="fa fa-caret-down"></i>
+	    				<a href="aboutme.html">BIO</a>
+	      				<i class="fa fa-caret-down"></i>
 	    			</button>
 		    			<div class="dropdown-content">
 		      				<a href="contacto.html">CONTACTO</a>
@@ -22,8 +30,8 @@
   				</div>
   				<div class="dropdown">
 	    			<button class="dropbtn" id="blog">
-	    			<a href="blog.html">BLOG</a>
-	      			<i class="fa fa-caret-down"></i>
+		    			<a href="blog.html">BLOG</a>
+		      			<i class="fa fa-caret-down"></i>
 	    			</button>
 		    			<div class="dropdown-content">
 		      				<a href="eventovapor.html">EVENTO VAPORSYNTH</a>
@@ -33,8 +41,8 @@
   				</div>
   				<div class="dropdown">
 	    			<button class="dropbtn" id="cv">
-	    			<a href="cv.html">CV</a>
-	      			<i class="fa fa-caret-down"></i>
+		    			<a href="cv.html">CV</a>
+		      			<i class="fa fa-caret-down"></i>
 	    			</button>
 		    			<div class="dropdown-content">
 		      				<a href="exhibiciones.html">EXHIBICIONES</a>
@@ -49,8 +57,8 @@
 				<li><a href="portfolio.html">ILUSTRACIÓN</a></li>
 				<div class="dropdown" id="proyectos">
 	    			<button class="dropbtn">
-	    			<a href="multimedia.html">PROYECTOS</a>
-	      			<i class="fa fa-caret-down"></i>
+		    			<a href="multimedia.html">PROYECTOS</a>
+		      			<i class="fa fa-caret-down"></i>
 	    			</button>
 		    			<div class="dropdown-content">
 		      				<a href="proyecto1.html">PROYECTO 1</a>
@@ -64,35 +72,62 @@
 			</nav>
 			</div>
 		</header>
-	<div id="aboutmain">
-		<h1>Pixel Syndrome / Acerca de Mí_</h1>
-		<h2>[ Artista Multimedia & Ilustradora ]</h2>
-		<h2>-</h2>
-		<div id="carousel">
-			<img src="">
-			<img src="">
-			<img src="">
-			<img src="">
-			<!--Aca va el codigo de javascript que habilita la funcionalidad de carousel-->
+	<div class="socialhorizontal">
+		<div id="twitter">
+			<a href="https://twitter.com/glitchdimension" target="_blank" class="fa fa-twitter"></a>
+		</div>
+		<div id="instagram">
+			<a href="https://www.instagram.com/pixel.syndrome/" target="_blank" class="fa fa-instagram"></a>
+		</div>
+		<div id="linkedin">
+			<a href="https://www.linkedin.com/in/gisellellamas/" target="_blank" class="fa fa-linkedin"></a>
+		</div>
+	</div>
+	<div id="aboutmain" class="oneflex">
+		<div id="bioimg1">
+			<img src="img/bioimg1.png" alt="Foto de bio1">
 		</div>
 		<div id="boxright">
+			<h1>BIO</h1>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus posuere fermentum fringilla. Mauris quis cursus nunc, sit amet viverra ligula. Suspendisse aliquam arcu ut felis vulputate commodo. Nullam a urna at tortor convallis vulputate. Duis aliquet nisl non sem mattis tristique. Mauris vel dui aliquam, hendrerit mi non, efficitur quam. Praesent posuere neque erat, et tincidunt tellus porta id. Nunc pharetra suscipit a sagittis. Proin tincidunt, neque id tincidunt tempor, massa augue tincidunt nunc, sed rutrum eros mi quis diam.</p>
-			<img src="">
-			<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus posuere fermentum fringilla. Mauris quis cursus nunc, sit amet viverra ligula." David Bowie, Artist</p>
+			<div id="galeriabio">
+				<div id="personalidad1" class="imgtext">
+					<img src="img/person.png" alt="unicorn">
+					<p>Nikola Tesla</p>
+				</div>
+				<div id="personalidad2" class="imgtext">
+					<img src="img/person.png" alt="unicorn">
+					<p>David Bowie</p>
+				</div>
+				<div id="personalidad3" class="imgtext">
+					<img src="img/person.png" alt="unicorn">
+					<p>Joan Jett</p>
+				</div>
+				<div id="personalidad4" class="imgtext">
+					<img src="img/person.png" alt="unicorn">
+					<p>Joan Arci</p>
+				</div>
+			</div>
+			<div id="quotebio">
+				<img src="img/teslaround.png" alt="unicorn">
+				<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus posuere fermentum fringilla. Mauris quis cursus nunc, sit amet viverra ligula."<br> - David Bowie, Artist</p>
+			</div>
 			<p>Quisque euismod nulla sed viverra auctor. Sed non interdum erat, ac aliquet mi. Morbi enim eros, vulputate in porta sed, feugiat id ante. Donec ligula felis, varius vitae tellus sit amet, molestie interdum justo. Sed eu semper lorem. Donec faucibus diam porta dictum fermentum. Vivamus et fringilla odio, vitae accumsan metus. In pulvinar faucibus lorem sit amet fermentum. Nunc diam mi, mattis vitae augue eget, auctor mollis mi. Phasellus tristique lectus at leo iaculis ultricies. Etiam augue ipsum, mollis sit amet convallis ac, scelerisque eget tellus. Nullam placerat, elit et vestibulum tincidunt, ante ante scelerisque dui, vel viverra tortor nunc vel justo. Mauris erat magna, sollicitudin in ante at, aliquam rutrum nisi. Donec tincidunt arcu at luctus ultricies.</p>
 			<p>Cras urna nisi, feugiat at tellus in, lobortis ornare mi. Proin in ipsum sed neque sollicitudin condimentum at vel sapien. Nulla facilisi. Suspendisse tellus lacus, placerat aliquam luctus in, malesuada et mauris. Proin fringilla eros augue, eget tristique sem consequat ut. Pellentesque tempus urna in tellus mollis suscipit. Vestibulum tempor enim et lectus facilisis maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget libero suscipit turpis suscipit mattis eu maximus nulla. Nunc euismod nibh velit, in lobortis augue dictum quis. Etiam commodo blandit sem at porta.</p>
 		</div>
-		<aside id="instagram">
-			<h3>Mis posts favoritos de Instagram:</h3>
-			<img src="">
-			<!--Esta imagen, compuesta por los mejores posts de instagram en cuadraditos, redirecciona a mi perfil de instagram.-->
-		</aside>
 	</div>
-		<footer>
-			<p>Lorem ipsum</p><br/>
-			<p>Lorem ipsum</p><br/>
-			<p>Lorem ipsum</p><br/>
-		</footer>
-	</div>
+		<div id="overworld" class="imgtext">
+					<img src="img/bio-island.png" alt="unicorn">
+					<p>Pixel Syndrome's Overworld.</p>
+		</div>
+		<a onclick="topFunction()" id="arriba" aria-label="Ir al tope de la página">
+			<i class="fa fa-angle-up" aria-hidden="true"></i>
+		</a>
+			<footer>
+				<p>Lorem ipsum</p>
+				<img src="img/footer-img.png" alt="Decoracion de footer">
+				<p>Lorem ipsum</p>
+			</footer>
+		</div>
 </body>
 </html>

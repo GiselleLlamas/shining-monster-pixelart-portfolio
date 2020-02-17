@@ -16,12 +16,25 @@ p{
 img{
 }
 
+/*Targeteando al div standard en todas las paginas para que me tome todo el height con flexbox*/
+#standard{
+	display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/*Clase que si es contenido principal entonces ocupa toda esta proporcion del contenido en el flex*/
+.oneflex{
+flex: 1;
+}
+
 /* Div contenedor del menu (estoy usando flex para la alineacion)*/
 .menu{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	overflow: hidden;
+	margin: 20px;
 }
 
 /* Clase para el estilo de los 2 navs adentro del div contenedor de menu */
@@ -63,6 +76,7 @@ img{
 
 /* Estilo del contenido del dropdown */
 .dropdown-content {
+  text-decoration: none;
   display: none;
   position: absolute;
   background-color: #f9f9f9;
@@ -76,7 +90,6 @@ img{
   float: none;
   color: black;
   padding: 12px 16px;
-  text-decoration: none;
   display: block;
   text-align: left;
 }
@@ -91,24 +104,173 @@ img{
   display: block;
 }
 
-a{
+/* A */
+.aico{
+font-style: normal;
+font-weight: 800;
+text-align: center;
+letter-spacing: 2px;
+color: #000000;
+}
 
+a{
+text-decoration: none;
 }
 
 a:visited{
-
+text-decoration: none;
 }
 
 a:hover{
-
+text-decoration: none;
 }
 
 footer{
 	clear: both;
 	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 20px 50px;
+}
+
+footer p{
+	margin: 0px 20px;
+}
+
+.socialhorizontal{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.socialhorizontal .fa{
+	  padding: 12px;
+	  font-size: 15px;
+	  width: 12px;
+	  text-align: center;
+	  text-decoration: none;
+	  border-radius: 50%;
+}
+
+.socialhorizontal div{
+	margin:10px 0px 10px 10px;
+}
+
+.socialhorizontal div:nth-of-type(3) {
+	margin-right: 30px;
+}
+
+/* Linkedin */
+.fa-linkedin {
+  background: #ED01FE;
+  color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #01BBFE;
+  color: white;
+}
+
+/* Instagram */
+.fa-instagram {
+  background: #A101FE;
+  color: white;
+}
+
+#arriba{
+	position: fixed;
+	bottom: 10px;
+	right: 5px;
+    border:1px solid #666666;
+    display: block;
+    text-decoration: none;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    opacity:0.5;
+    box-shadow: 2px 2px 2px;
+}
+
+#arriba i{
+	color: #666;
+    margin: 0;
+    padding:0 10px 7px 10px;
+    font-size: 35px;
+}
+
+#arriba:hover {
+    background: #F26095;
+    color: #fff;
+    border:none;
+    opacity:1;
+}
+
+#arriba:hover i {
+    color: #fff;
 }
 
 /*Estilo de páginas particulares*/
 
-/*Pagina xx*/
+/*Pagina Bio*/
+.bioimg1{
+	position: absolute;
+	top: 197px;
+}
+
+#aboutmain{
+	display: flex;
+	flex-direction: row;
+}
+
+#boxright h1, #boxright p{
+	margin: 0 55px 1em 25px;
+	text-align: justify;
+}
+
+#boxright p:nth-of-type(2) {
+	margin-top: 40px;
+}
+
+#galeriabio{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+#galeriabio img{
+	margin: 20px 10px 15px 10px;
+}
+
+.imgtext{
+	text-align: center;
+}
+
+#quotebio{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	border-color: #DFDFDF;
+	background-color: #DFDFDF;
+	padding: 13px 45px;
+}
+
+#quotebio p{
+	margin: 20px 10px 15px 10px;
+	text-align: justify;
+}
+
+#quotebio img{
+	max-width: 90px;
+	max-height: 90px;
+	text-align: center;
+	margin: 10px;
+}
+
+#overworld, #overworld p{
+	margin: 20px 40px 0 40px;
+}
 
