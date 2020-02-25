@@ -17,7 +17,7 @@ Copyright (c) Nicolas Gallagher and Jonathan Neal
  */
 
 html {
-  font-family: sans-serif; /* 1 */
+  /* font-family: sans-serif; 1 */
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
@@ -241,7 +241,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: monospace, monospace;
+  /* font-family: monospace, monospace;*/
   font-size: 1em;
 }
 

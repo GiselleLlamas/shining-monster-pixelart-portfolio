@@ -4,107 +4,223 @@
 	<title>Pixel Syndrome</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/base-context.css">
+	<link rel="stylesheet" href="css/buttons.css">
+	<link rel="stylesheet" href="css/forms-nr.css">
 	<link rel="stylesheet" href="css/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Krona+One&display=swap" rel="stylesheet">
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<script src="js/funciones.js"></script>
+	<script type="text/javascript">
+
+		var imgActual = 1;
+		
+		function textoAparece(texto){
+			varTexto = '#' + texto;
+			//console.log(varTexto)
+			$(varTexto).fadeIn('fast');
+		}
+
+		function textoDesaparece(texto){
+			varTexto = '#' + texto;
+			//console.log(varTexto)
+			$(varTexto).fadeOut('fast');
+		}
+
+		function prevImg(varImg){
+			contenidoHtml = '';
+			if(varImg == 1){
+				contenidoHtml = '<img src="img/img' + 9 + '.png" alt="imagen" />';
+				imgActual = 9;
+			}else{
+				varImg = varImg - 1;
+				contenidoHtml = '<img src="img/img' + varImg + '.png" alt="imagen" />';
+				imgActual = imgActual - 1;
+			}
+			document.getElementById('contenedorFotoPopUp').innerHTML = '';
+			document.getElementById('contenedorFotoPopUp').innerHTML = contenidoHtml;
+
+		}
+
+		function nextImg(varImg){
+			contenidoHtml = '';
+			if(varImg == 9){
+				contenidoHtml = '<img src="img/img' + 1 + '.png" alt="imagen" />';
+				imgActual = 1;
+			}else{
+				varImg = varImg + 1;
+				contenidoHtml = '<img src="img/img' + varImg + '.png" alt="imagen" />';
+				imgActual = imgActual + 1;
+			}
+			document.getElementById('contenedorFotoPopUp').innerHTML = '';
+			document.getElementById('contenedorFotoPopUp').innerHTML = contenidoHtml;
+		}
+
+		function apareceGaleria(varImg){
+			$('#fondoGaleria').fadeIn('fast');
+			imgActual = varImg;
+			contenidoHtml = '<img src="img/img' + imgActual + '.png" alt="imagen" />';
+			document.getElementById('contenedorFotoPopUp').innerHTML = '';
+			document.getElementById('contenedorFotoPopUp').innerHTML = contenidoHtml;
+			$('#popUpGaleria').fadeIn('slow');
+		}
+		function desapareceGaleria(){
+			$('#fondoGaleria').fadeOut('slow');
+			$('#popUpGaleria').fadeOut('fast');
+		}
+	</script>
 </head>
 <body>
 	<div id="standard">
 		<header>
 			<div class="menu">
-			<nav class="navi" id="navuno">
-				<div class="aico">
-				<a href="fichagiselle.html">A</a>
-				</div>
-				<div class="dropdown" id="bio">
-	    			<button class="dropbtn">
-	    			<a href="aboutme.html">BIO</a>
-	      			<i class="fa fa-caret-down"></i>
-	    			</button>
-		    			<div class="dropdown-content">
-		      				<a href="contacto.html">CONTACTO</a>
-		    			</div>
-  				</div>
-  				<div class="dropdown">
-	    			<button class="dropbtn" id="blog">
-	    			<a href="blog.html">BLOG</a>
-	      			<i class="fa fa-caret-down"></i>
-	    			</button>
-		    			<div class="dropdown-content">
-		      				<a href="eventovapor.html">EVENTO VAPORSYNTH</a>
-							<a href="eventoformula.html">EVENTO AESTHETIC FORMULA</a>
-							<a href="eventosummer.html">EVENTO SUMMER EDITION</a>
-		    			</div>
-  				</div>
-  				<div class="dropdown">
-	    			<button class="dropbtn" id="cv">
-	    			<a href="cv.html">CV</a>
-	      			<i class="fa fa-caret-down"></i>
-	    			</button>
-		    			<div class="dropdown-content">
-		      				<a href="exhibiciones.html">EXHIBICIONES</a>
-							<a href="testimoniales.html">TESTIMONIALES</a>
-		    			</div>
-  				</div>
-			</nav>
-			<div class="logo" id="logops">
-				<a href="index.html"><img src="img/ps-logo.png" alt="Ilustración del logo de Pixel Syndrome"></a>
-			</div>
-			<nav class="navi" id="navdos">
-				<li><a href="portfolio.html">ILUSTRACIÓN</a></li>
-				<div class="dropdown" id="proyectos">
-	    			<button class="dropbtn">
-	    			<a href="multimedia.html">PROYECTOS</a>
-	      			<i class="fa fa-caret-down"></i>
-	    			</button>
-		    			<div class="dropdown-content">
-		      				<a href="proyecto1.html">PROYECTO 1</a>
+				<nav class="navi" id="navuno">
+					<div class="aico">
+						<a href="fichagiselle.html">A</a>
+					</div>
+					<div class="dropdown" id="bio">
+						<button class="dropbtn">
+							<a href="aboutme.html">BIO</a>
+							<i class="fa fa-caret-down"></i>
+						</button>
+						<div class="dropdown-content">
+							<a href="contacto.html">CONTACTO</a>
+						</div>
+					</div>
+					<div class="dropdown" id="proyectos">
+						<button class="dropbtn">
+							<a href="multimedia.html">PROYECTOS</a>
+							<i class="fa fa-caret-down"></i>
+						</button>
+						<div class="dropdown-content">
+							<a href="proyecto1.html">PROYECTO 1</a>
 							<a href="proyecto2.html">PROYECTO 2</a>
 							<a href="proyecto3.html">PROYECTO 3</a>
 							<a href="proyecto4.html">PROYECTO 4</a>
 							<a href="proyecto5.html">PROYECTO 5</a>
-		    			</div>
-  				</div>
-				<a href="juego.html">JUEGO</a>
-			</nav>
+						</div>
+					</div>
+					<div class="dropdown">
+						<button class="dropbtn" id="cv">
+							<a href="cv.html">CV</a>
+							<i class="fa fa-caret-down"></i>
+						</button>
+						<div class="dropdown-content">
+							<a href="exhibiciones.html">EXHIBICIONES</a>
+							<a href="testimoniales.html">TESTIMONIALES</a>
+						</div>
+					</div>
+				</nav>
+				<div class="logo" id="logops">
+					<a href="index.html"><img src="img/ps-logo.png" alt="Ilustración del logo de Pixel Syndrome"></a>
+				</div>
+				<nav class="navi" id="navdos">
+					<a href="portfolio.html">ILUSTRACIÓN</a>
+					<div class="dropdown">
+						<button class="dropbtn" id="blog">
+							<a href="blog.html">BLOG</a>
+							<i class="fa fa-caret-down"></i>
+						</button>
+						<div class="dropdown-content">
+							<a href="eventovapor.html">EVENTO VAPORSYNTH</a>
+							<a href="eventoformula.html">EVENTO AESTHETIC FORMULA</a>
+							<a href="eventosummer.html">EVENTO SUMMER EDITION</a>
+						</div>
+					</div>
+					<a href="juego.html">JUEGO</a>
+				</nav>
 			</div>
 		</header>
-	<div id="portfoliomain" class="oneflex">
-	<section id="chooseportfolio">
-		<h1>Portfolio</h1>
-			<div id="sectionillustration">
-				<h2>Ilustración 2D</h2>
-				<img src="">
-			</div>
-			<div id="sectionpixelart">
-				<h2>Estilo Pixel Art</h2>
-				<img src="">
-			</div>
-	</section>
-	<section id="herramientas">
-		<p>Para crear las piezas que componen mi portfolio, he usado los siguientes programas y herramientas:</p>
-		<div class="icon-container">
-			<div>ICON</div>
-			<div>ICON</div>
-			<div>ICON</div>
-			<div>ICON</div>
-			<div>ICON</div>
-			<div>ICON</div>
+		<div id="portfoliomain">
+
+			<section id="portfolio">
+				<h1>Galería de Ilustraciones</h1>
+				
+				<div class="contenedor-galeria">
+					<div onmouseover="textoAparece('titImg1')" onmouseleave="textoDesaparece('titImg1')" onclick="apareceGaleria(1)">
+						<img src="img/thumb1.jpg" alt="imagen"/>
+						<p id="titImg1" class="tituloImagen">Titulo imagen</p>
+					</div>
+
+					<div onmouseover="textoAparece('titImg2')" onmouseleave="textoDesaparece('titImg2')" onclick="apareceGaleria(2)">
+						<img src="img/thumb2.jpg" alt="imagen"/>
+						<p id="titImg2" class="tituloImagen">Titulo imagen</p>
+					</div>
+
+					<div onmouseover="textoAparece('titImg3')" onmouseleave="textoDesaparece('titImg3')" onclick="apareceGaleria(3)">
+						<img src="img/thumb3.jpg" alt="imagen"/>
+						<p id="titImg3" class="tituloImagen">Titulo imagen</p>
+					</div>
+
+					<div onmouseover="textoAparece('titImg4')" onmouseleave="textoDesaparece('titImg4')" onclick="apareceGaleria(4)">
+						<img src="img/thumb4.jpg" alt="imagen"/>
+						<p id="titImg4" class="tituloImagen">Titulo imagen</p>
+					</div>
+
+					<div onmouseover="textoAparece('titImg5')" onmouseleave="textoDesaparece('titImg5')" onclick="apareceGaleria(5)">
+						<img src="img/thumb5.jpg" alt="imagen"/>
+						<p id="titImg5" class="tituloImagen">Titulo imagen</p>
+					</div>
+
+					<div onmouseover="textoAparece('titImg6')" onmouseleave="textoDesaparece('titImg6')" onclick="apareceGaleria(6)">
+						<img src="img/thumb6.jpg" alt="imagen"/>
+						<p id="titImg6" class="tituloImagen">Titulo imagen</p>
+					</div>
+ 
+					<div onmouseover="textoAparece('titImg7')" onmouseleave="textoDesaparece('titImg7')" onclick="apareceGaleria(7)">
+						<img src="img/thumb7.jpg" alt="imagen"/>
+						<p id="titImg7" class="tituloImagen">Titulo imagen</p>
+					</div>
+
+					<div onmouseover="textoAparece('titImg8')" onmouseleave="textoDesaparece('titImg8')" onclick="apareceGaleria(8)">
+						<img src="img/thumb8.jpg" alt="imagen"/>
+						<p id="titImg8"class="tituloImagen">Titulo imagen</p>
+					</div>
+
+					<div onmouseover="textoAparece('titImg9')" onmouseleave="textoDesaparece('titImg9')" onclick="apareceGaleria(9)">
+						<img src="img/thumb9.jpg" alt="imagen"/>
+						<p id="titImg9"class="tituloImagen">Titulo imagen</p>
+					</div>
+					
+				</div>
+			</section>
+
+			<section id="herramientas">
+				<p>Para crear las piezas que componen mi galería de ilustraciones, he usado los siguientes programas y herramientas:</p>
+				<div class="icon-container">
+					<div>ICON</div>
+					<div>ICON</div>
+					<div>ICON</div>
+					<div>ICON</div>
+					<div>ICON</div>
+					<div>ICON</div>
+				</div>
+			</section>
 		</div>
-	</section>
-	<section id="testimoniales">
-		<div id="tintro">
-			<p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum.</p>
-		</div>
-		<div id="dan">
-			<h2>Dan Hanks</h2>
-			<p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum.</p>
-		</div>
-	</section>
-	</div>
 		<footer>
 			<p>Lorem ipsum</p>
 			<img src="img/footer-img.png" alt="Decoracion de footer">
 			<p>Lorem ipsum</p>
 		</footer>
+	</div>
+
+	<div id=popUpGaleria style="display: none;">
+		<div id="flechaPrevPopUp" onclick="prevImg(imgActual)">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+		</div>
+		<div id="fotoPopUp">
+			<i class="fa fa-times-circle-o" aria-hidden="true" onclick="desapareceGaleria()"></i>
+			<div id="contenedorFotoPopUp">
+				<img src="img/img1.png" alt='imagen' />
+			</div>
+		</div>
+		<div id="flechaNextPopUp" onclick="nextImg(imgActual)">
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</div>
+	</div>
+	<div id='fondoGaleria'>
 	</div>
 </body>
 </html>
