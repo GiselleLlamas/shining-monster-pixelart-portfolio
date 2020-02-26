@@ -14,62 +14,6 @@
 	<script src="js/jquery-3.4.1.min.js"></script>
 	<script src="js/funciones.js"></script>
 	<script type="text/javascript">
-
-		var imgActual = 1;
-		
-		function textoAparece(texto){
-			varTexto = '#' + texto;
-			//console.log(varTexto)
-			$(varTexto).fadeIn('fast');
-		}
-
-		function textoDesaparece(texto){
-			varTexto = '#' + texto;
-			//console.log(varTexto)
-			$(varTexto).fadeOut('fast');
-		}
-
-		function prevImg(varImg){
-			contenidoHtml = '';
-			if(varImg == 1){
-				contenidoHtml = '<img src="img/img' + 9 + '.png" alt="imagen" />';
-				imgActual = 9;
-			}else{
-				varImg = varImg - 1;
-				contenidoHtml = '<img src="img/img' + varImg + '.png" alt="imagen" />';
-				imgActual = imgActual - 1;
-			}
-			document.getElementById('contenedorFotoPopUp').innerHTML = '';
-			document.getElementById('contenedorFotoPopUp').innerHTML = contenidoHtml;
-
-		}
-
-		function nextImg(varImg){
-			contenidoHtml = '';
-			if(varImg == 9){
-				contenidoHtml = '<img src="img/img' + 1 + '.png" alt="imagen" />';
-				imgActual = 1;
-			}else{
-				varImg = varImg + 1;
-				contenidoHtml = '<img src="img/img' + varImg + '.png" alt="imagen" />';
-				imgActual = imgActual + 1;
-			}
-			document.getElementById('contenedorFotoPopUp').innerHTML = '';
-			document.getElementById('contenedorFotoPopUp').innerHTML = contenidoHtml;
-		}
-
-		function apareceGaleria(varImg){
-			$('#fondoGaleria').fadeIn('fast');
-			imgActual = varImg;
-			contenidoHtml = '<img src="img/img' + imgActual + '.png" alt="imagen" />';
-			document.getElementById('contenedorFotoPopUp').innerHTML = '';
-			document.getElementById('contenedorFotoPopUp').innerHTML = contenidoHtml;
-			$('#popUpGaleria').fadeIn('slow');
-		}
-		function desapareceGaleria(){
-			$('#fondoGaleria').fadeOut('slow');
-			$('#popUpGaleria').fadeOut('fast');
-		}
 	</script>
 </head>
 <body>
@@ -190,12 +134,18 @@
 			<section id="herramientas">
 				<p>Para crear las piezas que componen mi galería de ilustraciones, he usado los siguientes programas y herramientas:</p>
 				<div class="icon-container">
-					<div>ICON</div>
-					<div>ICON</div>
-					<div>ICON</div>
-					<div>ICON</div>
-					<div>ICON</div>
-					<div>ICON</div>
+					<figure>
+						<img src="img/clippaint80.png" alt="Icono del programa Clip Studio Paint.">
+						<figcaption>Clip St. Paint</figcaption>
+					</figure>
+					<figure>
+						<img src="img/photoshop80.png" alt="Icono del programa Photoshop.">
+						<figcaption>Photoshop</figcaption>
+					</figure>
+					<figure>
+						<img src="img/aseprite80.png" alt="Icono del programa Aseprite.">
+						<figcaption>Aseprite</figcaption>
+					</figure>
 				</div>
 			</section>
 		</div>
