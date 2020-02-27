@@ -484,7 +484,16 @@ footer p{
 }
 
 #cvmain h1{
-	margin: 30px;
+	margin: 25px;
+}
+
+#cvmain #cvtitle{
+	margin: 40px 25px 0px 25px;
+	text-align: left;
+	max-width: 190px;
+	background-color: red;
+	color: #00000;
+	padding: 3px;
 }
 
 #experiencia h2{
@@ -545,3 +554,22 @@ footer p{
 	padding-left: 30px;
 }
 
+/*Posicionando las imagenes con absolute*/
+
+#gisecv{
+	position: absolute;
+	top: 898px;
+	left: 5px;
+}
+
+#scott{
+	position: absolute;
+	top: 170px;
+	right: 20px;
+}
+
+#manga{
+	position: absolute;
+	bottom: 22px;
+	right: 75px;
+}
