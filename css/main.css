@@ -312,6 +312,10 @@ footer p{
 	padding:0 25px 0 25px
 }
 
+#portfoliomain h1{
+	margin: 0px 0px 15px 0px;
+}
+
 .contenedor-galeria{
 	display: flex;
 	flex-wrap: wrap;
@@ -565,7 +569,11 @@ footer p{
 	height: 1345px;
 }
 
-/* Poscionando las imagenes dentro de la pantalla principal del blog*/
+.blogarrow{
+	margin-left: 5px;
+}
+
+/* Poscionando las imagenes decorativas dentro de la pantalla principal del blog*/
 
 #blob1{
 	position: absolute;
@@ -585,6 +593,539 @@ footer p{
 	left: 0px;
 }
 
+#entrada1{
+	position: absolute;
+	top: 350px;
+	left: 50px;
+}
+
+/*Este es el estilo que todos los links de la pagina del blog van a tener*/
+
+.bloglink{
+	margin: 5px 0px;
+	text-decoration: underline;
+}
 
 
+.blogheader{
+	font-size: 15px;
+	margin: 5px 0px;
+	text-align: left;
+}
+
+/*Preview de entrada 1*/
+
+#textoblog1{
+	padding: 10px 0px;
+	max-width: 250px;
+}
+
+/* Texto de preview 1: Estilos del texto general y del 3rd child que es el resumen*/
+
+#textoblog1 p:nth-child(3){
+	/*background-color: red;*/
+	max-width: 155px;
+}
+
+/*Preview de entrada 2*/
+
+#entrada2{
+	position: absolute;
+	top: 700px;
+	left: 350px;
+}
+
+/* Texto de preview 2: Estilos del texto general y del 3rd child que es el resumen*/
+
+#textoblog2{
+	position: absolute;
+	left: 480px;
+	bottom: 150px;
+	min-width: 170px;
+}
+
+#textoblog2 p:nth-child(3){
+	/*background-color: red;*/
+	max-width: 200px;
+}
+
+/*Preview de entrada 3*/
+
+#entrada3{
+	position: absolute;
+	bottom: 140px;
+	left: 400px;
+}
+
+#textoblog3{
+	position: absolute;
+	left: -265px;
+	top: 10px;
+	max-width: 250px;
+}
+
+/*******************************************
+********************************************
+*******************************************/
+/*Contacto*/
+/*******************************************
+********************************************
+*******************************************/
+
+/*** comienzo de botones sociales vertical ***/
+
+.socialVertical{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 25px;
+}
+
+.socialVertical .fa{
+	  padding: 12px;
+	  font-size: 15px;
+	  width: 12px;
+	  text-align: center;
+	  text-decoration: none;
+	  border-radius: 50%;
+}
+
+.socialVertical div{
+	margin:5px 0px 5px 5px;
+}
+
+/*** fin de botones sociales vertical ***/
+
+#contactmain{
+	display: flex;
+	flex-direction: row;
+}
+
+#contactmain .socialVertical{
+	padding-top: 100px;
+}
+
+#contenedorFlexContacto{
+	width: 90%;
+}
+
+#contenidoFlexContacto{
+	background-color: #CCC;
+	padding: 25px 50px 100px 50px;
+}
+
+#contenidoFlexContacto h1, h2{
+	text-align: center;
+}
+
+#decoradoContacto{
+	text-align: center;
+	margin: 2em 0;
+}
+
+#flexFormYRecom{
+	display: flex;
+	flex-direction: row;
+}
+
+#flexRecomendaciones{
+	width: 370px;
+	padding-left: 50px;
+}
+
+#flexRecomendaciones h3{
+	text-align: center;
+}
+
+.recomendacion{
+	margin-bottom: 2em;
+}
+
+.nombreYFotoRecom{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 14px;
+}
+
+.nombreYFotoRecom div{
+	position: relative;
+}
+
+.empresaRecom{
+	font-style: italic;
+}
+
+.speechballoon{
+	position: absolute !important;
+	top: 5px;
+	left: -50px;
+}
+
+.speechballoon img{
+	width: 70px;
+	height: auto;
+}
+
+#formularioFlex{
+	font-family: 'Roboto Slab';
+}
+
+#formularioFlex fieldset, #formularioFlex span{
+	margin-bottom:1em;
+}
+
+#formularioFlex select{
+	margin: 1em 0;
+}
+
+#formularioFlex input{
+	margin: 0 5px 0 0;
+}
+
+#formularioFlex .anchoEntero{
+	width: 100%;
+}
+
+#contactmain h1, #contactmain h2, #contactmain h3{
+	margin-bottom:1em;
+}
+
+#btnEnviar{
+	margin: 1em 0;
+}
+
+
+
+/*******************************************
+********************************************
+*******************************************/
+/*Proyecto standard*/
+/*******************************************
+********************************************
+*******************************************/
+
+#proyectoStandardMain{
+	display: flex;
+	flex-direction: row;
+}
+
+#columnaProyecto1{
+	width: 276px;
+	margin-right: 50px;
+	text-align: right;
+}
+
+#columnaProyecto2{
+	width: 100%
+}
+
+#imagenColumna1 img{
+	max-width: 276px;
+	height: auto;
+	margin-bottom: 2em;
+}
+
+#contenedorTituloProyecto{
+	min-height: 200px;
+	background-color: violet;
+	width: 100%;
+	font-family: 'Krona One';
+	position: relative;
+}
+
+#titulosProyectoStandard{
+	padding-left: 95px;
+	padding-top: 30px;
+	padding-bottom: 20px;
+}
+
+#decoradoTituloProyecto{
+	position: absolute;
+	top:0;
+	left: 40px;
+	width: 30px;
+	height: 80%;
+	padding-left: 14px
+}
+
+#lineaTituloProyecto{
+	height: 100%;
+	width: 3px;
+	background-color: #000;
+}
+
+#circuloTituloProyecto{
+	width: 30px;
+	height: 30px;
+	background-color: #000;
+	position: absolute;
+	bottom: -15px;
+	left: 0;
+	border-radius: 30px;
+}
+
+#anioTituloProyecto{
+	font-size:36px;
+	font-weight: lighter;
+	margin-bottom: 10px;
+}
+
+#nombreTituloProyecto{
+	font-size:36px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+#clienteTituloProyecto{
+	font-size:24px;
+	font-weight: lighter;
+	margin-bottom: 10px;
+}
+
+#imagenColumna2{
+	width: 100%;
+	padding: 1%;
+}
+
+#imagenColumna2 img{
+	width: 98%;
+	height: auto;
+	margin-bottom: 2em;
+}
+#btnVolver{
+	position: absolute;
+	top:150px;
+	left:0;
+	font-family: 'Roboto Slab';
+}
+
+#btnVolver i{
+	margin-right: 5px;
+}
+
+#btnVolver a{
+	background-color: violet;
+	color:#000;
+	border-radius: 25px;
+	font-size: 18px;
+	padding:10px 20px;
+}
+
+#btnVolver a:hover{
+	background-color: #FCB4FF;
+}
+
+/*******************************************
+********************************************
+*******************************************/
+/*Testimoniales*/
+/*******************************************
+********************************************
+*******************************************/
+
+#testimonialesMain{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+}
+
+#contenidoTestimonios{
+	width: 474px;
+}
+
+#contenidoTestimonios h1{
+	text-align: center;
+	margin-bottom:40px;
+}
+
+.testimonioImgIzq{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 50px;
+
+}
+
+.testimonioImgDer{
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	margin-bottom: 50px;
+
+}
+
+.testimonio{
+	max-width: 330px;
+	margin-right: 10px;
+}
+
+.testimonio p{
+	margin-bottom: 10px;
+}
+
+.imgTestimonio{
+	position: relative;
+}
+
+.imgTestimonio img{
+	position: relative;
+	z-index: 1000;
+}
+
+.fondoImgTestimonio{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	width: 114px;
+	height: 114px;
+	border-radius: 100%;
+	background-color: orange;
+	box-shadow: 4px 4px 5px #999, 10px 10px 5px #CCC;
+}
+
+
+/*******************************************
+********************************************
+*******************************************/
+/*INDEX/
+/*******************************************
+********************************************
+*******************************************/
+
+
+
+#maincont{
+	position: relative;
+ 	perspective: 1px;
+  	overflow-x: hidden;
+  	overflow-y: auto;
+  	height: 5000px;
+}
+
+/* OCULTAMOS LA BARRA DE SCROLL DEL PARALLAX */
+
+#maincont::-webkit-scrollbar {
+	width: 0 !important;
+}
+#maincont {
+	overflow: -moz-scrollbars-none;
+}
+#maincont {
+	-ms-overflow-style: none; 
+}
+
+/* FIN DE ESTILO BARRA SCROLL */
+
+#fondoArcade{
+	position: absolute;
+	top:0;
+	left: 0;
+	z-index: 1;
+	transform: translate3D(-2050px, -1100px, -4px);
+}
+
+#imagenFondoArcade{
+	width: 570%;
+	height: auto;
+}
+
+#poster{
+	position: absolute;
+	width:1000px;
+	height: auto;
+	top:38%;
+	left:30%;
+}
+
+#pantallaArcade1{
+	position: absolute;
+	top:-550px;
+	left: 0;
+	z-index: 100;
+	width:1900px;
+	height:1500px;
+	background-image: linear-gradient(#3f1212, #1a0823, #031d03);
+	transform: translate3D(0, 0, -3px);
+}
+
+#pantallaArcade2{
+	position: absolute;
+	top:-220px;
+	left:750px;
+	z-index: 100;
+	width:1900px;
+	height:1500px;
+	transform: translate3D(0, 0, -2px);
+}
+
+#outWorld img{
+	width:250%;
+}
+
+#outWorld{
+	position: absolute;
+	top:0;
+	left:0;
+}
+
+#lineasPantalla{
+	position: absolute;
+	top:420px;
+	left:300px;
+}
+#lineasPantalla img{
+	width: 250%;
+	height: auto;
+}
+
+#contenedorArcade{
+	position: absolute;
+	top:-350px;
+	left: 100px;
+	z-index: 200;
+	transform: translate3D(0px, 0px, -1px);
+
+}
+#contenedorArcade img{
+	width: 200%;
+}
+
+#chicosArcade{
+	position: absolute;
+	top: 290px;
+	left: 260px;
+	z-index: 300;
+	transform: translate3D(0px, 0px, -0.8px);
+}
+
+#chicoArcade{
+	position: absolute;
+	top:95px;
+	left: 0;
+	width: 170px;
+	height: auto;
+}
+
+#chicaArcade{
+	position: absolute;
+	top:140px;
+	left: 860px;
+	width: 114px;
+	height: auto;
+}
+
+#contenidoTextoHome{
+	width: 100%;
+	height: 380px;
+	background-color: #FFF;
+	position: absolute;
+	top:700px;
+	left: 0;
+	z-index: 1000;
+}
 

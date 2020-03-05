@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
 	<link rel="stylesheet" href="css/base-context.css">
 	<link rel="stylesheet" href="css/buttons.css">
 	<link rel="stylesheet" href="css/forms-nr.css">
@@ -75,34 +76,155 @@
 			</div>
 		</header>
 	<div id="contactmain" class="oneflex">
-		<h1>¡Hola! Por favor contame un poco más acerca de vos._</h1>
-		<h2>Si tenés cualquier consulta acerca de mis trabajos o querés contactate conmigo, podés hacerlo rellenando el siguiente formulario:</h2>
-		<h3>[ Formulario de contacto: ]</h3>
-		<div id="contenedorformulario">
-			<h3>Tu nombre:</h3>
-			<input type="text" name="nombre" placeholder="Ingresá tu nombre.">
-			<h3>Tu email:</h3>
-			<input type="text" name="email"  placeholder="Ingresá tu email.">
-			<h3>Seleccioná tu región:</h3>
-			<select id="region" name="regionsel" placeholder="Seleccioná tu región..." required>
-				<option value="none">Seleccioná tu región...</option>
-			   <option value="africacentral">África</option>
-			   <option value="americacentral">América Central</option>
-			   <option value="americadelsur">América del Sur</option>
-			   <option value="americadelnorte">América del norte</option>
-			   <option value="asia">Asia y Sudeste Asiático</option>
-			   <option value="caribe">Islas del Caribe</option>
-			   <option value="oceania">Melanesia, Micronesia y Polinesia</option>
-			   <option value="australiaynuevazelanda">Australia y Nueva Zelanda</option>
-			</select>
-			<h3>Tu mensaje:</h3>
-			<textarea  placeholder="Ingresá tu mensaje."></textarea>
-			<h3>¿Querés recibir noticias mías?</h3>
-			<input type="checkbox" name="mailing" value="simailing">Sí, quisiera suscribirme a novedades del trabajo de Pixel Syndrome.<br>
-			<input type="submit" value="Enviar">
-			<!--Aca va el codigo de javascript que valida el formulario-->
+		<div class="socialVertical">
+			<div id="twitter">
+				<a href="https://twitter.com/glitchdimension" target="_blank" class="fa fa-twitter"></a>
+			</div>
+			<div id="instagram">
+				<a href="https://www.instagram.com/pixel.syndrome/" target="_blank" class="fa fa-instagram"></a>
+			</div>
+			<div id="linkedin">
+				<a href="https://www.linkedin.com/in/gisellellamas/" target="_blank" class="fa fa-linkedin"></a>
+			</div>
+		</div>
+
+		<div id="contenedorFlexContacto">
+
+			<h1>CONTACTO</h1>
+
+			<div id='contenidoFlexContacto'>
+
+				
+
+				<h1>¡Hola! Por favor contame un poco más acerca de vos._</h1>
+				<h2>Si tenés cualquier consulta acerca de mis trabajos o querés contactate conmigo, podés hacerlo rellenando el siguiente formulario:</h2>
+
+				<div id="decoradoContacto">
+
+					<img src="img/rayitascontacto.png" alt="" />
+
+				</div>
+
+				<div id="flexFormYRecom">
+
+					<div id="formularioFlex">
+
+						<h3>[ Formulario de contacto: ]</h3>
+						<div id="contenedorformulario">
+							<form class="pure-form">
+								<fieldset class="pure-group">
+							        <input class="anchoEntero" type="text" name="nombre" class="pure-input-1-2" placeholder="Ingresá tu nombre" />
+							        <input class="anchoEntero" type="email" name="email" class="pure-input-1-2" placeholder="Ingresá tu email." />
+							    </fieldset>
+
+							    <fieldset class="pure-group">
+								    <div class="pure-g">
+								    	<div>
+								    		<label for="region"><span>Seleccioná tu región</span></label>
+								    	</div>
+						                <select id="region" class="pure-input-1-2" name="regionsel" required >
+							                <option value="africacentral">África</option>
+											<option value="americacentral">América Central</option>
+											<option value="americadelsur">América del Sur</option>
+											<option value="americadelnorte">América del norte</option>
+											<option value="asia">Asia y Sudeste Asiático</option>
+											<option value="caribe">Islas del Caribe</option>
+											<option value="oceania">Melanesia, Micronesia y Polinesia</option>
+											<option value="australiaynuevazelanda">Australia y Nueva Zelanda</option>
+						                </select>
+						            </div>
+					        	</fieldset>
+
+					            <fieldset class="pure-group">
+							        <input class="anchoEntero" type="text" name="asunto" class="pure-input-1-2" placeholder="Asunto" />
+							        <textarea class="anchoEntero" class="pure-input-1-2" name="mensaje" placeholder="Ingresá tu mensaje.">
+							        </textarea>
+							    </fieldset>
+
+
+							    <fieldset>
+								    <h3>¿Querés recibir noticias mías?</h3>
+
+								    <label for="option-two" class="pure-radio">
+								        <input type="checkbox" name="mailing" value="simailing" checked />
+								        <span>Sí, quisiera suscribirme a novedades del trabajo de Pixel Syndrome.</span>
+								    </label>
+								</fieldset>
+
+								<fieldset>
+								    <h3>¿Cual es el motivo por el cual me contactas?</h3>
+
+								    <label for="motivo1" class="pure-radio">
+								        <input id="motivo1" type="radio" name="motivo" value="trabajo" checked />
+								        <span>Trabajo</span>
+								    </label>
+								    <label for="motivo2" class="pure-radio">
+								        <input id="motivo2" type="radio" name="motivo" value="otro" />
+								        <span>Otro</span>
+								    </label>
+								</fieldset>
+
+								<input type="submit" id="btnEnviar" value="Enviar" class="pure-button pure-button-primary" />
+								<!--Aca va el codigo de javascript que valida el formulario-->
+							</form>
+
+						</div>
+					</div>
+
+					<aside id="flexRecomendaciones">
+						<h3>RECOMENDACIONES</h3>
+						<div class="recomendacion">
+							<p>&quot;Quis in anim mollit laborum elit adipisicing sit cillum elit fugiat. Amet cupidatat id proident irure. Consequat incididunt amet enim tempor sunt sit ullamco.&quot;</p>
+							<div class="nombreYFotoRecom">
+								<div>
+									<p>NOMBRE<br/><span class="empresaRecom">Empresa</span></p>
+								</div>
+								<div>
+									<div class="speechballoon">
+										<img src="img/speechballoon.png" alt="" />
+									</div>
+									<img src="img/customer1.png" alt="" />
+								</div>
+							</div>
+						</div>
+
+						<div class="recomendacion">
+							<p>&quot;Quis in anim mollit laborum elit adipisicing sit cillum elit fugiat. Amet cupidatat id proident irure. Consequat incididunt amet enim tempor sunt sit ullamco.&quot;</p>
+							<div class="nombreYFotoRecom">
+								<div>
+									<p>NOMBRE<br/><span class="empresaRecom">Empresa</span></p>
+								</div>
+								<div>
+									<div class="speechballoon">
+										<img src="img/speechballoon.png" alt="" />
+									</div>
+									<img src="img/customer1.png" alt="" />
+								</div>
+							</div>
+						</div>
+
+						<div class="recomendacion">
+							<p>&quot;Quis in anim mollit laborum elit adipisicing sit cillum elit fugiat. Amet cupidatat id proident irure. Consequat incididunt amet enim tempor sunt sit ullamco.&quot;</p>
+							<div class="nombreYFotoRecom">
+								<div>
+									<p>NOMBRE<br/><span class="empresaRecom">Empresa</span></p>
+								</div>
+								<div>
+									<div class="speechballoon">
+										<img src="img/speechballoon.png" alt="" />
+									</div>
+									<img src="img/customer1.png" alt="" />
+								</div>
+							</div>
+						</div>
+					</aside>
+				</div>
+			</div>
 		</div>
 	</div>
+		<a onclick="topFunction()" id="arriba" aria-label="Ir al tope de la página">
+				<i class="fa fa-angle-up" aria-hidden="true"></i>
+		</a>
 		<footer>
 			<p>Lorem ipsum</p>
 			<img src="img/footer-img.png" alt="Decoracion de footer">
