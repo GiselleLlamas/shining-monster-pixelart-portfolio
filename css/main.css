@@ -260,6 +260,13 @@ footer p{
     color: #fff;
 }
 
+.piedeimagen{
+	text-align: center;
+	margin:15px;
+	color:Gray;
+	font-style: italic;
+}
+
 /*Estilo de páginas particulares*/
 
 /*******************************************
@@ -989,6 +996,30 @@ footer p{
 ********************************************
 *******************************************/
 
+.categoriablog h2{
+	font-family: 'Roboto Slab';
+	text-align: center;
+	padding: 5px;
+	background-color: SeaGreen;
+	margin: 0px;
+}
+
+.categoriablog h1{
+	padding-top: 5px;
+	margin: 0px 0px 15px 0px;
+	background-color: MediumAquamarine;
+	text-align: center;
+}
+
+.rollodefotos{
+	padding: 15px 10px 15px 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#panfletoatom{
+	margin-top: 35px;
+}
+
 #contenidoatom{
 	display: flex;
 	align-content: space-around;
@@ -1016,6 +1047,90 @@ footer p{
 #rolloblog1{
 align-self: baseline;
 padding: 10px;
+}
+
+#ladoatom2 h2{
+	text-align: left;
+}
+
+#titulorating{
+	margin-top: 20px;
+}
+
+blockquote {
+  quotes: "“" "”" "‘" "’";
+  font-style: italic;
+  font-family: 'Krona One';
+  margin: 15px;
+}
+
+blockquote:before {
+  content: open-quote;
+}
+
+blockquote:after {
+  content: close-quote;
+}
+
+blockquote:before,
+blockquote:after {
+  color: deepPink;
+  font-size: 1.2em;
+}
+
+blockquote {
+  margin-left: 0;
+  padding-left: 1em;
+  border-left: 5px solid deepPink;
+}
+
+#imagenesatom img{
+	max-width: 100%;
+	margin: 15px 0px 0px 0px;
+}
+
+
+/*******************************************
+********************************************
+*******************************************/
+/*Blog 2 - Pasado Presente*/
+/*******************************************
+********************************************
+*******************************************/
+
+.categoriablog2{
+}
+
+.categoriablog2 h2{
+	font-family: 'Roboto Slab';
+	text-align: center;
+	background-color: Orchid;
+	margin: 0px;
+	max-width: 50%;
+}
+
+.categoriablog2 h1{
+	padding-top: 5px;
+	margin: 0px 0px 15px 0px;
+	background-color: MediumOrchid;
+	text-align: center;
+	max-width: 50%;
+}
+
+#contenidopresente{
+	display: flex;
+}
+
+#conjuntoizqblog2{
+	width: 730px;
+	height: 200px;
+	background-color: yellow;
+}
+
+#conjuntoderblog2{
+	width: 294px;
+	height: 200px;
+	background-color: blue;
 }
 
 /*******************************************
