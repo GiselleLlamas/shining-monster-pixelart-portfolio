@@ -267,6 +267,11 @@ footer p{
 	font-style: italic;
 }
 
+.redondeado{
+	border-top: 5px solid #ff98f7;
+  	border-radius: 5px;
+}
+
 /*Estilo de páginas particulares*/
 
 /*******************************************
@@ -1098,9 +1103,6 @@ blockquote {
 ********************************************
 *******************************************/
 
-.categoriablog2{
-}
-
 .categoriablog2 h2{
 	font-family: 'Roboto Slab';
 	text-align: center;
@@ -1119,19 +1121,76 @@ blockquote {
 
 #contenidopresente{
 	display: flex;
+	justify-content: flex-start;
+	flex-flow: row wrap;
+	min-heigth: 600px;
 }
 
 #conjuntoizqblog2{
 	width: 730px;
-	height: 200px;
-	background-color: yellow;
 }
 
 #conjuntoderblog2{
-	width: 294px;
-	height: 200px;
+	width: 260px;
+	height: auto;
+	padding: 15px;
 	background-color: blue;
+	align-self: flex-start; 
 }
+
+#conjuntoderblog2 h2{
+	text-align: left;
+	padding-top: 50px;
+}
+
+#conjuntoderblog2 h3{
+	margin-bottom: 15px;
+}
+
+#fila1LadoDer{
+	display: flex;
+	flex-direction: row;
+}
+
+#conjuntoderblog2 hr{
+  margin-bottom: 20px;
+}
+
+#fila2LadoDer{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	margin: 20px;
+}
+
+#fila3LadoDer{
+	height: auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+}
+
+.fichatecnicablog2{
+	width: 30%;
+}
+
+.fichatecnicablog2 h3, .fichatecnicablog2 h2{
+	display: inline-block;
+	max-width: 100%
+}
+
+.fichatecnicablog2 h3{
+	text-align: left;
+	margin-top: 10px;
+}
+
+.fichatecnicablog2 h2{
+	margin-top: 15px;
+}
+
+
 
 /*******************************************
 ********************************************
