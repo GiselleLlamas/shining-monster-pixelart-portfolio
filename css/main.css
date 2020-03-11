@@ -293,11 +293,11 @@ footer p{
 }
 
 #boxright h1, #boxright p{
-	margin: 0 55px 1em 25px;
+	margin: 0 25px 30px 25px;
 	text-align: justify;
 }
 
-#boxright p:nth-of-type(2) {
+#boxright p:nth-of-type(3) {
 	margin-top: 40px;
 }
 
@@ -313,6 +313,10 @@ footer p{
 
 .imgtext{
 	text-align: center;
+}
+
+#personalidad1{
+	margin-left: 20px;
 }
 
 #quotebio{
@@ -717,6 +721,7 @@ footer p{
 ********************************************
 *******************************************/
 
+
 /*** comienzo de botones sociales vertical ***/
 
 .socialVertical{
@@ -745,6 +750,18 @@ footer p{
 #contactmain{
 	display: flex;
 	flex-direction: row;
+	position: relative;
+	z-index: 0;
+}
+
+#camposRequeridos{
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 1em;
+}
+
+#camposRequeridos span{
+	color: #7D1D14;
 }
 
 #contactmain .socialVertical{
@@ -842,6 +859,62 @@ footer p{
 	margin: 1em 0;
 }
 
+#btnReset{
+	background-color: red;
+}
+
+#fondoContacto{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	opacity: 0.7;
+	top:0;
+	left:0;
+	z-index: 200;
+	display: none;
+}
+
+#popUpContacto{
+	position: fixed;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	z-index: 300;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#mensajeContacto{
+	position: relative;
+	width: 500px;
+	min-height: 250px;
+	max-height: 300px;
+	display: inline-block;
+	padding:75px 25px 25px 25px;
+	background-color: #FFF;
+	text-align: center;
+	border-radius: 25px;
+}
+
+#botonOk{
+	background-color: violet;
+	padding: 25px 50px;
+	border-radius: 15px;
+	color: #FFF;
+	text-align: center;
+	display: inline-block;
+	margin: auto;
+	margin-top: 2em;
+	cursor: pointer;
+}
+
+#botonOk:hover{
+	background-color: pink;
+}
+
 /*******************************************
 ********************************************
 *******************************************/
@@ -849,6 +922,11 @@ footer p{
 /*******************************************
 ********************************************
 *******************************************/
+
+#textoProyectoStandard p{
+	text-align: justify;
+	margin-left: 10px;
+}
 
 #proyectoStandardMain{
 	display: flex;
@@ -1220,7 +1298,7 @@ blockquote {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	margin-bottom: 50px;
+	margin-bottom: 25px;
 
 }
 
@@ -1228,7 +1306,7 @@ blockquote {
 	display: flex;
 	flex-direction: row-reverse;
 	justify-content: space-between;
-	margin-bottom: 50px;
+	margin-bottom: 25px;
 
 }
 
@@ -1262,34 +1340,388 @@ blockquote {
 	box-shadow: 4px 4px 5px #999, 10px 10px 5px #CCC;
 }
 
+/*******************************************
+********************************************
+*******************************************/
+/*  EXHIBICIONES
+/*******************************************
+********************************************
+*******************************************/
+
+#exhibicionesMain{
+	position: relative;
+	padding-left: 70px;
+}
+
+#tituloExhibiciones{
+	font-size:24px;
+	font-family: 'Roboto Slab';
+	font-weight: bold;
+	padding: 5px 10px;
+	background-color: #FF3366;
+	border-radius: 5px;
+	display: inline-block;
+	position: relative;
+	z-index: 200;
+}
+
+.contenedorExhibicion{
+	max-width: 740px;
+	position: relative;
+	padding-left: 40px;
+	margin-bottom: 30px;
+	z-index: 200;
+}
+
+.contenedorExhibicion .lugarExhibicion{
+	font-size: 36px;
+	font-weight: bold;
+}
+
+.contenedorExhibicion .fechaExhibicion{
+	font-size: 24px;
+	font-weight: bold;
+	color:#767676;
+}
+
+.contenedorExhibicion .nombreExhibicion{
+	text-transform: uppercase;
+	font-size: 18px;
+	font-weight: bold;
+	color:#414141;
+}
+
+.contenedorExhibicion .descExhibicion{
+	width: 650px;
+}
+
+.descExhibicion span{
+	color: brown;
+}
+.circuloExhibicion1, .circuloExhibicion2{
+	position: absolute;
+	top: 30px;
+	left: 0;
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	z-index: 400;
+}
+
+.circuloExhibicion1{
+	background-color: indigo;
+}
+
+.circuloExhibicion2{
+	background-color: orange;
+}
+
+.lineaExhibicion{
+	width:2px;
+	height: 120%;
+	background-color: #333;
+	position: absolute;
+	top: 35px;
+	left: 13px;
+	z-index: 300;
+}
+
+.ultimoItem .lineaExhibicion{
+	display: none;
+}
+
+.contFechaEx{
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+}
+
+.fechaExhibicion{
+	display: inline-block;
+}
+
+.contFechaEx hr{
+	width: 100%;
+	position: relative;
+	top:15px;
+	border:none;
+	border-bottom: 2px dashed #333;
+}
+
+.fotoExhibicion{
+	position: absolute;
+	width: 110px;
+	height: 110px;
+	border-radius: 100%;
+	overflow: hidden;
+	top: 0;
+	right: 0;
+}
+
+.fotoExhibicion img{
+	width: 110px;
+	height: auto;
+}
+
+#decoradoEx1, #decoradoEx2, #decoradoEx3{
+	position: absolute;
+	z-index: 100;
+}
+
+#decoradoEx1{
+	width: 530px;
+	height: 408px;
+	top:0;
+	left: 29px;
+	background-color: #CCC;
+	opacity: 0.2;
+}
+
+#decoradoEx2{
+	width: 606px;
+	height: 145px;
+	top:80px;
+	left: 418px;
+	background-color: blue;
+	opacity: 0.1;
+}
+
+#decoradoEx3{
+	top:0;
+	left: 570px;
+}
 
 /*******************************************
 ********************************************
 *******************************************/
-/*INDEX/
+/* PROYECTOS */
 /*******************************************
 ********************************************
 *******************************************/
 
+#contenidoProyectos{
+	width:100%;
+}
+
+#contenidoFrontal{
+	width: 100%;
+	text-align: center;
+}
+
+#contenidoProyectos{
+	background-color: #031d03;
+}
 
 
-#maincont{
+#contenidoProyectos .proyecto{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: auto !important;
+	min-height: 650px;
+}
+
+#contenidoProyectos .imagenProyecto{
+	margin-bottom:1em;
+	border:5px solid #FFFFFF;
+	padding: 5px;
+	border-radius: 50%;
+}
+
+
+#contenidoProyectos p{
+	margin:5px;
+	color:#FFF;
+}
+
+#contenidoProyectos .tituloProyecto{
+	font-size: 24px;
+	margin:5px;
+}
+
+#botonesProyectos{
+	position: absolute;
+	z-index: 2000;
+	right:20px;
+	top:400px;
+}
+#botonesProyectos li{
+	list-style-type: none;
+	cursor: pointer;
+	color:#FFFFFF;
+}
+.botonProyecto a{
+	color: #FFF;
+}
+
+/*******************************************
+********************************************
+*******************************************/
+/* PARALAX PROYECTOS*/
+/*******************************************
+********************************************
+*******************************************/
+
+.parallax {
 	position: relative;
  	perspective: 1px;
+  	height: 75vh;
+	max-height: 650px;
   	overflow-x: hidden;
   	overflow-y: auto;
-  	height: 5000px;
+	border-radius: 100px;
 }
 
 /* OCULTAMOS LA BARRA DE SCROLL DEL PARALLAX */
 
-#maincont::-webkit-scrollbar {
+.parallax::-webkit-scrollbar {
 	width: 0 !important;
 }
-#maincont {
+.parallax {
 	overflow: -moz-scrollbars-none;
 }
-#maincont {
+.parallax {
+	-ms-overflow-style: none; 
+}
+
+/* FIN DE ESTILO BARRA SCROLL */
+
+#fondoDegrade{
+	background-image: linear-gradient(#3f1212, #1a0823, #031d03);
+	position: absolute;
+	top:0;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	height: 500%;
+}
+
+#estrellas{
+	position: relative;
+	width: 300%;
+	height: 500%;
+	background-image: url(../img/stars.png);
+	background-repeat: repeat;
+	background-size: 1500px auto;
+}
+
+.layerParallax1{
+	position: absolute;
+  	top: 0;
+  	right: 0;
+  	bottom: 0;
+  	left: 0;
+  	z-index: 1000;
+}
+
+.layerParallax2{
+  	transform: translateZ(-1px);
+}
+
+.layerParallax3{
+  	transform: translateZ(-2px);
+}
+
+.fondoParallax{
+	z-index: 100 !important;
+	transform-origin: center center;
+  	transform: translate3D(-1000px, -500px, -3px);
+}
+
+#planeta1, #planeta2, #planeta3, #planeta4, #planeta5, #planeta6{
+	position: absolute;
+	z-index: 300;
+}
+
+#planeta2 img{
+	width: 246px;
+	height: auto;
+}
+
+#planeta3 img{
+	width: 160px;
+	height: auto;
+}
+
+#planeta4 img{
+	width: 330px;
+	height: auto;
+}
+
+#planeta5 img{
+	width: 140px;
+	height: auto;
+}
+
+#planeta6 img{
+	width: 330px;
+	height: auto;
+}
+
+#planeta1{
+	top:-150px;
+	left:-400px;
+}
+
+#planeta2{
+	top:500px;
+	left:1500px;
+}
+
+#planeta3{
+	top:900px;
+	left:-200px;
+}
+
+#planeta4{
+	top:1500px;
+	left:1000px;
+}
+
+#planeta5{
+	top:2020px;
+	left:-650px;
+}
+
+#planeta6{
+	top:2600px;
+	left:1050px;
+}
+
+
+/*******************************************
+********************************************
+*******************************************/
+/*INDEX de pagina principal/
+/*******************************************
+********************************************
+*******************************************/
+
+#maincont{
+	width: 100%;
+	position: relative;
+	height:700px;
+
+}
+
+#parallaxHome{
+	position: relative;
+ 	perspective: 1px;
+  	overflow-x: hidden;
+  	overflow-y: auto;
+  	height: 550px;
+}
+
+/* OCULTO LA BARRA DE SCROLL DEL PARALLAX */
+
+#parallaxHome::-webkit-scrollbar {
+	width: 0 !important;
+}
+#parallaxHome {
+	overflow: -moz-scrollbars-none;
+}
+#parallaxHome {
 	-ms-overflow-style: none; 
 }
 
@@ -1300,7 +1732,7 @@ blockquote {
 	top:0;
 	left: 0;
 	z-index: 1;
-	transform: translate3D(-2050px, -1100px, -4px);
+	transform: translate3D(-2050px, -1200px, -4px);
 }
 
 #imagenFondoArcade{
@@ -1395,11 +1827,26 @@ blockquote {
 
 #contenidoTextoHome{
 	width: 100%;
-	height: 380px;
 	background-color: #FFF;
-	position: absolute;
-	top:700px;
-	left: 0;
-	z-index: 1000;
+	display: flex;
+	flex-direction: row;
 }
 
+#imgTextoHome{
+	position: relative;
+	width: 620px;
+}
+
+#joystick{
+	position: absolute;
+	top:250px;
+	left: 200px;
+}
+
+#textoHome{
+	margin-top: 25px;
+}
+
+#textoHome p, #textoHome h3{
+	margin-bottom: 1em;
+}

@@ -11,7 +11,14 @@
 	<link rel="stylesheet" href="css/main.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Krona+One&display=swap" rel="stylesheet">
+	<script src="js/jquery-3.4.1.min.js"></script>
 	<script src="js/funciones.js"></script>
+	<script type="text/javascript">
+		function animarScroll(pos){
+				$("#contenidoProyectos").animate({ scrollTop: pos }, 1000); 
+			//$("#contenidoProyectos").scrollTop(pos);
+		}
+	</script>
 </head>
 <body>
 	<div id="standard">
@@ -21,7 +28,7 @@
 					<div class="aico">
 						<a href="fichagiselle.html">A</a>
 					</div>
-					<div class="dropdown selectorbio" id="bio">
+					<div class="dropdown" id="bio">
 						<button class="dropbtn">
 							<a href="aboutme.html">BIO</a>
 							<i class="fa fa-caret-down"></i>
@@ -30,7 +37,7 @@
 							<a href="contacto.html">CONTACTO</a>
 						</div>
 					</div>
-					<div class="dropdown selectorproyecto" id="proyectos">
+					<div class="dropdown" id="proyectos">
 						<button class="dropbtn">
 							<a href="multimedia.html">PROYECTOS</a>
 							<i class="fa fa-caret-down"></i>
@@ -43,7 +50,7 @@
 							<a href="proyecto5.html">PROYECTO 5</a>
 						</div>
 					</div>
-					<div class="dropdown selectorcv">
+					<div class="dropdown">
 						<button class="dropbtn" id="cv">
 							<a href="cv.html">CV</a>
 							<i class="fa fa-caret-down"></i>
@@ -58,38 +65,111 @@
 					<a href="index.html"><img src="img/ps-logo.png" alt="Ilustración del logo de Pixel Syndrome"></a>
 				</div>
 				<nav class="navi" id="navdos">
-					<div class="selectorilustracion">
-						<a href="portfolio.html">ILUSTRACIÓN</a>
-					</div>
-					<div class="dropdown selectorblog">
+					<a href="portfolio.html">ILUSTRACIÓN</a>
+					<div class="dropdown">
 						<button class="dropbtn" id="blog">
 							<a href="blog.html">BLOG</a>
 							<i class="fa fa-caret-down"></i>
 						</button>
 						<div class="dropdown-content">
-							<a href="atom.html">Recuerdos de Atom</a>
-							<a href="pasadopresente.html">Pasado/Presente</a>
-							<a href="rrayos.html">Visualizando RRayos</a>
+							<a href="eventovapor.html">EVENTO VAPORSYNTH</a>
+							<a href="eventoformula.html">EVENTO AESTHETIC FORMULA</a>
+							<a href="eventosummer.html">EVENTO SUMMER EDITION</a>
 						</div>
 					</div>
-					<div class="selectorjuego">
-						<a href="juego.html">JUEGO</a>
-					</div>
+					<a href="juego.html">JUEGO</a>
 				</nav>
 			</div>
 		</header>
-	<div id="multimediamain" class="oneflex">
-		<h1>Lorem Ipsum_</h1>
-		<div id="contenedorgaleria">
-			<!--Aca va el codigo de bootstrap que hace funcionar la galeria con filtrado-->
+		<div id="botonesProyectos">
+				<ul>
+					<li onclick="animarScroll(0)"><i class="fa fa-circle" aria-hidden="true"></i></li>
+					<li onclick="animarScroll(650)"><i class="fa fa-circle" aria-hidden="true"></i></li>
+					<li onclick="animarScroll(1300)"><i class="fa fa-circle" aria-hidden="true"></i></li>
+					<li onclick="animarScroll(1950)"><i class="fa fa-circle" aria-hidden="true"></i></li>
+					<li onclick="animarScroll(2600)"><i class="fa fa-circle" aria-hidden="true"></i></li>
+				</ul>
+			</div>
+		<div id="contenidoProyectos" class="parallax">
+			<div id="contenidoFrontal" class="layerParallax1">
+				<div class="proyecto" id="proyecto1">
+					<div class="imagenProyecto">
+						<img src="img/proyecto1.png" alt="" />
+					</div>
+					<p class="tituloProyecto">Titulo del proyecto 1</p>
+					<p class="categoriaProyecto">Categoría del proyecto</p>
+					<p class="botonProyecto"><a href="#!">Acceder <i class="fa fa-arrow-circle-o-up"></i></a></p>
+				</div>
+				
+				<div class="proyecto" id="proyecto2">
+					<div class="imagenProyecto">
+						<img src="img/proyecto2.png" alt="" />
+					</div>
+					<p class="tituloProyecto">Titulo del proyecto 2</p>
+					<p class="categoriaProyecto">Categoría del proyecto</p>
+					<p class="botonProyecto"><a href="#!">Acceder <i class="fa fa-arrow-circle-o-up"></i></a></p>
+				</div>
+				
+				<div class="proyecto" id="proyecto3">
+					<div class="imagenProyecto">
+						<img src="img/proyecto3.png" alt="" />
+					</div>
+					<p class="tituloProyecto">Titulo del proyecto 3</p>
+					<p class="categoriaProyecto">Categoría del proyecto</p>
+					<p class="botonProyecto"><a href="#!">Acceder <i class="fa fa-arrow-circle-o-up"></i></a></p>
+				</div>
+				
+				<div class="proyecto" id="proyecto4">
+					<div class="imagenProyecto">
+						<img src="img/proyecto4.png" alt="" />
+					</div>
+					<p class="tituloProyecto">Titulo del proyecto 4</p>
+					<p class="categoriaProyecto">Categoría del proyecto</p>
+					<p class="botonProyecto"><a href="#!">Acceder <i class="fa fa-arrow-circle-o-up"></i></a></p>
+				</div>
+				
+				<div class="proyecto" id="proyecto5">
+					<div class="imagenProyecto">
+						<img src="img/proyecto5.png" alt="" />
+					</div>
+					<p class="tituloProyecto">Titulo del proyecto 5</p>
+					<p class="categoriaProyecto">Categoría del proyecto</p>
+					<p class="botonProyecto"><a href="#!">Acceder <i class="fa fa-arrow-circle-o-up"></i></a></p>
+				</div>
+			</div>
+			<div id="planeta1">
+				<img src="img/planet1.png" alt="" class="layerParallax2" />
+			</div>
+			<div id="planeta2">
+				<img src="img/planet2.png" alt="" class="layerParallax3" />
+			</div>
+			<div id="planeta3">
+				<img src="img/planet3.png" alt="" class="layerParallax2" />
+			</div>
+			<div id="planeta4">
+				<img src="img/planet4.png" alt="" class="layerParallax2" />
+			</div>
+			<div id="planeta5">
+				<img src="img/planet5.png" alt="" class="layerParallax3" />
+			</div>
+			<div id="planeta6">
+				<img src="img/planet6.png" alt="" class="layerParallax2" />
+			</div>
+			
+			<div id="estrellas" class="fondoParallax">
+				
+			</div>
+			
+			<div id="fondoDegrade">
+				
+			</div>
 		</div>
-		<div>Todos los trabajos Copyright © 2019 | Giselle Llamas (a.k.a. Pixel Syndrome).</div>
-	</div>
 		<footer>
 			<p>Lorem ipsum</p>
 			<img src="img/footer-img.png" alt="Decoracion de footer">
 			<p>Lorem ipsum</p>
 		</footer>
 	</div>
+
 </body>
 </html>
