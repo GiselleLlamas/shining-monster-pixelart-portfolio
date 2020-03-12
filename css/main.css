@@ -525,6 +525,7 @@ footer p{
 
 #experiencia h2{
 	color: red;
+	text-align: left;
 }
 
 #experiencia div{
@@ -537,6 +538,7 @@ footer p{
 
 #estudios h2{
 	color: pink;
+	text-align: left;
 }
 
 /*Empezando el escalonado de los parrafos*/
@@ -1172,6 +1174,11 @@ blockquote {
 	margin: 15px 0px 0px 0px;
 }
 
+/*Especiales para el post de RRayen*/
+
+#retratoRrayen{
+	margin: 35px 35px 20px 35px;
+}
 
 /*******************************************
 ********************************************
@@ -1491,6 +1498,10 @@ blockquote {
 	left: 570px;
 }
 
+#fotodecoradoexpo{
+	text-align: center;
+}
+
 /*******************************************
 ********************************************
 *******************************************/
@@ -1553,6 +1564,10 @@ blockquote {
 }
 .botonProyecto a{
 	color: #FFF;
+}
+
+.topphoto{
+	margin-top: 30px;
 }
 
 /*******************************************
