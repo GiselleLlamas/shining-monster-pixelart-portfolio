@@ -1,8 +1,8 @@
 /* Estilo General */
 
 *{
-	padding: 0px;
-	margin: 0px;
+	margin: 0;
+	padding: 0;
 }
 
 html{
@@ -14,8 +14,8 @@ body{
 }
 
 #standard{
-	max-width: 1024px;
 	margin: auto;
+	max-width: 1024px;
 	position: relative;
 	z-index: 100;
 }
@@ -26,9 +26,6 @@ p{
 
 h1, h2, h3{
 	font-family: 'Krona One';
-}
-
-img{
 }
 
 /*Targeteando al div standard en todas las paginas para que me tome todo el height con flexbox*/
@@ -102,8 +99,8 @@ flex: 1;
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 5000;
 }
 
 /* Estilo de los links adentro del dropdown */
@@ -191,7 +188,7 @@ footer{
 }
 
 footer p{
-	margin: 0px 20px;
+	margin: 0 20px;
 }
 
 .socialhorizontal{
@@ -211,7 +208,7 @@ footer p{
 }
 
 .socialhorizontal div{
-	margin:10px 0px 10px 10px;
+	margin:10px 0 10px 10px;
 }
 
 .socialhorizontal div:nth-of-type(3) {
@@ -370,7 +367,7 @@ footer p{
 }
 
 #portfoliomain h1{
-	margin: 0px 0px 15px 0px;
+	margin: 0 0 15px 0;
 }
 
 .contenedor-galeria{
@@ -395,6 +392,11 @@ footer p{
 	background: #FFFFFF;
 	padding: 3px;
 	display: none;
+}
+
+#herramientas h3{
+	margin-top: 15px;
+	text-align: center;
 }
 
 /*******************************************
@@ -447,6 +449,7 @@ footer p{
 	max-width: 900px;
 	max-height: 500px;
 }
+
 #flechaPrevPopUp, #flechaNextPopUp{
 	cursor: pointer;
 }
@@ -456,7 +459,6 @@ footer p{
 	top:0;
 	left:0;
 	width:100%;
-	height:100%;
 	height:100%;
 	background-color:#000000;
 	opacity:0.7;
@@ -485,7 +487,7 @@ footer p{
 
 .icon-container figure{
 	padding: 15px 15px 5px 10px;
-	margin: 0px;
+	margin: 0;
 }
 
 /*******************************************
@@ -523,12 +525,16 @@ footer p{
 }
 
 #cvmain #cvtitle{
-	margin: 40px 25px 0px 25px;
+	margin: 40px 25px 0 25px;
 	text-align: left;
 	max-width: 190px;
 	background-color: red;
-	color: #00000;
+	color: #000000;
 	padding: 3px;
+}
+
+.encabezado{
+	margin: 25px;
 }
 
 #experiencia h2{
@@ -537,11 +543,11 @@ footer p{
 }
 
 #experiencia div{
-	margin: 30px 30px 0px 30px;
+	margin: 30px 30px 0 30px;
 }
 
 #estudios div{
-	margin: 30px 30px 0px 30px;
+	margin: 30px 30px 0 30px;
 }
 
 #estudios h2{
@@ -637,19 +643,19 @@ footer p{
 #blob1{
 	position: absolute;
 	top: 300px;
-	left: 0px;
+	left: 0;
 }
 
 #blob2{
 	position: absolute;
 	top: 450px;
-	right: 0px;
+	right: 0;
 }
 
 #blob3{
 	position: absolute;
 	top: 950px;
-	left: 0px;
+	left: 0;
 }
 
 #entrada1{
@@ -661,21 +667,21 @@ footer p{
 /*Este es el estilo que todos los links de la pagina del blog van a tener*/
 
 .bloglink{
-	margin: 5px 0px;
+	margin: 5px 0;
 	text-decoration: underline;
 }
 
 
 .blogheader{
 	font-size: 15px;
-	margin: 5px 0px;
+	margin: 5px 0;
 	text-align: left;
 }
 
 /*Preview de entrada 1*/
 
 #textoblog1{
-	padding: 10px 0px;
+	padding: 10px 0;
 	max-width: 250px;
 }
 
@@ -752,7 +758,7 @@ footer p{
 }
 
 .socialVertical div{
-	margin:5px 0px 5px 5px;
+	margin:5px 0 5px 5px;
 }
 
 /*** fin de botones sociales vertical ***/
@@ -887,23 +893,20 @@ footer p{
 
 #popUpContacto{
 	position: fixed;
-	top:0;
-	left:0;
-	width: 100%;
-	height: 100%;
+	top:300px;
+	left: 40%;
+	width: 450px;
+	height: 100px;
 	z-index: 300;
-	display: flex;
 	justify-content: center;
 	align-items: center;
+	display: none;
 }
 
 #mensajeContacto{
 	position: relative;
-	width: 500px;
-	min-height: 250px;
-	max-height: 300px;
 	display: inline-block;
-	padding:75px 25px 25px 25px;
+	padding:25px 25px 25px 25px;
 	background-color: #FFF;
 	text-align: center;
 	border-radius: 25px;
@@ -917,7 +920,7 @@ footer p{
 	text-align: center;
 	display: inline-block;
 	margin: auto;
-	margin-top: 2em;
+	margin-top: 10px;
 	cursor: pointer;
 }
 
@@ -1094,12 +1097,12 @@ footer p{
 	text-align: center;
 	padding: 5px;
 	background-color: SeaGreen;
-	margin: 0px;
+	margin: 0;
 }
 
 .categoriablog h1{
 	padding-top: 5px;
-	margin: 0px 0px 15px 0px;
+	margin:0 0 15px 0;
 	background-color: MediumAquamarine;
 	text-align: center;
 }
@@ -1179,7 +1182,7 @@ blockquote {
 
 #imagenesatom img{
 	max-width: 100%;
-	margin: 15px 0px 0px 0px;
+	margin: 15px 0 0 0;
 }
 
 /*Especiales para el post de RRayen*/
@@ -1200,13 +1203,13 @@ blockquote {
 	font-family: 'Roboto Slab';
 	text-align: center;
 	background-color: Orchid;
-	margin: 0px;
+	margin: 0;
 	max-width: 50%;
 }
 
 .categoriablog2 h1{
 	padding-top: 5px;
-	margin: 0px 0px 15px 0px;
+	margin: 0 0 15px 0;
 	background-color: MediumOrchid;
 	text-align: center;
 	max-width: 50%;
@@ -1216,7 +1219,7 @@ blockquote {
 	display: flex;
 	justify-content: flex-start;
 	flex-flow: row wrap;
-	min-heigth: 600px;
+	min-height: 600px;
 }
 
 #conjuntoizqblog2{
@@ -1510,6 +1513,11 @@ blockquote {
 	text-align: center;
 }
 
+#arribaexhibiciones a{
+	bottom: 30px;
+	right: 50px;
+}
+
 /*******************************************
 ********************************************
 *******************************************/
@@ -1578,6 +1586,30 @@ blockquote {
 	margin-top: 30px;
 }
 
+/*Colores de los mini botones*/
+
+.miniRojo{
+	color:#FF2F35;
+}
+
+.miniPurpura{
+	color:#8D0D84;
+}
+
+.miniVerde{
+	color:#216C4B;
+}
+
+.miniAzul{
+	color:#6DD9E3;
+}
+
+.miniBlanco{
+	color:#FEFFFF;
+}
+
+
+
 /*******************************************
 ********************************************
 *******************************************/
@@ -1624,7 +1656,7 @@ blockquote {
 	position: relative;
 	width: 300%;
 	height: 500%;
-	background-image: url(../img/stars.png);
+	background-image: url(../proyectos/img/stars.png);
 	background-repeat: repeat;
 	background-size: 1500px auto;
 }
@@ -1817,7 +1849,7 @@ blockquote {
 	top:-350px;
 	left: 100px;
 	z-index: 200;
-	transform: translate3D(0px, 0px, -1px);
+	transform: translate3D(0px, 0, -1px);
 
 }
 #contenedorArcade img{
@@ -1829,7 +1861,7 @@ blockquote {
 	top: 290px;
 	left: 260px;
 	z-index: 300;
-	transform: translate3D(0px, 0px, -0.8px);
+	transform: translate3D(0px, 0, -0.8px);
 }
 
 #chicoArcade{
@@ -1928,7 +1960,7 @@ blockquote {
 	left: 0;
 	z-index: 20;
 	cursor: pointer;
-	/*opacity: 0.6;*/
+	opacity: 0.6;
 }
 
 .botonInicioJuego{
@@ -1977,7 +2009,6 @@ blockquote {
 	margin-bottom: 1em;
 }
 
-
 .volverJugar{
 	background-color: #EB4245;
 	padding: 10px 5px 1px 5px;
@@ -1991,10 +2022,6 @@ blockquote {
 
 #mostrarTurno h2{
 	margin-bottom: 1em;
-}
-
-.volverJugar p{
-	margin-bottom: none !important;
 }
 
 .volverJugar:hover{

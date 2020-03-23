@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Giselle Llamas - Galería de Ilustraciones</title>
+	<meta charset="utf-8">
+	<link rel='icon' href='../img/favicon16.png' type='image/x-icon'/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/base-context.css">
+	<link rel="stylesheet" href="../css/buttons.css">
+	<link rel="stylesheet" href="../css/forms-nr.css">
+	<link rel="stylesheet" href="../css/main.css">
+	<script src="../js/funciones.js"></script>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Krona+One&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div id="standard">
+		<header>
+		<div class="menu">
+				<nav class="navi" id="navuno">
+					<div class="aico">
+						<a href="../alumna/index.html">A</a>
+					</div>
+					<div class="dropdown" id="bio">
+						<div class="dropbtn">
+							<a href="../bio/index.html">BIO</a>
+							<i class="fa fa-caret-down"></i>
+						</div>
+						<div class="dropdown-content">
+							<a href="../bio/contacto/contacto.html">Contacto</a>
+						</div>
+					</div>
+					<div class="dropdown" id="proyectos">
+						<div class="dropbtn">
+							<a href="../proyectos/index.html">PROYECTOS</a>
+							<i class="fa fa-caret-down"></i>
+						</div>
+						<div class="dropdown-content">
+							<a href="../proyectos/tapa/tapa.html">Tapa de disco</a>
+							<a href="../proyectos/pantallas/pantallas.html">Pantallas animadas</a>
+							<a href="../proyectos/conceptos/conceptos.html">Conceptos de personaje</a>
+							<a href="../proyectos/assets2d/assets2d.html">Assets para VG en 2D</a>
+							<a href="../proyectos/assetspixelart/assetspixelart.html">Assets para VG en Pixel Art</a>
+						</div>
+					</div>
+					<div class="dropdown">
+						<div class="dropbtn" id="cv">
+							<a href="../cv/index.html">CV</a>
+							<i class="fa fa-caret-down"></i>
+						</div>
+						<div class="dropdown-content">
+							<a href="../cv/exhibiciones/exhibiciones.html">Exhibiciones</a>
+							<a href="../cv/testimoniales/testimoniales.html">Testimoniales</a>
+						</div>
+					</div>
+				</nav>
+				<div class="logo" id="logops">
+					<a href="../index.html"><img src="../img/ps-logo.png" alt="Ilustración del logo de Giselle Llamas"></a>
+				</div>
+				<nav class="navi" id="navdos">
+					<a href="../ilustracion/index.html">ILUSTRACIÓN</a>
+					<div class="dropdown">
+						<div class="dropbtn" id="blog">
+							<a href="../blog/index.html">BLOG</a>
+							<i class="fa fa-caret-down"></i>
+						</div>
+						<div class="dropdown-content">
+							<a href="../blog/atom/atom.html">Recuerdos de Atom</a>
+							<a href="../blog/pasadopresente/pasadopresente.html">Pasado/Presente</a>
+							<a href="../blog/rrayos/rrayos.html">Visualizando RRayos</a>
+						</div>
+					</div>
+					<a href="../juego/index.html">JUEGO</a>
+				</nav>
+			</div>
+		</header>
+		<div class="socialhorizontal">
+			<div id="twitter">
+				<a href="https://twitter.com/glitchdimension" target="_blank" class="fa fa-twitter"></a>
+			</div>
+			<div id="instagram">
+				<a href="https://www.instagram.com/pixel.syndrome/" target="_blank" class="fa fa-instagram"></a>
+			</div>
+			<div id="linkedin">
+				<a href="https://www.linkedin.com/in/gisellellamas/" target="_blank" class="fa fa-linkedin"></a>
+			</div>
+		</div>
+		<div id="portfoliomain">
+
+			<section id="portfolio">
+				<h1>Galería de Ilustraciones</h1>
+
+				<div class="contenedor-galeria">
+					<div onmouseover="textoAparece('titImg1')" onmouseleave="textoDesaparece('titImg1')" onclick="apareceGaleria(1)">
+						<img src="img/thumb1.jpg" alt="Foto de ilustración de chico estilo manga con pelo verde."/>
+						<p id="titImg1" class="tituloImagen">"Número Siete"</p>
+					</div>
+
+					<div onmouseover="textoAparece('titImg2')" onmouseleave="textoDesaparece('titImg2')" onclick="apareceGaleria(2)">
+						<img src="img/thumb2.jpg" alt="Foto de ilustración de isla estilo pixel art donde se ven tres sirenas."/>
+						<p id="titImg2" class="tituloImagen">"La isla de Breezesquad"</p>
+					</div>
+
+					<div onmouseover="textoAparece('titImg3')" onmouseleave="textoDesaparece('titImg3')" onclick="apareceGaleria(3)">
+						<img src="img/thumb3.jpg" alt="Foto de ilustración de chica en estilo pixel art."/>
+						<p id="titImg3" class="tituloImagen">"Debajo"</p>
+					</div>
+
+					<div onmouseover="textoAparece('titImg4')" onmouseleave="textoDesaparece('titImg4')" onclick="apareceGaleria(4)">
+						<img src="img/thumb4.jpg" alt="Foto de retrato del artista Manoske."/>
+						<p id="titImg4" class="tituloImagen">"Retrato de Manoske"</p>
+					</div>
+
+					<div onmouseover="textoAparece('titImg5')" onmouseleave="textoDesaparece('titImg5')" onclick="apareceGaleria(5)">
+						<img src="img/thumb5.jpg" alt="Foto de ilustración de isla estilo pixel art donde se ve un arcoíris, un libro y dos monitores CRT."/>
+						<p id="titImg5" class="tituloImagen">"La isla de Kenobit"</p>
+					</div>
+
+					<div onmouseover="textoAparece('titImg6')" onmouseleave="textoDesaparece('titImg6')" onclick="apareceGaleria(6)">
+						<img src="img/thumb6.jpg" alt="Foto de ilustración de tapa de disco estilo pixel art en el que se ve un pedazo de controlador de family game y un osito de gominola en tonalidades rojas."/>
+						<p id="titImg6" class="tituloImagen">"Chiptunes Win: Volúmen 8"</p>
+					</div>
+ 
+					<div onmouseover="textoAparece('titImg7')" onmouseleave="textoDesaparece('titImg7')" onclick="apareceGaleria(7)">
+						<img src="img/thumb7.jpg" alt="Foto de ilustración de isla estilo pixel art donde se ve un gatito blanco, dos perros y un tocadiscos."/>
+						<p id="titImg7" class="tituloImagen">"La isla de Crab Sounds"</p>
+					</div>
+
+					<div onmouseover="textoAparece('titImg8')" onmouseleave="textoDesaparece('titImg8')" onclick="apareceGaleria(8)">
+						<img src="img/thumb8.jpg" alt="Foto de ilustración donde se ven varias personas con vestimenta futurista en estilo pixel art."/>
+						<p id="titImg8" class="tituloImagen">"Ciudadanos Digitales"</p>
+					</div>
+
+					<div onmouseover="textoAparece('titImg9')" onmouseleave="textoDesaparece('titImg9')" onclick="apareceGaleria(9)">
+						<img src="img/thumb9.jpg" alt="Foto de ilustración de isla estilo pixel art donde se ve una chica con pantallas, cables alrededores y un pájaro negro."/>
+						<p id="titImg9" class="tituloImagen">"La isla de Una Malva"</p>
+					</div>
+					
+				</div>
+			</section>
+
+			<section id="herramientas">
+				<h3>Mis Herramientas:</h3>
+				<p>Para crear las piezas que componen mi galería de ilustraciones, he usado los siguientes programas y herramientas:</p>
+				<div class="icon-container">
+					<figure>
+						<img src="img/clippaint80.png" alt="Icono del programa Clip Studio Paint.">
+						<figcaption>Clip St. Paint</figcaption>
+					</figure>
+					<figure>
+						<img src="img/photoshop80.png" alt="Icono del programa Photoshop.">
+						<figcaption>Photoshop</figcaption>
+					</figure>
+					<figure>
+						<img src="img/aseprite80.png" alt="Icono del programa Aseprite.">
+						<figcaption>Aseprite</figcaption>
+					</figure>
+				</div>
+			</section>
+		</div>
+		<a onclick="topFunction()" id="arriba" aria-label="Ir al tope de la página">
+			<i class="fa fa-angle-up" aria-hidden="true"></i>
+		</a>
+		<footer>
+			<p>Hecho para la Cátedra Drelichman</p>
+			<img src="../img/footer-img.png" alt="Dibujo de corazón en estilo Pixel art">
+			<p>Informática General - Final 2020</p>
+		</footer>
+	</div>
+
+	<div id=popUpGaleria style="display: none;">
+		<div id="flechaPrevPopUp" onclick="prevImg(imgActual)">
+			<i class="fa fa-chevron-left" aria-hidden="true"></i>
+		</div>
+		<div id="fotoPopUp">
+			<i class="fa fa-times-circle-o" aria-hidden="true" onclick="desapareceGaleria()"></i>
+			<div id="contenedorFotoPopUp">
+				<img src="img/img1.png" alt='Que es esta imagen' />
+			</div>
+		</div>
+		<div id="flechaNextPopUp" onclick="nextImg(imgActual)">
+			<i class="fa fa-chevron-right" aria-hidden="true"></i>
+		</div>
+	</div>
+	<div id='fondoGaleria'>
+	</div>
+</body>
+</html>

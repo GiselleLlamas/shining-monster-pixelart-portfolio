@@ -5,6 +5,8 @@ function topFunction() {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
+// ===== Galeria ==== 
+
 var imgActual = 1;
 		
 function textoAparece(texto){
@@ -22,11 +24,11 @@ function textoDesaparece(texto){
 function prevImg(varImg){
 	contenidoHtml = '';
 	if(varImg == 1){
-		contenidoHtml = '<img src="img/img' + 9 + '.png" alt="imagen" />';
+		contenidoHtml = '<img src="img/img' + 9 + '.png" alt="Imagen de galería, ilustración creada por Giselle Llamas." />';
 		imgActual = 9;
 	}else{
 		varImg = varImg - 1;
-		contenidoHtml = '<img src="img/img' + varImg + '.png" alt="imagen" />';
+		contenidoHtml = '<img src="img/img' + varImg + '.png" alt="Imagen de galería, ilustración creada por Giselle Llamas." />';
 		imgActual = imgActual - 1;
 	}
 	document.getElementById('contenedorFotoPopUp').innerHTML = '';
@@ -37,11 +39,11 @@ function prevImg(varImg){
 function nextImg(varImg){
 	contenidoHtml = '';
 	if(varImg == 9){
-		contenidoHtml = '<img src="img/img' + 1 + '.png" alt="imagen" />';
+		contenidoHtml = '<img src="img/img' + 1 + '.png" alt="Imagen de galería, ilustración creada por Giselle Llamas." />';
 		imgActual = 1;
 	}else{
 		varImg = varImg + 1;
-		contenidoHtml = '<img src="img/img' + varImg + '.png" alt="imagen" />';
+		contenidoHtml = '<img src="img/img' + varImg + '.png" alt="Imagen de galería, ilustración creada por Giselle Llamas." />';
 		imgActual = imgActual + 1;
 	}
 	document.getElementById('contenedorFotoPopUp').innerHTML = '';
@@ -51,11 +53,12 @@ function nextImg(varImg){
 function apareceGaleria(varImg){
 	$('#fondoGaleria').fadeIn('fast');
 	imgActual = varImg;
-	contenidoHtml = '<img src="img/img' + imgActual + '.png" alt="imagen" />';
+	contenidoHtml = '<img src="img/img' + imgActual + '.png" alt="Imagen de galería, ilustración creada por Giselle Llamas." />';
 	document.getElementById('contenedorFotoPopUp').innerHTML = '';
 	document.getElementById('contenedorFotoPopUp').innerHTML = contenidoHtml;
 	$('#popUpGaleria').fadeIn('slow');
 }
+
 function desapareceGaleria(){
 	$('#fondoGaleria').fadeOut('slow');
 	$('#popUpGaleria').fadeOut('fast');
@@ -134,7 +137,7 @@ function mostrarResultadoFinal(){
 	if(movimientosJug1 < movimientosJug2){
 		
 		texto = '<h2>¡Gana el jugador 1!</h2>';
-		texto = texto + '<img src="img/juego/unJugador.png" alt="jugador uno" />';
+		texto = texto + '<img src="img/unJugador.png" alt="jugador uno" />';
 		texto = texto + '<p>Resultado de movimientos:</p>';
 		texto = texto + '<h1 id="movimientos2">' + movimientosJug1 + ' a ' + movimientosJug2 + '</h1>';
 		texto = texto + '<div class="volverJugar" onclick="location.reload();"><p>Jugar de nuevo</p></div>';
@@ -142,14 +145,14 @@ function mostrarResultadoFinal(){
 	}else if(movimientosJug1 > movimientosJug2){
 		
 		texto = '<h2>¡Gana el jugador 2!</h2>';
-		texto = texto + '<img src="img/juego/jugadorDos.png" alt="jugador dos" />';
+		texto = texto + '<img src="img/jugadorDos.png" alt="jugador dos" />';
 		texto = texto + '<p>Resultado de movimientos:</p>';
 		texto = texto + '<h1 id="movimientos2">' + movimientosJug2 + ' a ' + movimientosJug1 + '</h1>';
 		texto = texto + '<div class="volverJugar" onclick="location.reload();"><p>Jugar de nuevo</p></div>';
 			 
 	}else{
 		texto = '<h2>¡Hay un empate!</h2>';
-		texto = texto + '<img src="img/juego/dosJugadores.png" alt="Empate" />';
+		texto = texto + '<img src="img/dosJugadores.png" alt="Empate" />';
 		texto = texto + '<p>Resultado de movimientos:</p>';
 		texto = texto + '<h1 id="movimientos2">' + movimientosJug2 + ' a ' + movimientosJug1 + '</h1>';
 		texto = texto + '<div class="volverJugar" onclick="desempatar();"><p>Desempatar</p></div>';
@@ -185,7 +188,7 @@ function mostrarJuego(jugadores){
 			
 			jugadorActual = 1;
 			
-			var textoMostrarTurno = '<h2>Turno Jugador 1</h2><img src="img/juego/unJugador.png" alt="un jugador" />';
+			var textoMostrarTurno = '<h2>Turno Jugador 1</h2><img src="img/unJugador.png" alt="un jugador" />';
 			$("#mostrarTurno").html(textoMostrarTurno);
 			
 			$("#mostrarTurno").fadeIn('fast');
@@ -201,7 +204,7 @@ function mostrarJuego(jugadores){
 		
 		jugadorActual = 2;
 		
-		var textoMostrarTurno = '<h2>Turno Jugador 2</h2><img src="img/juego/jugadorDos.png" alt="un jugador" />';
+		var textoMostrarTurno = '<h2>Turno Jugador 2</h2><img src="img/jugadorDos.png" alt="un jugador" />';
 		$("#mostrarTurno").html(textoMostrarTurno);
 
 		$("#mostrarTurno").fadeIn('fast');
@@ -227,15 +230,15 @@ function mostrarJuego(jugadores){
 			contenido = contenido + '<div class="idCarta" id="carta' + idCarta + '" onclick="mostrarCarta(' + idCarta + ',' + texto + ')">';
 		
 				if(cantJugadores == 1 || jugadorActual == 1){
-				   contenido = contenido + '<img src="img/juego/pokebola.png" alt="" />';
+				   contenido = contenido + '<img src="img/pokebola.png" alt="Dibujo de una pokebola." />';
 				}else{
-					contenido = contenido + '<img src="img/juego/masterball.png" alt="" />';   
+					contenido = contenido + '<img src="img/masterball.png" alt="Dibujo de una masterball." />';   
 				}
 				
 			contenido = contenido + '</div>';
 		
 			contenido = contenido + '<div class="imgJuego">';
-				contenido = contenido + '<img src="img/juego/img' + texto + '.png" alt="" />';
+				contenido = contenido + '<img src="img/img' + texto + '.png" alt="Dibujo de un pókemon." />';
 			contenido = contenido + '</div>';
 		
 		contenido = contenido + '</div>';
@@ -307,4 +310,16 @@ function mostrarCarta(numeroCarta, numeroMatch){
 			}
 		}
 	}
+}
+
+/*******************************************
+********************************************
+*******************************************/
+/*Proyectos*/
+/*******************************************
+********************************************
+*******************************************/
+
+function animarScroll(pos){
+	$("#contenidoProyectos").animate({ scrollTop: pos }, 1000); 
 }

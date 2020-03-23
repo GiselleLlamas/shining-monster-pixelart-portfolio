@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Giselle Llamas - Proyectos</title>
+	<meta charset="utf-8">
+	<link rel='icon' href='../img/favicon16.png' type='image/x-icon'/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/base-context.css">
+	<link rel="stylesheet" href="../css/buttons.css">
+	<link rel="stylesheet" href="../css/forms-nr.css">
+	<link rel="stylesheet" href="../css/main.css">
+	<script src="../js/funciones.js"></script>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Krona+One&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div id="standard">
+		<header>
+			<div class="menu">
+				<nav class="navi" id="navuno">
+					<div class="aico">
+						<a href="../alumna/index.html">A</a>
+					</div>
+					<div class="dropdown" id="bio">
+						<div class="dropbtn">
+							<a href="../bio/index.html">BIO</a>
+							<i class="fa fa-caret-down"></i>
+						</div>
+						<div class="dropdown-content">
+							<a href="../bio/contacto/contacto.html">Contacto</a>
+						</div>
+					</div>
+					<div class="dropdown" id="proyectos">
+						<div class="dropbtn">
+							<a href="index.html">PROYECTOS</a>
+							<i class="fa fa-caret-down"></i>
+						</div>
+						<div class="dropdown-content">
+							<a href="tapa/tapa.html">Tapa de disco</a>
+							<a href="pantallas/pantallas.html">Pantallas animadas</a>
+							<a href="conceptos/conceptos.html">Conceptos de personaje</a>
+							<a href="assets2d/assets2d.html">Assets para VG en 2D</a>
+							<a href="assetspixelart/assetspixelart.html">Assets para VG en Pixel Art</a>
+						</div>
+					</div>
+					<div class="dropdown">
+						<div class="dropbtn" id="cv">
+							<a href="../cv/index.html">CV</a>
+							<i class="fa fa-caret-down"></i>
+						</div>
+						<div class="dropdown-content">
+							<a href="../cv/exhibiciones/exhibiciones.html">Exhibiciones</a>
+							<a href="../cv/testimoniales/testimoniales.html">Testimoniales</a>
+						</div>
+					</div>
+				</nav>
+				<div class="logo" id="logops">
+					<a href="../index.html"><img src="../img/ps-logo.png" alt="Ilustración del logo de Giselle Llamas"></a>
+				</div>
+				<nav class="navi" id="navdos">
+					<a href="../ilustracion/index.html">ILUSTRACIÓN</a>
+					<div class="dropdown">
+						<div class="dropbtn" id="blog">
+							<a href="../blog/index.html">BLOG</a>
+							<i class="fa fa-caret-down"></i>
+						</div>
+						<div class="dropdown-content">
+							<a href="../blog/atom/atom.html">Recuerdos de Atom</a>
+							<a href="../blog/pasadopresente/pasadopresente.html">Pasado/Presente</a>
+							<a href="../blog/rrayos/rrayos.html">Visualizando RRayos</a>
+						</div>
+					</div>
+					<a href="../juego/index.html">JUEGO</a>
+				</nav>
+			</div>
+		</header>
+		<div id="botonesProyectos">
+				<ul>
+					<li onclick="animarScroll(0)"><i class="fa fa-circle miniRojo" aria-hidden="true"></i></li>
+					<li onclick="animarScroll(650)"><i class="fa fa-circle miniPurpura" aria-hidden="true"></i></li>
+					<li onclick="animarScroll(1300)"><i class="fa fa-circle miniVerde" aria-hidden="true"></i></li>
+					<li onclick="animarScroll(1950)"><i class="fa fa-circle miniAzul" aria-hidden="true"></i></li>
+					<li onclick="animarScroll(2600)"><i class="fa fa-circle miniBlanco" aria-hidden="true"></i></li>
+				</ul>
+			</div>
+		<div id="contenidoProyectos" class="parallax">
+			<div id="contenidoFrontal" class="layerParallax1">
+				<div class="proyecto" id="proyecto1">
+					<div class="imagenProyecto">
+						<img src="img/proyecto1.png" alt="Dibujo de hombre con el brazo levantado con un fondo de universo" />
+					</div>
+					<p class="tituloProyecto">Lacrymose dreams of the Alchemist</p>
+					<p class="categoriaProyecto">Tapa de disco</p>
+					<p class="botonProyecto"><a href="tapa/tapa.html">Acceder <i class="fa fa-arrow-circle-o-up"></i></a></p>
+				</div>
+				
+				<div class="proyecto" id="proyecto2">
+					<div class="imagenProyecto">
+						<img src="img/proyecto2.png" alt="Mano sosteniendo un cartucho violeta de Gameboy" />
+					</div>
+					<p class="tituloProyecto">Heebie-GBs</p>
+					<p class="categoriaProyecto">Pantallas Animadas</p>
+					<p class="botonProyecto"><a href="pantallas/pantallas.html">Acceder <i class="fa fa-arrow-circle-o-up"></i></a></p>
+				</div>
+				
+				<div class="proyecto" id="proyecto3">
+					<div class="imagenProyecto">
+						<img src="img/proyecto3.png" alt="Dibujo de Chica mirando al espectador con pelo negro" />
+					</div>
+					<p class="tituloProyecto">Quiet Town</p>
+					<p class="categoriaProyecto">Conceptos de Personaje</p>
+					<p class="botonProyecto"><a href="conceptos/conceptos.html">Acceder <i class="fa fa-arrow-circle-o-up"></i></a></p>
+				</div>
+				
+				<div class="proyecto" id="proyecto4">
+					<div class="imagenProyecto">
+						<img src="img/proyecto4.png" alt="Dibujo de lodo ninja" />
+					</div>
+					<p class="tituloProyecto">Slime Battles</p>
+					<p class="categoriaProyecto">Assets de Videojuego en 2D</p>
+					<p class="botonProyecto"><a href="assets2d/assets2d.html">Acceder <i class="fa fa-arrow-circle-o-up"></i></a></p>
+				</div>
+				
+				<div class="proyecto" id="proyecto5">
+					<div class="imagenProyecto">
+						<img src="img/proyecto5.png" alt="Dibujo en estilo pixel art de hombre mirando de espaldas a un niño" />
+					</div>
+					<p class="tituloProyecto">The Player is Dead/Alive</p>
+					<p class="categoriaProyecto">Assets de Videojuego en Pixel Art</p>
+					<p class="botonProyecto"><a href="assetspixelart/assetspixelart.html">Acceder <i class="fa fa-arrow-circle-o-up"></i></a></p>
+				</div>
+			</div>
+			<div id="planeta1">
+				<img src="img/planet1.png" alt="Dibujo de planeta naranja roto" class="layerParallax2" />
+			</div>
+			<div id="planeta2">
+				<img src="img/planet2.png" alt="Dibujo de planeta magenta con anillos amarillos" class="layerParallax3" />
+			</div>
+			<div id="planeta3">
+				<img src="img/planet3.png" alt="Dibujo de luna gris pequeña" class="layerParallax2" />
+			</div>
+			<div id="planeta4">
+				<img src="img/planet4.png" alt="Dibujo de planeta tierra" class="layerParallax2" />
+			</div>
+			<div id="planeta5">
+				<img src="img/planet5.png" alt="Dibujo de planeta pequeño naranja" class="layerParallax3" />
+			</div>
+			<div id="planeta6">
+				<img src="img/planet6.png" alt="Dibujo de planeta grande amarillo con un satélite azul y otro satélite tipo luna gris" class="layerParallax2" />
+			</div>
+			
+			<div id="estrellas" class="fondoParallax">
+				
+			</div>
+			
+			<div id="fondoDegrade">
+				
+			</div>
+		</div>
+		<footer>
+			<p>Hecho para la Cátedra Drelichman</p>
+			<img src="../img/footer-img.png" alt="Dibujo de corazón en estilo Pixel art">
+			<p>Informática General - Final 2020</p>
+		</footer>
+	</div>
+
+</body>
+</html>
