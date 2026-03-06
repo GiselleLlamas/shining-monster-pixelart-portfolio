@@ -325,3 +325,28 @@ function mostrarCarta(numeroCarta, numeroMatch){
 function animarScroll(pos){
 	$("#contenidoProyectos").animate({ scrollTop: pos }, 1000); 
 }
+
+// ===== Menú Hamburguesa =====
+
+document.addEventListener('DOMContentLoaded', function () {
+	const hamburger = document.querySelector('.hamburger');
+	const menu = document.querySelector('.menu');
+
+	if (hamburger && menu) {
+		hamburger.addEventListener('click', function () {
+			hamburger.classList.toggle('is-open');
+			menu.classList.toggle('is-open');
+		});
+	}
+
+	// En mobile, el ícono de caret abre el dropdown; el link del texto navega normalmente
+	document.querySelectorAll('.dropbtn .fa-caret-down').forEach(function (caret) {
+		caret.addEventListener('click', function (e) {
+			if (window.innerWidth <= 768) {
+				e.preventDefault();
+				e.stopPropagation();
+				caret.closest('.dropdown').classList.toggle('is-open');
+			}
+		});
+	});
+});
