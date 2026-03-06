@@ -206,39 +206,47 @@ footer p{
 	align-items: center;
 }
 
-.socialhorizontal .fa{
+.socialhorizontal a{
 	  padding: 12px;
 	  font-size: 15px;
 	  width: 12px;
 	  text-align: center;
 	  text-decoration: none;
 	  border-radius: 50%;
+	  color: white;
 }
 
 .socialhorizontal div{
 	margin:10px 0 10px 10px;
 }
 
-.socialhorizontal div:nth-of-type(3) {
+.socialhorizontal div:nth-of-type(5) {
 	margin-right: 30px;
 }
 
-/* Linkedin */
-.fa-linkedin {
-  background: #ED01FE;
-  color: white;
-}
-
-/* Twitter */
-.fa-twitter {
-  background: #01BBFE;
-  color: white;
+/* Vgen */
+.fa-palette {
+  background: #60F7A5;
 }
 
 /* Instagram */
 .fa-instagram {
   background: #A101FE;
-  color: white;
+}
+
+/* Behance */
+.fa-behance {
+  background: #ED01FE;
+}
+
+/* X */
+.fa-x-twitter {
+  background: #01BBFE;
+}
+
+/* Bluesky */
+.fa-bluesky {
+  background: #F7607C;
 }
 
 #arriba{
