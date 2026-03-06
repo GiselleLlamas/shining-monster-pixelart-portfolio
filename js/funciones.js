@@ -7,22 +7,22 @@ function topFunction() {
 
 // ===== Galeria ==== 
 
-var imgActual = 1;
+let imgActual = 1;
 		
 function textoAparece(texto){
-	varTexto = '#' + texto;
+	const varTexto = '#' + texto;
 	//console.log(varTexto)
 	$(varTexto).fadeIn('fast');
 }
 
 function textoDesaparece(texto){
-	varTexto = '#' + texto;
+	const varTexto = '#' + texto;
 	//console.log(varTexto)
 	$(varTexto).fadeOut('fast');
 }
 
 function prevImg(varImg){
-	contenidoHtml = '';
+	let contenidoHtml = '';
 	if(varImg == 1){
 		contenidoHtml = '<img src="img/img' + 9 + '.png" alt="Imagen de galería, ilustración creada por Giselle Llamas." />';
 		imgActual = 9;
@@ -37,7 +37,7 @@ function prevImg(varImg){
 }
 
 function nextImg(varImg){
-	contenidoHtml = '';
+	let contenidoHtml = '';
 	if(varImg == 9){
 		contenidoHtml = '<img src="img/img' + 1 + '.png" alt="Imagen de galería, ilustración creada por Giselle Llamas." />';
 		imgActual = 1;
@@ -53,7 +53,7 @@ function nextImg(varImg){
 function apareceGaleria(varImg){
 	$('#fondoGaleria').fadeIn('fast');
 	imgActual = varImg;
-	contenidoHtml = '<img src="img/img' + imgActual + '.png" alt="Imagen de galería, ilustración creada por Giselle Llamas." />';
+	let contenidoHtml = '<img src="img/img' + imgActual + '.png" alt="Imagen de galer\u00eda, ilustraci\u00f3n creada por Giselle Llamas." />';
 	document.getElementById('contenedorFotoPopUp').innerHTML = '';
 	document.getElementById('contenedorFotoPopUp').innerHTML = contenidoHtml;
 	$('#popUpGaleria').fadeIn('slow');
@@ -72,25 +72,25 @@ function desapareceGaleria(){
 ********************************************
 *******************************************/
 
-var cartas = ['0','1','2','3','4','5','6','7','8','9','0','1','2','3','4','5','6','7','8','9'];
+const cartas = ['0','1','2','3','4','5','6','7','8','9','0','1','2','3','4','5','6','7','8','9'];
 
-var paso = 0;
+let paso = 0;
 
-var movimientos = 0;
+let movimientos = 0;
 
-var movimientosJug1 = 0;
-var movimientosJug2 = 0;
+let movimientosJug1 = 0;
+let movimientosJug2 = 0;
 
-var jugadorActual;
+let jugadorActual;
 
-var primeraCarta;
-var primerMatch;
+let primeraCarta;
+let primerMatch;
 
-var pares = 10;
+let pares = 10;
 
-var cantJugadores = 0;
+let cantJugadores = 0;
 
-var juegoEmpezado = 0;
+let juegoEmpezado = 0;
 
 function setearVariablesIniciales(){
 	paso = 0;
@@ -104,15 +104,16 @@ function setearVariablesIniciales(){
 }
 
 function mezclarCartas(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = array[i];
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = array[i];
         array[i] = array[j];
         array[j] = temp;
     }
 }
 
 function mostrarMovimientos(){
+	let texto;
 	if(pares > 0){
 		texto = "<h2>Movimientos: " + movimientos + '</h2>';
 		
@@ -126,7 +127,7 @@ function mostrarMovimientos(){
 
 function desempatar(){
 	$('#contenedorResultadoDosJugadores').fadeOut('fast', function (){
-		texto = '';
+		const texto = '';
 		$("#contenedorResultadoDosJugadores").html(texto);
 		juegoEmpezado = 0;
 		mostrarJuego(2);
@@ -134,6 +135,7 @@ function desempatar(){
 }
 
 function mostrarResultadoFinal(){
+	let texto;
 	if(movimientosJug1 < movimientosJug2){
 		
 		texto = '<h2>¡Gana el jugador 1!</h2>';
@@ -188,7 +190,7 @@ function mostrarJuego(jugadores){
 			
 			jugadorActual = 1;
 			
-			var textoMostrarTurno = '<h2>Turno Jugador 1</h2><img src="img/unJugador.png" alt="un jugador" />';
+		const textoMostrarTurno = '<h2>Turno Jugador 1</h2><img src="img/unJugador.png" alt="un jugador" />';
 			$("#mostrarTurno").html(textoMostrarTurno);
 			
 			$("#mostrarTurno").fadeIn('fast');
@@ -204,7 +206,7 @@ function mostrarJuego(jugadores){
 		
 		jugadorActual = 2;
 		
-		var textoMostrarTurno = '<h2>Turno Jugador 2</h2><img src="img/jugadorDos.png" alt="un jugador" />';
+		const textoMostrarTurno = '<h2>Turno Jugador 2</h2><img src="img/jugadorDos.png" alt="un jugador" />';
 		$("#mostrarTurno").html(textoMostrarTurno);
 
 		$("#mostrarTurno").fadeIn('fast');
@@ -218,13 +220,13 @@ function mostrarJuego(jugadores){
 	}
 	
 	mezclarCartas(cartas);
-	var contenido = "";
+	let contenido = "";
 	
 	$("#grillaJuego").html(contenido);
 	
-	var idCarta = 0;
-	for (i = 0; i < cartas.length; i++) {
-		var texto = cartas[i];
+	let idCarta = 0;
+	for (let i = 0; i < cartas.length; i++) {
+		const texto = cartas[i];
 		contenido = contenido + '<div class="celdaJuego">';
 		
 			contenido = contenido + '<div class="idCarta" id="carta' + idCarta + '" onclick="mostrarCarta(' + idCarta + ',' + texto + ')">';
@@ -262,7 +264,7 @@ function mostrarJuego(jugadores){
 }
 
 function mostrarCarta(numeroCarta, numeroMatch){
-	idCarta = "#carta" + numeroCarta; 
+	const idCarta = "#carta" + numeroCarta; 
 	$(idCarta).fadeOut('fast');
 	if(paso == 0){
 		primerMatch = numeroMatch;
@@ -270,8 +272,8 @@ function mostrarCarta(numeroCarta, numeroMatch){
 		paso = 1;
 	}else{
 		if( numeroMatch != primerMatch){
-			cartaAnterior = "#carta" + primeraCarta;
-			cartaActual = "#carta" + numeroCarta;
+			const cartaAnterior = "#carta" + primeraCarta;
+			const cartaActual = "#carta" + numeroCarta;
 			setTimeout(function () {
 				$(cartaAnterior).fadeIn('fast');
 				$(cartaActual).fadeIn('fast');

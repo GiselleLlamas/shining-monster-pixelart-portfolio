@@ -1,8 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 	<title>Giselle Llamas - Bio - Contacto</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Formulario de contacto de Giselle Llamas. Trabajo, consultas y colaboraciones.">
 	<link rel='icon' href='../../img/favicon16.png' type='image/x-icon'/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../../css/base.css">
@@ -81,13 +83,13 @@
 		<div id="contactmain" class="oneflex">
 			<div class="socialVertical">
 				<div id="twitter">
-					<a href="https://twitter.com/glitchdimension" target="_blank" class="fa fa-twitter"></a>
+					<a href="https://twitter.com/glitchdimension" target="_blank" rel="noopener noreferrer" class="fa fa-twitter"></a>
 				</div>
 				<div id="instagram">
-					<a href="https://www.instagram.com/pixel.syndrome/" target="_blank" class="fa fa-instagram"></a>
+					<a href="https://www.instagram.com/pixel.syndrome/" target="_blank" rel="noopener noreferrer" class="fa fa-instagram"></a>
 				</div>
 				<div id="linkedin">
-					<a href="https://www.linkedin.com/in/gisellellamas/" target="_blank" class="fa fa-linkedin"></a>
+					<a href="https://www.linkedin.com/in/gisellellamas/" target="_blank" rel="noopener noreferrer" class="fa fa-linkedin"></a>
 				</div>
 			</div>
 
@@ -115,10 +117,10 @@
 							<h3>[ Formulario de contacto: ]</h3>
 							<p id="camposRequeridos"><span>Todos</span> los campos <span>son requeridos.</span></p>
 							<div id="contenedorformulario">
-								<form id="formularioContacto" class="pure-form" onsubmit="return validarForm()" action="contacto.html?enviado=si" >
+								<form id="formularioContacto" class="pure-form" onsubmit="return validarForm()" action="contacto.html?enviado=si" method="post">
 									<fieldset class="pure-group">
-								        <input id="nombre" class="anchoEntero pure-input-1-2" type="text" name="nombre" placeholder="Ingresá tu nombre" />
-								        <input id="correo" class="anchoEntero pure-input-1-2" type="text" name="correo" placeholder="Ingresá tu email." />
+									<input id="nombre" aria-label="Nombre" class="anchoEntero pure-input-1-2" type="text" name="nombre" placeholder="Ingresá tu nombre" />
+									<input id="correo" aria-label="Correo electrónico" class="anchoEntero pure-input-1-2" type="email" name="correo" placeholder="Ingresá tu email." />
 								    </fieldset>
 
 								    <fieldset class="pure-group">
@@ -141,8 +143,8 @@
 						        	</fieldset>
 
 						            <fieldset class="pure-group">
-								        <input class="anchoEntero pure-input-1-2" id="asunto" type="text" name="asunto" placeholder="Asunto" />
-								        <textarea class="anchoEntero pure-input-1-2" id="mensaje" name="mensaje" placeholder="Ingresá tu mensaje."></textarea>
+								        <input class="anchoEntero pure-input-1-2" id="asunto" type="text" name="asunto" aria-label="Asunto" placeholder="Asunto" />
+								        <textarea class="anchoEntero pure-input-1-2" id="mensaje" name="mensaje" aria-label="Mensaje" placeholder="Ingresá tu mensaje."></textarea>
 								    </fieldset>
 
 

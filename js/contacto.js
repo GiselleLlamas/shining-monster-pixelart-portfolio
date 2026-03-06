@@ -5,7 +5,7 @@ $(document).ready(function () {
 });
 
 function validarEmail(texto){
-	var formatoEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	const formatoEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 	if(texto.match(formatoEmail)){
 		return true;
 	} else {
@@ -26,23 +26,23 @@ function validarForm(){
 
 	blanco();
 
-	var error = 0;
+	let error = 0;
 
-	var vacio = 0;
+	let vacio = 0;
 
-	var mensajeError = "";
+	let mensajeError = "";
 
-	var nombre = document.getElementById('nombre').value;
+	let nombre = document.getElementById('nombre').value;
 
-	var correo = document.getElementById('correo').value;
+	let correo = document.getElementById('correo').value;
 
-	var asunto = document.getElementById('asunto').value;
+	let asunto = document.getElementById('asunto').value;
 
-	var mensaje = document.getElementById('mensaje').value;
+	let mensaje = document.getElementById('mensaje').value;
 
-	var chequeo1 = document.getElementById('motivo1').checked;
+	let chequeo1 = document.getElementById('motivo1').checked;
 
-	var chequeo2 = document.getElementById('motivo2').checked;
+	let chequeo2 = document.getElementById('motivo2').checked;
 
 	if (nombre == ''){
 		mensajeError = "Todos los campos son obligatorios. <br/>";
@@ -59,7 +59,7 @@ function validarForm(){
 		}
 		document.getElementById('correo').style.backgroundColor = 'pink';
 	}else{
-		validacion = validarEmail(correo);
+		let validacion = validarEmail(correo);
 		if(validacion == false){
 			mensajeError = mensajeError + "El formato de correo es incorrecto <br/>";
 			error = 1;
@@ -105,23 +105,23 @@ function validarForm(){
 
 function enviarCorreo(){
 
-	var nombre = document.getElementById('nombre').value;
+	let nombre = document.getElementById('nombre').value;
 
-	var correo = document.getElementById('correo').value;
+	let correo = document.getElementById('correo').value;
 
-	var region = document.getElementById('region').value;
+	let region = document.getElementById('region').value;
 
-	var asunto = document.getElementById('asunto').value;
+	let asunto = document.getElementById('asunto').value;
 
-	var mensaje = document.getElementById('mensaje').value;
+	let mensaje = document.getElementById('mensaje').value;
 
-	var chequeo1 = document.getElementById('motivo1').checked;
+	let chequeo1 = document.getElementById('motivo1').checked;
 
-	var chequeo2 = document.getElementById('mailing').checked;
+	let chequeo2 = document.getElementById('mailing').checked;
 
-	var motivo;
+	let motivo;
 
-	var mailing;
+	let mailing;
 
 	if(chequeo1 ==  true){
 
@@ -142,7 +142,9 @@ function enviarCorreo(){
 		function(data){
 			mostrarError('¡Su mensaje ha sido enviado con éxito!');		  
 		 }
-	);
+	).fail(function() {
+		mostrarError('Ocurri\u00f3 un error al enviar el mensaje. Por favor intent\u00e1 de nuevo.');
+	});
 
 }
 

@@ -178,6 +178,14 @@ a:hover{
 text-decoration: none;
 }
 
+/* Focus styles for keyboard accessibility */
+a:focus-visible { outline: 2px solid #F26095; outline-offset: 2px; }
+.dropdown-content a:focus { background-color: #ddd; }
+.dropdown:focus-within .dropdown-content { display: block; }
+#arriba:focus { background: #F26095; color: #fff; border: none; opacity: 1; }
+input:focus, textarea:focus, select:focus { outline: 2px solid #F26095; outline-offset: 2px; }
+input[type="submit"]:focus, input[type="reset"]:focus { outline: 2px solid #F26095; outline-offset: 2px; }
+
 footer{
 	clear: both;
 	text-align: center;
