@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="../css/forms-nr.css">
 	<link rel="stylesheet" href="../css/main.css">
 	<script src="../js/funciones.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Roboto+Slab&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -85,42 +86,39 @@
 				<h1>ENTRADAS:</h1>
 				<h1>Giselle Llamas / A/V Blog_</h1>
 			</div>
-		<div id="blob1" class="alfondo">
-			<img src="img/blob1.png" alt="Figura con bordes irregulares de color rosa"/>
-		</div>
-		<div id="blob2" class="alfondo">
-			<img src="img/blob2.png" alt="Figura con bordes irregulares de color amarillo"/>
-		</div>
-		<div id="blob3" class="alfondo">
-			<img src="img/blob3.png" alt="Figura con bordes irregulares de color violeta"/>
-		</div>
-		<section id="entrada1"> 
-			<img src="img/blogimg1.png" alt="Foto de Giselle saludando a la cámara en Atom.">
-			<div id="textoblog1">
-				<p>Publicado el:<br><time datetime="2020-02-19">19 de Febrero, 2020</time></p>
-				<h2 class="blogheader">Recuerdos de Atom</h2>
-				<p>¿Nostalgia del futuro o recuerdos del pasado? Post Mortem de un legendario espacio de innovación.</p>
-				<p class="bloglink"><a href="atom/atom.html">Leer más<i class="fa fa-long-arrow-right blogarrow" aria-hidden="true"></i></a></p>
+			<div id="physics-blog">
+
+				<div class="blob-entry blob-entry--pink" data-href="atom/atom.html">
+					<img class="blob-img" src="img/blogimg1.png" alt="Foto de Giselle saludando a la cámara en Atom.">
+					<div class="blob-content">
+						<time datetime="2020-02-19">19 Feb 2020</time>
+						<h2 class="blogheader">Recuerdos de Atom</h2>
+						<p>¿Nostalgia del futuro o recuerdos del pasado? Post Mortem de un legendario espacio de innovación.</p>
+						<span class="blob-readmore">Leer más <i class="fa fa-long-arrow-right blogarrow" aria-hidden="true"></i></span>
+					</div>
+				</div>
+
+				<div class="blob-entry blob-entry--yellow" data-href="pasadopresente/pasadopresente.html">
+					<img class="blob-img" src="img/blogimg2.png" alt="Foto de 'Pasado Presente': un hombre sentado mirándose al espejo.">
+					<div class="blob-content">
+						<time datetime="2020-01-25">25 Ene 2020</time>
+						<h2 class="blogheader">Pasado/ Presente</h2>
+						<p>¡Representar a la UNA en la Noche de los Museos fue toda una experiencia!</p>
+						<span class="blob-readmore">Leer más <i class="fa fa-long-arrow-right blogarrow" aria-hidden="true"></i></span>
+					</div>
+				</div>
+
+				<div class="blob-entry blob-entry--violet" data-href="rrayos/rrayos.html">
+					<img class="blob-img" src="img/blogimg3.png" alt="Foto de Giselle en una reunión de Feminoise junto con RRayen.">
+					<div class="blob-content">
+						<time datetime="2019-12-09">9 Dic 2019</time>
+						<h2 class="blogheader">Visualizando RRayos</h2>
+						<p>Actitud y fiereza plasmados en las visuales para la artista argentina de Chiptune RRayen.</p>
+						<span class="blob-readmore">Leer más <i class="fa fa-long-arrow-right blogarrow" aria-hidden="true"></i></span>
+					</div>
+				</div>
+
 			</div>
-		</section>
-		<section id="entrada2">
-			<img src="img/blogimg2.png" alt="Foto que pertenece a 'Pasado Presente' en el que se ve un hombre que esta sentado en una silla y el mismo hombre mirandose al espejo.">
-			<div id="textoblog2">
-				<p>Publicado el:<br><time datetime="2020-01-25">25 de Enero, 2020</time></p>
-				<h2 class="blogheader">Pasado/ Presente</h2>
-				<p>¡Representar a la UNA en la Noche de los Museos fue toda una experiencia, y te la cuento en esta entrada del blog!</p>
-				<p class="bloglink"><a href="pasadopresente/pasadopresente.html">Leer más<i class="fa fa-long-arrow-right blogarrow" aria-hidden="true"></i></a></p>
-			</div>
-		</section>
-		<section id="entrada3">
-			<img src="img/blogimg3.png" alt="Foto de Giselle en una reunión de Feminoise junto con RRayen.">
-			<div id="textoblog3">
-				<p>Publicado el:<br><time datetime="2019-12-09">9 de Diciembre, 2019</time></p>
-				<h2 class="blogheader">Visualizando RRayos</h2>
-				<p>Actitud y fiereza, dos atributos que fueron plasmados en las visuales que creé para la artista argentina de Chiptune RRayen.</p>
-				<p class="bloglink"><a href="rrayos/rrayos.html">Leer más<i class="fa fa-long-arrow-right blogarrow" aria-hidden="true"></i></a></p>
-			</div>
-		</section>
 		</div>
 		<a onclick="topFunction()" id="arriba" aria-label="Ir al tope de la página">
 			<i class="fa fa-angle-up" aria-hidden="true"></i>
@@ -131,5 +129,204 @@
 			<p>Informática General - Final 2020</p>
 		</footer>
 	</div>
+	<script>
+	(function () {
+		var container = document.getElementById('physics-blog');
+		if (!container || typeof Matter === 'undefined') return;
+
+		var W      = Math.round(window.visualViewport ? window.visualViewport.width : window.innerWidth);
+		var MOBILE = W <= 480;
+		var H      = container.offsetHeight;
+
+		/*
+		 * R = blob radius, sized proportionally to viewport so blobs fill the arena.
+		 * Desktop: W*0.155 capped at 210 → targets at W*0.15/0.50/0.85 give
+		 *          W*0.35 centre-gap which always exceeds 2R → no resting collision.
+		 * Mobile:  W*0.38 capped at 130 → 3-blob column fits in min-height 860px.
+		 */
+		var R  = MOBILE
+			? Math.min(Math.floor(W * 0.38), 130)
+			: Math.min(Math.floor(W * 0.155), 210);
+		var D  = R * 2;
+
+		var entries = Array.from(container.querySelectorAll('.blob-entry'));
+
+		/* Size blobs; scale header image proportionally (44% of diameter) */
+		var imgH = Math.round(D * 0.44);
+		entries.forEach(function (el) {
+			el.style.width  = D + 'px';
+			el.style.height = D + 'px';
+			var img = el.querySelector('.blob-img');
+			if (img) img.style.height = imgH + 'px';
+		});
+
+		var Engine = Matter.Engine;
+		var Bodies = Matter.Bodies;
+		var Body   = Matter.Body;
+		var World  = Matter.World;
+		var Runner = Matter.Runner;
+		var Events = Matter.Events;
+
+		var engine = Engine.create({ gravity: { x: 0, y: 1.8 } });
+
+		/*
+		 * Floor + sides ONLY — no ceiling.
+		 * A ceiling wall would trap mobile blobs that spawn above it,
+		 * making them bounce on top of it and never enter the visible arena.
+		 */
+		var wallOpts = { isStatic: true, friction: 0, restitution: 0.15 };
+		var walls = [
+			Bodies.rectangle(W / 2,  H + 25,  W + 400, 50, wallOpts), /* floor */
+			Bodies.rectangle(-25,    H / 2,   50, H + 400, wallOpts), /* left  */
+			Bodies.rectangle(W + 25, H / 2,   50, H + 400, wallOpts)  /* right */
+		];
+
+		var bodyOpts = { restitution: 0.2, friction: 0, frictionAir: 0.065 };
+
+		/*
+		 * Desktop: blobs drop from above their three horizontal slots.
+		 * Mobile:  blobs drop in a column — tiny X jitter stops exact-centre stacking.
+		 *          Y positions are spaced by 2R+gap so they queue cleanly above the arena.
+		 */
+		var spawnX, spawnY;
+		if (MOBILE) {
+			spawnX = [W / 2 - 4, W / 2 + 4, W / 2 - 4];
+			spawnY = [-(R + 15),  -(3 * R + 50),  -(5 * R + 85)];
+		} else {
+			spawnX = [W * 0.15, W * 0.50, W * 0.85];
+			spawnY = [-80,      -40,      -80     ];
+		}
+
+		var blobBodies = spawnX.map(function (x, i) {
+			return Bodies.circle(x, spawnY[i], R, bodyOpts);
+		});
+
+		blobBodies.forEach(function (b) { Body.setInertia(b, Infinity); });
+
+		if (!MOBILE) {
+			Body.setVelocity(blobBodies[0], { x:  1.2, y: 2.0 });
+			Body.setVelocity(blobBodies[1], { x: -0.5, y: 2.5 });
+			Body.setVelocity(blobBodies[2], { x:  1.0, y: 2.0 });
+		}
+
+		World.add(engine.world, walls.concat(blobBodies));
+
+		/*
+		 * Desktop targets at W*0.15/0.50/0.85: gap W*0.35 > 2R at all viewport widths.
+		 * Mobile targets pinned R+20 from top/bottom edges — always inside bounds.
+		 */
+		var targets;
+		if (MOBILE) {
+			targets = [
+				{ x: W / 2, y: R + 20 },
+				{ x: W / 2, y: H / 2  },
+				{ x: W / 2, y: H - R - 20 }
+			];
+		} else {
+			targets = [
+				{ x: W * 0.15, y: H * 0.44 },
+				{ x: W * 0.50, y: H * 0.56 },
+				{ x: W * 0.85, y: H * 0.44 }
+			];
+		}
+
+		var attracting  = false;
+		var draggingIdx = -1;
+
+		setTimeout(function () {
+			engine.gravity.y = 0;
+			attracting = true;
+		}, 1500);
+
+		/* Mobile uses stronger force: blobs may need to travel the full arena height */
+		Events.on(engine, 'beforeUpdate', function () {
+			if (!attracting) return;
+			blobBodies.forEach(function (body, i) {
+				if (draggingIdx === i) return;
+				var dx   = targets[i].x - body.position.x;
+				var dy   = targets[i].y - body.position.y;
+				var dist = Math.sqrt(dx * dx + dy * dy);
+				if (dist < 6) return;
+				var fm = (MOBILE ? 0.0008 : 0.00022) * body.mass;
+				Body.applyForce(body, body.position, { x: dx * fm, y: dy * fm });
+			});
+		});
+
+		Runner.run(Runner.create(), engine);
+
+		/* ── DOM sync ──────────────────────────── */
+		function tick() {
+			blobBodies.forEach(function (body, i) {
+				entries[i].style.transform =
+					'translate(' + (body.position.x - R) + 'px,' + (body.position.y - R) + 'px)';
+			});
+			requestAnimationFrame(tick);
+		}
+		requestAnimationFrame(tick);
+
+		/* ── Drag-to-throw ─────────────────────── */
+		var dragOffX = 0, dragOffY = 0;
+		var velX = 0, velY = 0;
+		var prevDX = 0, prevDY = 0, prevDT = 0;
+		var startX = 0, startY = 0;
+
+		entries.forEach(function (el, i) {
+
+			el.addEventListener('pointerdown', function (e) {
+				e.preventDefault();
+				el.setPointerCapture(e.pointerId);
+				var rect = container.getBoundingClientRect();
+				var px = e.clientX - rect.left;
+				var py = e.clientY - rect.top;
+				dragOffX    = blobBodies[i].position.x - px;
+				dragOffY    = blobBodies[i].position.y - py;
+				draggingIdx = i;
+				startX = px;  startY = py;
+				velX = velY = 0;
+				prevDX = px;  prevDY = py;
+				prevDT = performance.now();
+				Body.setVelocity(blobBodies[i], { x: 0, y: 0 });
+			});
+
+			el.addEventListener('pointermove', function (e) {
+				if (draggingIdx !== i) return;
+				var rect = container.getBoundingClientRect();
+				var px  = e.clientX - rect.left;
+				var py  = e.clientY - rect.top;
+				var now = performance.now();
+				var dt  = Math.max(1, now - prevDT);
+				/* Exponential moving avg for smooth throw velocity */
+				velX = velX * 0.6 + ((px - prevDX) / dt * 16.67) * 0.4;
+				velY = velY * 0.6 + ((py - prevDY) / dt * 16.67) * 0.4;
+				prevDX = px;  prevDY = py;  prevDT = now;
+				/* Clamp so blob can't be dragged outside container bounds */
+				var nx = Math.max(R, Math.min(W - R, px + dragOffX));
+				var ny = Math.max(R, Math.min(H - R, py + dragOffY));
+				Body.setPosition(blobBodies[i], { x: nx, y: ny });
+				Body.setVelocity(blobBodies[i], { x: 0, y: 0 });
+			});
+
+			el.addEventListener('pointerup', function (e) {
+				if (draggingIdx !== i) return;
+				var rect = container.getBoundingClientRect();
+				var px    = e.clientX - rect.left;
+				var py    = e.clientY - rect.top;
+				var moved = Math.sqrt(Math.pow(px - startX, 2) + Math.pow(py - startY, 2));
+				/* Release with tracked throw velocity */
+				Body.setVelocity(blobBodies[i], { x: velX, y: velY });
+				draggingIdx = -1;
+				/* Only navigate if it was a tap, not a drag */
+				if (moved < 8) {
+					window.location.href = el.getAttribute('data-href');
+				}
+			});
+
+			el.addEventListener('pointercancel', function () {
+				if (draggingIdx === i) draggingIdx = -1;
+			});
+		});
+
+	}());
+	</script>
 </body>
 </html>

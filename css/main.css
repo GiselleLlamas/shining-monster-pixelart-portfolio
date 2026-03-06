@@ -642,107 +642,156 @@ footer p{
 *******************************************/
 
 #blogheader{
-	margin: 30px;
-	text-align: center;
+	margin: 16px 24px 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: baseline;
+	gap: 0.5em;
+	flex-wrap: wrap;
 }
 
-#bloglist{
-	height: 1345px;
+#blogheader h1{
+	font-size: 1rem;
+	font-weight: normal;
+	margin: 0;
+	line-height: 1.4;
+	white-space: nowrap;
 }
 
 .blogarrow{
 	margin-left: 5px;
 }
 
-/* Poscionando las imagenes decorativas dentro de la pantalla principal del blog*/
+/* ── Physics Blog container ─────────────── */
 
-#blob1{
+#physics-blog{
+	position: relative;
+	width: 100vw;
+	margin-left: calc(-50vw + 50%);
+	height: calc(100svh - 140px);
+	min-height: 640px;
+	max-height: 940px;
+	overflow: hidden;
+	background: rgba(0,0,0,0.04);
+}
+
+/* Each blob absolutely positioned; JS drives size + transform */
+.blob-entry{
 	position: absolute;
-	top: 300px;
+	top: 0;
 	left: 0;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	cursor: grab;
+	will-change: transform;
+	touch-action: none;
+	user-select: none;
+	-webkit-user-select: none;
+}
+.blob-entry:active{ cursor: grabbing; }
+
+/* Rectangular header image — full blob width, no rounding */
+.blob-img{
+	width: 100%;
+	height: 160px;
+	object-fit: cover;
+	display: block;
+	flex-shrink: 0;
+	pointer-events: none;
 }
 
-#blob2{
-	position: absolute;
-	top: 450px;
-	right: 0;
+/* Text body — always visible */
+.blob-content{
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 10px 18px 14px;
+	box-sizing: border-box;
+	pointer-events: none;
+}
+.blob-settled .blob-content{
+	opacity: 1;
 }
 
-#blob3{
-	position: absolute;
-	top: 950px;
-	left: 0;
+.blob-content time{
+	font-size: 12px;
+	display: block;
+	opacity: 0.65;
+	margin-bottom: 4px;
 }
-
-#entrada1{
-	position: absolute;
-	top: 350px;
-	left: 50px;
-}
-
-/*Este es el estilo que todos los links de la pagina del blog van a tener*/
-
-.bloglink{
-	margin: 5px 0;
-	text-decoration: underline;
-}
-
 
 .blogheader{
-	font-size: 15px;
-	margin: 5px 0;
-	text-align: left;
+	font-size: 18px;
+	margin: 4px 0 6px;
+	text-align: center;
+	line-height: 1.25;
 }
 
-/*Preview de entrada 1*/
-
-#textoblog1{
-	padding: 10px 0;
-	max-width: 250px;
+.blob-entry p{
+	font-size: 14px;
+	line-height: 1.45;
+	margin: 0 0 8px;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
 
-/* Texto de preview 1: Estilos del texto general y del 3rd child que es el resumen*/
-
-#textoblog1 p:nth-child(3){
-	/*background-color: red;*/
-	max-width: 155px;
+/* Big pill button — the main tap/click target */
+.blob-readmore{
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: underline;
+	padding: 8px 20px;
+	background: rgba(0,0,0,0.13);
+	border-radius: 22px;
+	display: inline-block;
 }
 
-/*Preview de entrada 2*/
+/* ── Blob colour + organic morph animations ── */
 
-#entrada2{
-	position: absolute;
-	top: 700px;
-	left: 350px;
+.blob-entry--pink  { background: #FF8FAB; animation: blobMorph1  8s   ease-in-out infinite; }
+.blob-entry--yellow{ background: #FFE566; animation: blobMorph2 11s   ease-in-out infinite; }
+.blob-entry--violet{ background: #C97FFF; animation: blobMorph3  9.5s ease-in-out infinite; }
+
+@keyframes blobMorph1{
+	0%,100%{ border-radius: 60% 40% 55% 45% / 55% 45% 55% 45%; }
+	20%    { border-radius: 40% 60% 35% 65% / 60% 35% 65% 40%; }
+	40%    { border-radius: 65% 35% 50% 50% / 35% 65% 45% 55%; }
+	60%    { border-radius: 45% 55% 65% 35% / 55% 45% 35% 65%; }
+	80%    { border-radius: 35% 65% 45% 55% / 45% 55% 60% 40%; }
+}
+@keyframes blobMorph2{
+	0%,100%{ border-radius: 50% 50% 60% 40% / 40% 60% 50% 50%; }
+	25%    { border-radius: 65% 35% 40% 60% / 55% 45% 60% 40%; }
+	50%    { border-radius: 35% 65% 55% 45% / 65% 35% 45% 55%; }
+	75%    { border-radius: 55% 45% 35% 65% / 40% 60% 55% 45%; }
+}
+@keyframes blobMorph3{
+	0%,100%{ border-radius: 55% 45% 40% 60% / 60% 40% 55% 45%; }
+	30%    { border-radius: 40% 60% 60% 40% / 45% 55% 40% 60%; }
+	60%    { border-radius: 60% 40% 45% 55% / 35% 65% 60% 40%; }
 }
 
-/* Texto de preview 2: Estilos del texto general y del 3rd child que es el resumen*/
+/* ── Mobile: blobs stack in a single column ─ */
 
-#textoblog2{
-	position: absolute;
-	left: 480px;
-	bottom: 150px;
-	min-width: 170px;
-}
-
-#textoblog2 p:nth-child(3){
-	/*background-color: red;*/
-	max-width: 200px;
-}
-
-/*Preview de entrada 3*/
-
-#entrada3{
-	position: absolute;
-	bottom: 140px;
-	left: 400px;
-}
-
-#textoblog3{
-	position: absolute;
-	left: -265px;
-	top: 10px;
-	max-width: 250px;
+@media (max-width: 480px){
+	#physics-blog{
+		height: calc(100svh - 160px);
+		min-height: 860px;
+		max-height: 1100px;
+		margin: 0;
+	}
+	#blogheader{ margin: 14px 12px 8px; }
+	.blob-img{ height: 110px; }
+	.blogheader{ font-size: 15px; }
+	.blob-entry p{ font-size: 12px; }
+	.blob-readmore{ font-size: 14px; padding: 7px 16px; }
 }
 
 /*******************************************
