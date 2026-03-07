@@ -81,11 +81,37 @@
 				</nav>
 			</div>
 		</header>
+		<!-- SVG liquid filter — feTurbulence generates animated noise, feDisplacementMap
+		     warps the blob edge using that noise so it wobbles organically like liquid. -->
+		<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+			<defs>
+				<filter id="liquid1" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+					<feTurbulence type="fractalNoise" baseFrequency="0.007" numOctaves="5" seed="2" result="noise">
+						<animate attributeName="seed" values="2;80;2" dur="20s" repeatCount="indefinite"/>
+					</feTurbulence>
+					<feDisplacementMap in="SourceGraphic" in2="noise" scale="58" xChannelSelector="R" yChannelSelector="G"/>
+				</filter>
+				<filter id="liquid2" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+					<feTurbulence type="fractalNoise" baseFrequency="0.009" numOctaves="5" seed="47" result="noise">
+						<animate attributeName="seed" values="47;120;47" dur="24s" repeatCount="indefinite"/>
+					</feTurbulence>
+					<feDisplacementMap in="SourceGraphic" in2="noise" scale="62" xChannelSelector="R" yChannelSelector="G"/>
+				</filter>
+				<filter id="liquid3" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+					<feTurbulence type="fractalNoise" baseFrequency="0.006" numOctaves="5" seed="91" result="noise">
+						<animate attributeName="seed" values="91;160;91" dur="28s" repeatCount="indefinite"/>
+					</feTurbulence>
+					<feDisplacementMap in="SourceGraphic" in2="noise" scale="55" xChannelSelector="R" yChannelSelector="G"/>
+				</filter>
+			</defs>
+		</svg>
+
 		<div id="bloglist">
 			<div id="blogheader">
 				<h1>ENTRADAS:</h1>
 				<h1>Giselle Llamas / A/V Blog_</h1>
 			</div>
+			<div class="blog-scroll-wrapper">
 			<div id="physics-blog">
 
 				<div class="blob-entry blob-entry--pink" data-href="atom/atom.html">
@@ -119,6 +145,7 @@
 				</div>
 
 			</div>
+			</div>
 		</div>
 		<a onclick="topFunction()" id="arriba" aria-label="Ir al tope de la página">
 			<i class="fa fa-angle-up" aria-hidden="true"></i>
@@ -138,26 +165,45 @@
 		var MOBILE = W <= 480;
 		var H      = container.offsetHeight;
 
-		/*
-		 * R = blob radius, sized proportionally to viewport so blobs fill the arena.
-		 * Desktop: W*0.155 capped at 210 → targets at W*0.15/0.50/0.85 give
-		 *          W*0.35 centre-gap which always exceeds 2R → no resting collision.
-		 * Mobile:  W*0.38 capped at 130 → 3-blob column fits in min-height 860px.
-		 */
-		var R  = MOBILE
-			? Math.min(Math.floor(W * 0.38), 130)
-			: Math.min(Math.floor(W * 0.155), 210);
-		var D  = R * 2;
-
 		var entries = Array.from(container.querySelectorAll('.blob-entry'));
+		var N = entries.length;
 
-		/* Size blobs; scale header image proportionally (44% of diameter) */
+		/*
+		 * Desktop: divide viewport into N equal slots so all current entries fit
+		 *   without scrolling. worldW only exceeds W when future entries are added.
+		 *   R is proportional to the slot so blobs fill their lane.
+		 * Mobile: width-based column layout, no horizontal scroll.
+		 */
+		var R, slotW, worldW;
+		if (MOBILE) {
+			R      = Math.min(Math.floor(W * 0.42), 143);
+			slotW  = W;
+			worldW = W;
+		} else {
+			/* Lock to a 3-up grid so each blob always gets W/3 of space.
+			 * For N ≤ 3 blobs fill the viewport (worldW ≈ W, no scroll).
+			 * For N > 3 worldW = N × slotW > W and overflow-x:auto
+			 * on .blog-scroll-wrapper reveals the scrollbar automatically. */
+			var slotsPerView = Math.min(N, 3);
+			slotW  = Math.floor(W / slotsPerView);
+			R      = Math.min(Math.floor(slotW * 0.40), Math.floor(H * 0.42), 280);
+			worldW = N * slotW;
+		}
+		var D = R * 2;
+
+		/* Tell the container its true physics-world width for scroll */
+		container.style.width = worldW + 'px';
+
+		/* Size blobs to match physics body; image size is fixed via CSS on desktop,
+		 * scaled to blob on mobile where the blob IS the clipping container. */
 		var imgH = Math.round(D * 0.44);
 		entries.forEach(function (el) {
 			el.style.width  = D + 'px';
 			el.style.height = D + 'px';
-			var img = el.querySelector('.blob-img');
-			if (img) img.style.height = imgH + 'px';
+			if (MOBILE) {
+				var img = el.querySelector('.blob-img');
+				if (img) img.style.height = imgH + 'px';
+			}
 		});
 
 		var Engine = Matter.Engine;
@@ -167,21 +213,21 @@
 		var Runner = Matter.Runner;
 		var Events = Matter.Events;
 
-		var engine = Engine.create({ gravity: { x: 0, y: 1.8 } });
+		var engine = Engine.create({ gravity: { x: 0, y: MOBILE ? 1.8 : 0.7 } });
 
 		/*
 		 * Floor + sides ONLY — no ceiling.
 		 * A ceiling wall would trap mobile blobs that spawn above it,
 		 * making them bounce on top of it and never enter the visible arena.
 		 */
-		var wallOpts = { isStatic: true, friction: 0, restitution: 0.15 };
+		var wallOpts = { isStatic: true, friction: 0, restitution: MOBILE ? 0.15 : 0.03 };
 		var walls = [
-			Bodies.rectangle(W / 2,  H + 25,  W + 400, 50, wallOpts), /* floor */
-			Bodies.rectangle(-25,    H / 2,   50, H + 400, wallOpts), /* left  */
-			Bodies.rectangle(W + 25, H / 2,   50, H + 400, wallOpts)  /* right */
+			Bodies.rectangle(worldW / 2,  H + 25,  worldW + 400, 50, wallOpts), /* floor */
+			Bodies.rectangle(-25,         H / 2,   50, H + 400, wallOpts),       /* left  */
+			Bodies.rectangle(worldW + 25, H / 2,   50, H + 400, wallOpts)        /* right */
 		];
 
-		var bodyOpts = { restitution: 0.2, friction: 0, frictionAir: 0.065 };
+		var bodyOpts = { restitution: MOBILE ? 0.2 : 0.02, friction: 0, frictionAir: MOBILE ? 0.065 : 0.18 };
 
 		/*
 		 * Desktop: blobs drop from above their three horizontal slots.
@@ -193,8 +239,8 @@
 			spawnX = [W / 2 - 4, W / 2 + 4, W / 2 - 4];
 			spawnY = [-(R + 15),  -(3 * R + 50),  -(5 * R + 85)];
 		} else {
-			spawnX = [W * 0.15, W * 0.50, W * 0.85];
-			spawnY = [-80,      -40,      -80     ];
+			spawnX = entries.map(function (_, i) { return slotW * i + slotW * 0.5; });
+			spawnY = entries.map(function (_, i) { return -80 - i * 45; });
 		}
 
 		var blobBodies = spawnX.map(function (x, i) {
@@ -223,11 +269,9 @@
 				{ x: W / 2, y: H - R - 20 }
 			];
 		} else {
-			targets = [
-				{ x: W * 0.15, y: H * 0.44 },
-				{ x: W * 0.50, y: H * 0.56 },
-				{ x: W * 0.85, y: H * 0.44 }
-			];
+			targets = entries.map(function (_, i) {
+				return { x: slotW * i + slotW * 0.5, y: H * 0.5 };
+			});
 		}
 
 		var attracting  = false;
@@ -236,23 +280,97 @@
 		setTimeout(function () {
 			engine.gravity.y = 0;
 			attracting = true;
-		}, 1500);
+		}, MOBILE ? 1500 : 700);
+
+		/* Per-blob lava lamp drift — unique sinusoidal params so each floats independently */
+		var driftSeeds = blobBodies.map(function (_, i) {
+			return {
+				fx: 0.00052 + i * 0.00021,  /* x oscillation frequency */
+				fy: 0.00037 + i * 0.00017,  /* y oscillation frequency */
+				px: i * 2.09,               /* x phase offset per blob */
+				py: i * 1.63                /* y phase offset per blob */
+			};
+		});
 
 		/* Mobile uses stronger force: blobs may need to travel the full arena height */
 		Events.on(engine, 'beforeUpdate', function () {
 			if (!attracting) return;
+			var t = engine.timing.timestamp;
 			blobBodies.forEach(function (body, i) {
 				if (draggingIdx === i) return;
+				/* Attraction toward home target */
 				var dx   = targets[i].x - body.position.x;
 				var dy   = targets[i].y - body.position.y;
 				var dist = Math.sqrt(dx * dx + dy * dy);
-				if (dist < 6) return;
-				var fm = (MOBILE ? 0.0008 : 0.00022) * body.mass;
-				Body.applyForce(body, body.position, { x: dx * fm, y: dy * fm });
+							var fm = (MOBILE ? 0.0009 : 0.00022) * body.mass;
+				if (dist >= 6) {
+					Body.applyForce(body, body.position, { x: dx * fm, y: dy * fm });
+				}
+				/* Desktop velocity damping — bleeds off speed so blobs settle smoothly
+				 * instead of oscillating around their target like an underdamped spring. */
+				if (!MOBILE) {
+					Body.setVelocity(body, {
+						x: body.velocity.x * 0.84,
+						y: body.velocity.y * 0.84
+					});
+				}
+				if (!MOBILE) {
+					/* Lava lamp drift — slow independent oscillation per blob (desktop only) */
+					var ds = driftSeeds[i];
+					var driftFm = fm * 0.38;
+					Body.applyForce(body, body.position, {
+						x: Math.sin(t * ds.fx + ds.px) * driftFm,
+						y: Math.cos(t * ds.fy + ds.py) * driftFm
+					});
+				}
 			});
+			/* Sand-art repulsion — blobs flow around each other but never overlap,
+			 * like coloured layers in a sand bottle. Two-tier system:
+			 * 1) Soft force field at long range so they drift apart smoothly
+			 * 2) Hard positional correction at close range so visual shapes
+			 *    (::before at -32% + SVG displacement) can never merge. */
+			if (!MOBILE) {
+			var minSep  = D * 2.2;   /* visual diameter accounting for ::before + SVG */
+			var hardSep = D * 1.8;   /* absolute minimum — hard correction kicks in */
+			for (var a = 0; a < blobBodies.length - 1; a++) {
+				for (var b = a + 1; b < blobBodies.length; b++) {
+					if (draggingIdx === a || draggingIdx === b) continue;
+					var ba = blobBodies[a], bb = blobBodies[b];
+					var rdx = ba.position.x - bb.position.x;
+					var rdy = ba.position.y - bb.position.y;
+					var rdist = Math.sqrt(rdx * rdx + rdy * rdy);
+					if (rdist < minSep && rdist > 1) {
+						var nx = rdx / rdist, ny = rdy / rdist;
+						/* Soft force — ramps quadratically */
+						var overlap = (minSep - rdist) / minSep;
+						var rf = 0.06 * overlap * overlap;
+						Body.applyForce(ba, ba.position, { x: nx * rf * ba.mass, y: ny * rf * ba.mass });
+						Body.applyForce(bb, bb.position, { x: -nx * rf * bb.mass, y: -ny * rf * bb.mass });
+						/* Hard correction — physically push apart if too close */
+						if (rdist < hardSep) {
+							var push = (hardSep - rdist) * 0.35;
+							Body.translate(ba, { x:  nx * push, y:  ny * push });
+							Body.translate(bb, { x: -nx * push, y: -ny * push });
+						}
+					}
+				}
+			}
+			} /* end !MOBILE repulsion */
 		});
 
 		Runner.run(Runner.create(), engine);
+
+		/* ── Mouse wheel → horizontal scroll (desktop only) ─────── */
+		if (!MOBILE) {
+			var wrapper = container.parentElement;
+			wrapper.addEventListener('wheel', function (e) {
+				/* Only intercept when scroll is predominantly vertical */
+				if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) {
+					e.preventDefault();
+					wrapper.scrollLeft += e.deltaY * 0.85;
+				}
+			}, { passive: false });
+		}
 
 		/* ── DOM sync ──────────────────────────── */
 		function tick() {
@@ -299,8 +417,8 @@
 				velX = velX * 0.6 + ((px - prevDX) / dt * 16.67) * 0.4;
 				velY = velY * 0.6 + ((py - prevDY) / dt * 16.67) * 0.4;
 				prevDX = px;  prevDY = py;  prevDT = now;
-				/* Clamp so blob can't be dragged outside container bounds */
-				var nx = Math.max(R, Math.min(W - R, px + dragOffX));
+				/* Clamp so blob can't be dragged outside the physics world */
+				var nx = Math.max(R, Math.min(worldW - R, px + dragOffX));
 				var ny = Math.max(R, Math.min(H - R, py + dragOffY));
 				Body.setPosition(blobBodies[i], { x: nx, y: ny });
 				Body.setVelocity(blobBodies[i], { x: 0, y: 0 });
