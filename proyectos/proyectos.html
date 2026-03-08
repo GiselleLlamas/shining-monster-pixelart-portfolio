@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="../css/buttons.css">
 	<link rel="stylesheet" href="../css/forms-nr.css">
 	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/responsive.css">
 	<script src="../js/funciones.js"></script>
 	<script src="../js/jquery-3.4.1.min.js"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Roboto+Slab&display=swap" rel="stylesheet">
@@ -23,36 +24,28 @@
 			<div class="menu">
 				<nav class="navi" id="navuno">
 					<a href="../index.html" class="nav-home">INICIO</a>
-					<div class="dropdown" id="bio">
-						<div class="dropbtn">
-							<a href="../bio/index.html">BIO</a>
-							<i class="fa fa-caret-down"></i>
-						</div>
-						<div class="dropdown-content">
-							<a href="../bio/contacto/contacto.html">Contacto</a>
-						</div>
-					</div>
+					<a href="../bio/bio.html">BIO</a>
 					<div class="dropdown" id="proyectos">
 						<div class="dropbtn">
-							<a href="index.html">PROYECTOS</a>
+							<a href="proyectos.html">PROYECTOS</a>
 							<i class="fa fa-caret-down"></i>
 						</div>
 						<div class="dropdown-content">
-							<a href="tapa/tapa.html">Tapa de disco</a>
-							<a href="pantallas/pantallas.html">Pantallas animadas</a>
-							<a href="conceptos/conceptos.html">Conceptos de personaje</a>
-							<a href="assets2d/assets2d.html">Assets para VG en 2D</a>
-							<a href="assetspixelart/assetspixelart.html">Assets para VG en Pixel Art</a>
+							<a href="tapa.html">Tapa de disco</a>
+							<a href="pantallas.html">Pantallas animadas</a>
+							<a href="conceptos.html">Conceptos de personaje</a>
+							<a href="assets2d.html">Assets para VG en 2D</a>
+							<a href="assetspixelart.html">Assets para VG en Pixel Art</a>
 						</div>
 					</div>
 					<div class="dropdown">
 						<div class="dropbtn" id="cv">
-							<a href="../cv/index.html">CV</a>
+							<a href="../cv/cv.html">CV</a>
 							<i class="fa fa-caret-down"></i>
 						</div>
 						<div class="dropdown-content">
-							<a href="../cv/exhibiciones/exhibiciones.html">Exhibiciones</a>
-							<a href="../cv/testimoniales/testimoniales.html">Testimoniales</a>
+							<a href="../cv/exhibiciones.html">Exhibiciones</a>
+							<a href="../cv/testimoniales.html">Testimoniales</a>
 						</div>
 					</div>
 				</nav>
@@ -65,19 +58,20 @@
 					<span></span>
 				</button>
 				<nav class="navi" id="navdos">
-					<a href="../ilustracion/index.html">ILUSTRACIÓN</a>
+					<a href="../ilustracion/ilustracion.html">ILUSTRACIÓN</a>
 					<div class="dropdown">
 						<div class="dropbtn" id="blog">
-							<a href="../blog/index.html">BLOG</a>
+							<a href="../blog/blog.html">BLOG</a>
 							<i class="fa fa-caret-down"></i>
 						</div>
 						<div class="dropdown-content">
-							<a href="../blog/atom/atom.html">Recuerdos de Atom</a>
-							<a href="../blog/pasadopresente/pasadopresente.html">Pasado/Presente</a>
-							<a href="../blog/rrayos/rrayos.html">Visualizando RRayos</a>
+							<a href="../blog/atom.html">Recuerdos de Atom</a>
+							<a href="../blog/pasadopresente.html">Pasado/Presente</a>
+							<a href="../blog/rrayos.html">Visualizando RRayos</a>
 						</div>
 					</div>
-					<a href="../juego/index.html">JUEGO</a>
+					<a href="../bio/contacto.html">CONTACTO</a>
+					<a href="../juego/juego.html">JUEGO</a>
 				</nav>
 			</div>
 		</header>
@@ -94,47 +88,57 @@
 			<div id="contenidoFrontal" class="layerParallax1">
 				<div class="proyecto" id="proyecto1">
 					<div class="imagenProyecto">
-						<img src="img/proyecto1.png" alt="Dibujo de hombre con el brazo levantado con un fondo de universo" />
+						<a href="tapa.html" aria-label="Ir al proyecto Tapa de disco">
+							<img src="img/proyecto1.png" alt="Dibujo de hombre con el brazo levantado con un fondo de universo" />
+						</a>
 					</div>
 					<p class="tituloProyecto">Lacrymose dreams of the Alchemist</p>
 					<p class="categoriaProyecto">Tapa de disco</p>
-					<p class="botonProyecto"><a href="tapa/tapa.html">Acceder <i class="fa fa-arrow-circle-o-up"></i></a></p>
+					<p class="botonProyecto"><a href="tapa.html">Acceder <i class="fa fa-arrow-circle-o-up"></i></a></p>
 				</div>
 				
 				<div class="proyecto" id="proyecto2">
 					<div class="imagenProyecto">
-						<img src="img/proyecto2.png" alt="Mano sosteniendo un cartucho violeta de Gameboy" />
+						<a href="pantallas.html" aria-label="Ir al proyecto Pantallas animadas">
+							<img src="img/proyecto2.png" alt="Mano sosteniendo un cartucho violeta de Gameboy" />
+						</a>
 					</div>
 					<p class="tituloProyecto">Heebie-GBs</p>
 					<p class="categoriaProyecto">Pantallas Animadas</p>
-					<p class="botonProyecto"><a href="pantallas/pantallas.html">Acceder <i class="fa fa-arrow-circle-o-up"></i></a></p>
+					<p class="botonProyecto"><a href="pantallas.html">Acceder <i class="fa fa-arrow-circle-o-up"></i></a></p>
 				</div>
 				
 				<div class="proyecto" id="proyecto3">
 					<div class="imagenProyecto">
-						<img src="img/proyecto3.png" alt="Dibujo de Chica mirando al espectador con pelo negro" />
+						<a href="conceptos.html" aria-label="Ir al proyecto Conceptos de personaje">
+							<img src="img/proyecto3.png" alt="Dibujo de Chica mirando al espectador con pelo negro" />
+						</a>
 					</div>
 					<p class="tituloProyecto">Quiet Town</p>
 					<p class="categoriaProyecto">Conceptos de Personaje</p>
-					<p class="botonProyecto"><a href="conceptos/conceptos.html">Acceder <i class="fa fa-arrow-circle-o-up"></i></a></p>
+					<p class="botonProyecto"><a href="conceptos.html">Acceder <i class="fa fa-arrow-circle-o-up"></i></a></p>
 				</div>
 				
 				<div class="proyecto" id="proyecto4">
 					<div class="imagenProyecto">
-						<img src="img/proyecto4.png" alt="Dibujo de lodo ninja" />
+						<a href="assets2d.html" aria-label="Ir al proyecto Assets de Videojuego en 2D">
+							<img src="img/proyecto4.png" alt="Dibujo de lodo ninja" />
+						</a>
 					</div>
 					<p class="tituloProyecto">Slime Battles</p>
 					<p class="categoriaProyecto">Assets de Videojuego en 2D</p>
-					<p class="botonProyecto"><a href="assets2d/assets2d.html">Acceder <i class="fa fa-arrow-circle-o-up"></i></a></p>
+					<p class="botonProyecto"><a href="assets2d.html">Acceder <i class="fa fa-arrow-circle-o-up"></i></a></p>
 				</div>
 				
 				<div class="proyecto" id="proyecto5">
 					<div class="imagenProyecto">
-						<img src="img/proyecto5.png" alt="Dibujo en estilo pixel art de hombre mirando de espaldas a un niño" />
+						<a href="assetspixelart.html" aria-label="Ir al proyecto Assets de Videojuego en Pixel Art">
+							<img src="img/proyecto5.png" alt="Dibujo en estilo pixel art de hombre mirando de espaldas a un niño" />
+						</a>
 					</div>
 					<p class="tituloProyecto">The Player is Dead/Alive</p>
 					<p class="categoriaProyecto">Assets de Videojuego en Pixel Art</p>
-					<p class="botonProyecto"><a href="assetspixelart/assetspixelart.html">Acceder <i class="fa fa-arrow-circle-o-up"></i></a></p>
+					<p class="botonProyecto"><a href="assetspixelart.html">Acceder <i class="fa fa-arrow-circle-o-up"></i></a></p>
 				</div>
 			</div>
 			<div id="planeta1">
@@ -173,3 +177,4 @@
 
 </body>
 </html>
+

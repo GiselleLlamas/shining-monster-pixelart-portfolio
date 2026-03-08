@@ -251,15 +251,18 @@ footer p{
 
 #arriba{
 	position: fixed;
-	bottom: 10px;
-	right: 5px;
+	bottom: max(30px, calc(env(safe-area-inset-bottom) + 10px));
+	right: max(30px, calc(env(safe-area-inset-right) + 10px));
+	left: auto !important;
+	z-index: 6000;
     border:1px solid #666666;
     display: block;
     text-decoration: none;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
     border-radius: 30px;
-    opacity:0.5;
+	opacity:0.95;
+	background-color: #FFFFFF;
     box-shadow: 2px 2px 2px;
 }
 
@@ -1140,25 +1143,31 @@ footer p{
 	width: 100%;
 	font-family: 'Krona One';
 	position: relative;
+	margin: 20px 0 30px;
 }
 
 #titulosProyectoStandard{
-	padding-left: 95px;
+	padding-left: 105px;
+	padding-right: 24px;
 	padding-top: 30px;
 	padding-bottom: 20px;
 }
 
 #decoradoTituloProyecto{
 	position: absolute;
-	top:0;
-	left: 40px;
+	top: 0;
+	bottom: 18px;
+	left: 34px;
 	width: 30px;
-	height: 80%;
-	padding-left: 14px
+	pointer-events: none;
 }
 
 #lineaTituloProyecto{
-	height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 15px;
+	left: 50%;
+	transform: translateX(-50%);
 	width: 3px;
 	background-color: #000;
 }
@@ -1168,8 +1177,9 @@ footer p{
 	height: 30px;
 	background-color: #000;
 	position: absolute;
-	bottom: -15px;
 	left: 0;
+	bottom: 0;
+	margin-top: 0;
 	border-radius: 30px;
 }
 
@@ -1205,9 +1215,9 @@ footer p{
 /*Boton de Volver*/
 
 #btnVolver{
-	position: absolute;
-	top:150px;
-	left:8px;
+	position: static;
+	display: inline-block;
+	margin: 12px 8px 10px 8px;
 	font-family: 'Roboto Slab';
 }
 
@@ -1234,9 +1244,9 @@ footer p{
 }
 
 #btnSiguiente{
-	position: absolute;
-	top:150px;
-	left:132px;
+	position: static;
+	display: inline-block;
+	margin: 12px 8px 10px 0;
 	font-family: 'Roboto Slab';
 }
 
@@ -1726,6 +1736,11 @@ blockquote {
 	border:5px solid #FFFFFF;
 	padding: 5px;
 	border-radius: 50%;
+}
+
+#contenidoProyectos .imagenProyecto a,
+#contenidoProyectos .imagenProyecto img{
+	display: block;
 }
 
 

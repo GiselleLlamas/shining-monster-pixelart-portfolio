@@ -5,14 +5,15 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Conceptos de personaje por Giselle Llamas.">
-	<link rel='icon' href='../../img/favicon16.png' type='image/x-icon'/>
+	<link rel='icon' href='../img/favicon16.png' type='image/x-icon'/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/v4-shims.min.css">
-	<link rel="stylesheet" href="../../css/base.css">
-	<link rel="stylesheet" href="../../css/base-context.css">
-	<link rel="stylesheet" href="../../css/buttons.css">
-	<link rel="stylesheet" href="../../css/main.css">
-	<script src="../../js/funciones.js"></script>
+	<link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/base-context.css">
+	<link rel="stylesheet" href="../css/buttons.css">
+	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/responsive.css">
+	<script src="../js/funciones.js"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Roboto+Slab&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -20,42 +21,34 @@
 		<header>
 			<div class="menu">
 				<nav class="navi" id="navuno">
-					<a href="../../index.html" class="nav-home">INICIO</a>
-					<div class="dropdown" id="bio">
-						<div class="dropbtn">
-							<a href="../../bio/index.html">BIO</a>
-							<i class="fa fa-caret-down"></i>
-						</div>
-						<div class="dropdown-content">
-							<a href="../../bio/contacto/contacto.html">Contacto</a>
-						</div>
-					</div>
+					<a href="../index.html" class="nav-home">INICIO</a>
+					<a href="../bio/bio.html">BIO</a>
 					<div class="dropdown" id="proyectos">
 						<div class="dropbtn">
-							<a href="../index.html">PROYECTOS</a>
+							<a href="proyectos.html">PROYECTOS</a>
 							<i class="fa fa-caret-down"></i>
 						</div>
 						<div class="dropdown-content">
-							<a href="../tapa/tapa.html">Tapa de disco</a>
-							<a href="../pantallas/pantallas.html">Pantallas animadas</a>
+							<a href="tapa.html">Tapa de disco</a>
+							<a href="pantallas.html">Pantallas animadas</a>
 							<a href="conceptos.html">Conceptos de personaje</a>
-							<a href="../assets2d/assets2d.html">Assets para VG en 2D</a>
-							<a href="../assetspixelart/assetspixelart.html">Assets para VG en Pixel Art</a>
+							<a href="assets2d.html">Assets para VG en 2D</a>
+							<a href="assetspixelart.html">Assets para VG en Pixel Art</a>
 						</div>
 					</div>
 					<div class="dropdown">
 						<div class="dropbtn" id="cv">
-							<a href="../../cv/index.html">CV</a>
+							<a href="../cv/cv.html">CV</a>
 							<i class="fa fa-caret-down"></i>
 						</div>
 						<div class="dropdown-content">
-							<a href="../../cv/exhibiciones/exhibiciones.html">Exhibiciones</a>
-							<a href="../../cv/testimoniales/testimoniales.html">Testimoniales</a>
+							<a href="../cv/exhibiciones.html">Exhibiciones</a>
+							<a href="../cv/testimoniales.html">Testimoniales</a>
 						</div>
 					</div>
 				</nav>
 				<div class="logo" id="logops">
-					<a href="../../index.html"><img src="../../img/ps-logo.png" alt="Ilustración del logo de Giselle Llamas"></a>
+					<a href="../index.html"><img src="../img/ps-logo.png" alt="Ilustración del logo de Giselle Llamas"></a>
 				</div>
 				<button class="hamburger" aria-label="Abrir menú">
 					<span></span>
@@ -63,19 +56,20 @@
 					<span></span>
 				</button>
 				<nav class="navi" id="navdos">
-					<a href="../../ilustracion/index.html">ILUSTRACIÓN</a>
+					<a href="../ilustracion/ilustracion.html">ILUSTRACIÓN</a>
 					<div class="dropdown">
 						<div class="dropbtn" id="blog">
-							<a href="../../blog/index.html">BLOG</a>
+							<a href="../blog/blog.html">BLOG</a>
 							<i class="fa fa-caret-down"></i>
 						</div>
 						<div class="dropdown-content">
-							<a href="../../blog/atom/atom.html">Recuerdos de Atom</a>
-							<a href="../../blog/pasadopresente/pasadopresente.html">Pasado/Presente</a>
-							<a href="../../blog/rrayos/rrayos.html">Visualizando RRayos</a>
+							<a href="../blog/atom.html">Recuerdos de Atom</a>
+							<a href="../blog/pasadopresente.html">Pasado/Presente</a>
+							<a href="../blog/rrayos.html">Visualizando RRayos</a>
 						</div>
 					</div>
-					<a href="../../juego/index.html">JUEGO</a>
+					<a href="../bio/contacto.html">CONTACTO</a>
+					<a href="../juego/juego.html">JUEGO</a>
 				</nav>
 			</div>
 		</header>
@@ -97,11 +91,33 @@
 					</div>
 				</div>
 		<div id="btnVolver">
-			<a href="../index.html"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Volver</a>
+			<a href="proyectos.html"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Volver</a>
 		</div>
 
 		<div id="btnSiguiente">
-			<a href="../assets2d/assets2d.html">Siguiente<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+			<a href="assets2d.html">Siguiente<i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+		</div>
+
+		<div id="contenedorTituloProyecto">
+
+			<div id="decoradoTituloProyecto">
+
+				<div id="lineaTituloProyecto">
+				</div>
+
+				<div id="circuloTituloProyecto">
+				</div>
+
+			</div>
+
+			<div id="titulosProyectoStandard">
+
+				<p id="anioTituloProyecto">2017</p>
+				<p id="nombreTituloProyecto">CONCEPTOS DE PERSONAJE</p>
+				<p id="clienteTituloProyecto">Cliente: Reach Up High Entertainment (GB)</p>
+
+			</div>
+
 		</div>
 
 
@@ -110,7 +126,7 @@
 			<div id="columnaProyecto1">
 
 				<div id="imagenColumna1">
-					<img src="img/quiettop.png" alt="Dibujo de dos jóvenes de tez clara, uno con pelo blanco y un gran sombrero negro y otro con pelo negro" />
+					<img src="conceptos/img/quiettop.png" alt="Dibujo de dos jóvenes de tez clara, uno con pelo blanco y un gran sombrero negro y otro con pelo negro" />
 				</div>
 
 				<div id="textoProyectoStandard">
@@ -123,36 +139,15 @@
 
 			<div id="columnaProyecto2">
 
-				<div id="contenedorTituloProyecto">
-
-					<div id="decoradoTituloProyecto">
-
-						<div id="lineaTituloProyecto">
-						</div>
-
-						<div id="circuloTituloProyecto">
-						</div>
-
-					</div>
-
-					<div id="titulosProyectoStandard">
-
-						<p id="anioTituloProyecto">2017</p>
-						<p id="nombreTituloProyecto">CONCEPTOS DE PERSONAJE</p>
-						<p id="clienteTituloProyecto">Cliente: Reach Up High Entertainment (GB)</p>
-
-					</div>
-
-				</div>
 				
 				<div id="imagenColumna2">
-					<img class="topphoto" src="img/quiet0.png" alt="Dibujo conceptual de cuerpo completo de tres chicas fantasmas, una con pelo largo flotando, otra con un vestido estilo antiguo y pelo corto, y otra con un colgante de una llave, pelo largo y un vestido" />
-					<img src="img/quiet1.png" alt="Dibujo de acercamiento de las caras de tres chicas fantasmas" />
-					<img src="img/quiet2.png" alt="Dibujo de acercamiento de las piernas de dos chicas fantasmas" />
-					<img src="img/quiet3.png" alt="Dibujo de dos jóvenes de tez clara, uno con pelo blanco y un gran sombrero negro y otro con pelo negro" />
-					<img src="img/quiet4.png" alt="Dibujo de concepto de seis caras de chicas fantasmas" />
-					<img src="img/quiet5.png" alt="Diseño de logo de Quiet Town" />
-					<img src="img/quiet6.png" alt="Diseños de distintas siluetas de chicas fantasmas" />
+					<img class="topphoto" src="conceptos/img/quiet0.png" alt="Dibujo conceptual de cuerpo completo de tres chicas fantasmas, una con pelo largo flotando, otra con un vestido estilo antiguo y pelo corto, y otra con un colgante de una llave, pelo largo y un vestido" />
+					<img src="conceptos/img/quiet1.png" alt="Dibujo de acercamiento de las caras de tres chicas fantasmas" />
+					<img src="conceptos/img/quiet2.png" alt="Dibujo de acercamiento de las piernas de dos chicas fantasmas" />
+					<img src="conceptos/img/quiet3.png" alt="Dibujo de dos jóvenes de tez clara, uno con pelo blanco y un gran sombrero negro y otro con pelo negro" />
+					<img src="conceptos/img/quiet4.png" alt="Dibujo de concepto de seis caras de chicas fantasmas" />
+					<img src="conceptos/img/quiet5.png" alt="Diseño de logo de Quiet Town" />
+					<img src="conceptos/img/quiet6.png" alt="Diseños de distintas siluetas de chicas fantasmas" />
 				</div>	
 
 			</div>
@@ -165,9 +160,13 @@
 		</a>
 		<footer>
 			<p>Hecho para la Cátedra Drelichman</p>
-			<img src="../../img/footer-img.png" alt="Dibujo de corazón en estilo Pixel art">
+			<img src="../img/footer-img.png" alt="Dibujo de corazón en estilo Pixel art">
 			<p>Informática General - Final 2020</p>
 		</footer>
 	</div>
 </body>
 </html>
+
+
+
+

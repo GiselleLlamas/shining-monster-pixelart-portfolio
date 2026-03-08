@@ -1,0 +1,535 @@
+/* ==========================================================================
+   responsive.css
+   Mobile / tablet layout overrides — breakpoints: 768px and 480px.
+   All artisanal styles in main.css are left completely untouched.
+   These rules are purely additive overrides that only activate on
+   narrower viewports.
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   SITE-WIDE COLOUR OVERRIDES
+   -------------------------------------------------------------------------- */
+#contenidoFlexContacto {
+  background-color: #D0C5FA;
+}
+
+/* Plain <a> links in navdos (CONTACTO, JUEGO) need the same horizontal
+   padding as dropdown items so they don't run together on desktop. */
+#navdos > a {
+  padding: 0 8px;
+}
+
+/* Desktop nav: both navs grow equally, items spaced by a fixed gap
+   so left side and right side have identical spacing between items. */
+@media (min-width: 769px) {
+  #navuno,
+  #navdos {
+    flex: 1;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  /* Keep dropdown label + caret on the same line */
+  .navi .dropdown .dropbtn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   GLOBAL
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  footer {
+    margin: 20px 15px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Make all hamburger menu entries use the same vertical rhythm. */
+  #navuno,
+  #navdos {
+    padding: 0;
+  }
+
+  #navuno > a:not(.nav-home),
+  #navdos > a,
+  #navuno .dropdown .dropbtn,
+  #navdos .dropdown .dropbtn {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+  }
+
+  /* Keep project quick-nav dots inside the mobile layout. */
+  #botonesProyectos {
+    position: fixed;
+    right: 10px;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+  }
+
+  /* Hide project dots while hamburger menu panel is expanded. */
+  body.menu-open #botonesProyectos {
+    display: none;
+  }
+
+  /* Lightbox gallery image — prevent overflow on small screens */
+  #contenedorFotoPopUp img {
+    max-width: 90vw;
+    max-height: 75vh;
+    width: auto;
+    height: auto;
+  }
+
+  /* Keep the back-to-top button in reach on touch devices. */
+  #arriba {
+    right: max(22px, calc(env(safe-area-inset-right) + 10px));
+    left: auto !important;
+    bottom: max(22px, calc(env(safe-area-inset-bottom) + 10px));
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   HOME — content section below parallax
+   (parallax layers use intentional absolute pixel positioning — left alone)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Let the section grow beyond the fixed 700px when content stacks */
+  #maincont {
+    height: auto;
+  }
+
+  /* Stack photo + text vertically */
+  #contenidoTextoHome {
+    flex-direction: column;
+  }
+
+  /* Release the 620px fixed width */
+  #imgTextoHome {
+    width: 100%;
+  }
+
+  #imgTextoHome > img:first-child {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Joystick: release from absolute positioning so it flows below the ghost-PC image */
+  #joystick {
+    position: static;
+    display: block;
+    max-width: 200px;
+    height: auto;
+    margin: 10px auto 0;
+  }
+
+  #textoHome {
+    margin-top: 0;
+    padding: 0 15px 15px;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   BIO PAGE
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Stack portrait + bio text */
+  #aboutmain {
+    flex-direction: column;
+  }
+
+  #bioimg1 img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Let portrait row wrap on very small screens */
+  #galeriabio {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Stack image + quote text */
+  #quotebio {
+    flex-direction: column;
+    align-items: center;
+    padding: 13px 20px;
+  }
+
+  /* Centre the bottom photo + caption */
+  #overworld {
+    margin: 20px auto 0;
+    text-align: center;
+  }
+
+  #overworld img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   ILLUSTRATION GALLERY
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Two per row, fluid width, same aspect ratio as desktop cards */
+  .contenedor-galeria div {
+    width: calc(50% - 20px);
+    height: auto;
+    aspect-ratio: 300 / 192;
+  }
+
+  .contenedor-galeria div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 480px) {
+  /* One per row on very small phones */
+  .contenedor-galeria div {
+    width: 100%;
+    aspect-ratio: 300 / 192;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   CONTACT PAGE
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Stack social sidebar + form area vertically */
+  #contactmain {
+    flex-direction: column;
+  }
+
+  /* Social icons become a horizontal strip instead of a top-padded column */
+  #contactmain .socialVertical {
+    flex-direction: row;
+    padding-top: 15px;
+    padding-bottom: 0;
+  }
+
+  #contenedorFlexContacto {
+    width: 100%;
+  }
+
+  #contenedorFlexContacto > h1 {
+    padding-left: 20px;
+  }
+
+  #contenidoFlexContacto {
+    padding: 20px 20px 40px;
+  }
+
+  /* Stack form + recommendations vertically */
+  #flexFormYRecom {
+    flex-direction: column;
+  }
+
+  /* Release the fixed 370px width */
+  #flexRecomendaciones {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 2em;
+  }
+
+  /* Speech balloon: release from absolute positioning so it flows inside the
+     testimonial card row instead of bleeding off-screen */
+  .speechballoon {
+    position: static;
+    display: inline-block;
+    margin-bottom: 6px;
+  }
+  .speechballoon img {
+    width: 48px;
+  }
+
+  /* Reduce bottom gap after the last testimonial — half of the default 2em */
+  .recomendacion:last-child {
+    margin-bottom: 1em;
+  }
+
+  /* Center the success popup on screen */
+  #popUpContacto {
+    left: 5%;
+    width: 90%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   PROJECT SUBPAGES (tapa, pantallas, conceptos, assets2d, assetspixelart)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Stack left column (image + description) above right column (title + photos) */
+  #proyectoStandardMain {
+    flex-direction: column;
+  }
+
+  /* Release the fixed 276px width */
+  #columnaProyecto1 {
+    width: 100%;
+    margin-right: 0;
+    text-align: center;
+    margin-bottom: 1.5em;
+  }
+
+  #textoProyectoStandard {
+    padding: 0 12px;
+    box-sizing: border-box;
+  }
+
+  #textoProyectoStandard p {
+    margin-left: 0;
+    margin-right: 0;
+    overflow-wrap: break-word;
+  }
+
+  #imagenColumna1 img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  #contenedorTituloProyecto {
+    margin: 6px 0 18px;
+  }
+
+  #titulosProyectoStandard {
+    padding: 20px 12px 16px 78px;
+  }
+
+  #decoradoTituloProyecto {
+    left: 18px;
+    top: 0;
+    bottom: 14px;
+  }
+
+  #anioTituloProyecto,
+  #nombreTituloProyecto {
+    font-size: 32px;
+  }
+
+  #clienteTituloProyecto {
+    font-size: 22px;
+  }
+
+  /* Back / next buttons use position: absolute with pixel coords — they
+     overlap content on mobile. Make them flow normally above the main section. */
+  #btnVolver,
+  #btnSiguiente {
+    position: static;
+    display: inline-block;
+    margin: 8px 5px 16px;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   CV PAGE
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Expand cvmain to contain all floated artwork (clearfix behaviour).
+     Pink background fills any gap between #experiencia and #estudios — 
+     the red on #estudios covers its own area on top. */
+  #cvmain {
+    overflow: hidden;
+    background-color: pink;
+  }
+
+  /* The absolute-positioned pink/red background strips use pixel offsets +
+     percent heights that don't track variable mobile content height.
+     Hide them and colour the sections directly so the split always follows
+     the actual content — including when new entries are added. */
+  #background-col1,
+  #background-col2 {
+    display: none;
+  }
+
+  /* #gisecv is last child of #experiencia — clearfix stretches the pink
+     background to fully contain the portrait float. */
+  #experiencia::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  #experiencia {
+    background-color: pink;
+    margin: 0;
+    padding-bottom: 25px;
+  }
+
+  /* #scott is first child of #estudios — clearfix ensures the red
+     background contains the portrait even when text is short. */
+  #estudios::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  /* padding-bottom creates empty red space for #manga to straddle
+     the red section / white footer boundary via margin-top: -60px. */
+  #estudios {
+    background-color: red;
+    padding-top: 30px;
+    padding-bottom: 80px;
+    margin: 0;
+  }
+
+  /* #gisecv — portrait — last child of #experiencia, floats left.
+     Appears in the lower portion of the pink section. */
+  #gisecv {
+    position: static;
+    float: left;
+    max-width: 32%;
+    height: auto;
+    margin: 0 14px 10px 0;
+  }
+
+  /* #scott — game widget — first child of #estudios, floats right.
+     Sits in the upper-right corner of the red studies section. */
+  #scott {
+    position: static;
+    float: right;
+    max-width: 38%;
+    height: auto;
+    margin: 0 0 10px 14px;
+  }
+
+  /* #manga — centred block. margin-top: -60px pulls it up into the
+     80px empty padding-bottom of #estudios, straddling red/footer.
+     margin-bottom: -50px pulls the footer up to reduce white gap. */
+  #manga {
+    position: relative;
+    z-index: 10;
+    display: block;
+    float: none;
+    max-width: 45%;
+    height: auto;
+    margin: -60px auto -50px;
+  }
+
+  /* Flatten the staircase indent (up to 180px) — the float images already
+     provide the visual rhythm; the indents would push text off-screen. */
+  #esc1, #esc2, #esc3, #esc4, #esc5,
+  #esc6, #esc7, #esc8, #esc9, #esc10 {
+    padding-left: 10px;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   CV — TESTIMONIALES SUBPAGE
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  #testimonialesMain {
+    flex-direction: column;
+  }
+
+  /* Release the fixed 474px width */
+  #contenidoTestimonios {
+    width: 100%;
+  }
+
+  .testimonio {
+    max-width: 100%;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   CV — EXHIBICIONES SUBPAGE
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Reduce the generous left padding */
+  #exhibicionesMain {
+    padding-left: 20px;
+  }
+
+  /* Release the fixed 650px description width */
+  .contenedorExhibicion .descExhibicion {
+    width: 100%;
+  }
+
+  /* Hide three decorative overlapping background blocks */
+  #decoradoEx1,
+  #decoradoEx2,
+  #decoradoEx3 {
+    display: none;
+  }
+
+  /* Take the round photo out of absolute positioning so it flows with text */
+  .fotoExhibicion {
+    position: static;
+    margin: 0 0 1em;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   BLOG POST PAGES — Atom / Pasado Presente / Visualizando RRayos
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Atom — stack left and right content panels */
+  #contenidoatom {
+    flex-direction: column;
+  }
+
+  #ladoatom1,
+  #ladoatom2 {
+    max-width: 100%;
+    margin-right: 0;
+    padding: 10px 15px;
+  }
+
+  /* Pasado / Presente — stack main content + sidebar */
+  #contenidopresente {
+    flex-direction: column;
+  }
+
+  /* Release fixed 730px and 260px widths */
+  #conjuntoizqblog2 {
+    width: 100%;
+  }
+
+  #conjuntoderblog2 {
+    width: 100%;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   GAME PAGE
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* The game grid is a deliberate fixed 860px layout — let it scroll
+     horizontally rather than break the card dimensions or game logic */
+  #contenedorjuego {
+    overflow-x: auto;
+  }
+
+  /* Reposition the result / turn info overlay panels */
+  #contenedorResultadoUnJugador,
+  #mostrarTurno,
+  #contenedorResultadoDosJugadores {
+    width: 90vw;
+    left: 5vw;
+    top: 20px;
+  }
+}

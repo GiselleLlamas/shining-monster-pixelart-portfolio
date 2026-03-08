@@ -331,11 +331,13 @@ function animarScroll(pos){
 document.addEventListener('DOMContentLoaded', function () {
 	const hamburger = document.querySelector('.hamburger');
 	const menu = document.querySelector('.menu');
+	document.body.classList.remove('menu-open');
 
 	if (hamburger && menu) {
 		hamburger.addEventListener('click', function () {
 			hamburger.classList.toggle('is-open');
 			menu.classList.toggle('is-open');
+			document.body.classList.toggle('menu-open', menu.classList.contains('is-open'));
 		});
 	}
 
