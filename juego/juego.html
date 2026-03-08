@@ -77,6 +77,22 @@
 		</header>
 		<div id="juegomain" class="oneflex">
 			<h1 class="titulojuego">Memotest - "Retro Memorias"</h1>
+			<div id="barraAyudaJuego">
+				<button id="btnInfoJuego" type="button" aria-controls="popupInstruccionesJuego" aria-expanded="true" aria-label="Mostrar u ocultar instrucciones del juego">
+					<i class="fa fa-circle-info" aria-hidden="true"></i>
+					<span>Instrucciones</span>
+				</button>
+				<p class="atajoAyudaJuego">Tecla rápida: <strong>I</strong></p>
+			</div>
+			<div id="popupInstruccionesJuego" role="dialog" aria-live="polite" aria-hidden="false" aria-label="Instrucciones del Memotest">
+				<button id="cerrarInstruccionesJuego" type="button" aria-label="Cerrar instrucciones">
+					<i class="fa fa-times" aria-hidden="true"></i>
+				</button>
+				<h3>Cómo jugar</h3>
+				<p>Encontrá pares iguales dando vuelta dos cartas por turno.</p>
+				<p>Ganás cuando descubrís los 10 pares con la menor cantidad de movimientos.</p>
+				<p>Podés reabrir este panel tocando el ícono <i class="fa fa-circle-info" aria-hidden="true"></i> o con la tecla <strong>I</strong>.</p>
+			</div>
 			<h2 id="turnoJugador">&nbsp;</h2>
 			<div id="contenedorjuego">
 				<div id="grillaJuego" style="display:none;">

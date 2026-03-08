@@ -1,8 +1,30 @@
 // ===== Funcionamiento de Flecha de arriba ==== 
 
 function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+	// Reset the main page scroll and any internal scrolling containers.
+	const targets = [
+		document.scrollingElement,
+		document.documentElement,
+		document.body,
+		document.getElementById('parallaxHome'),
+		...document.querySelectorAll('.parallax')
+	];
+
+	window.scrollTo(0, 0);
+
+	targets.forEach(function (target) {
+		if (!target) return;
+		target.scrollTop = 0;
+		target.scrollLeft = 0;
+		if (typeof target.scrollTo === 'function') {
+			target.scrollTo(0, 0);
+		}
+	});
+
+	// One extra frame helps mobile browsers that apply scrolling asynchronously.
+	requestAnimationFrame(function () {
+		window.scrollTo(0, 0);
+	});
 }
 
 // ===== Galeria ==== 
@@ -62,6 +84,69 @@ function apareceGaleria(varImg){
 function desapareceGaleria(){
 	$('#fondoGaleria').fadeOut('slow');
 	$('#popUpGaleria').fadeOut('fast');
+}
+
+function iniciarCierreGaleriaFuera(){
+	const fondo = document.getElementById('fondoGaleria');
+	const popUp = document.getElementById('popUpGaleria');
+	const fotoPopUp = document.getElementById('fotoPopUp');
+
+	if (fondo) {
+		fondo.addEventListener('click', function () {
+			desapareceGaleria();
+		});
+	}
+
+	if (!popUp || !fotoPopUp) return;
+
+	popUp.addEventListener('click', function (e) {
+		const clicDentroDeFoto = fotoPopUp.contains(e.target);
+		const clicEnFlechas = e.target.closest('#flechaPrevPopUp, #flechaNextPopUp');
+
+		if (!clicDentroDeFoto && !clicEnFlechas) {
+			desapareceGaleria();
+		}
+	});
+}
+
+function iniciarSwipeGaleria(){
+	const contenedor = document.getElementById('contenedorFotoPopUp');
+	if (!contenedor) return;
+
+	let startX = 0;
+	let startY = 0;
+	let isSwiping = false;
+
+	contenedor.addEventListener('touchstart', function (e) {
+		if (!e.touches || e.touches.length !== 1) return;
+		startX = e.touches[0].clientX;
+		startY = e.touches[0].clientY;
+		isSwiping = true;
+	}, { passive: true });
+
+	contenedor.addEventListener('touchmove', function (e) {
+		if (!isSwiping || !e.touches || e.touches.length !== 1) return;
+		const dx = e.touches[0].clientX - startX;
+		const dy = e.touches[0].clientY - startY;
+		if (Math.abs(dx) > Math.abs(dy)) {
+			e.preventDefault();
+		}
+	}, { passive: false });
+
+	contenedor.addEventListener('touchend', function (e) {
+		if (!isSwiping || !e.changedTouches || e.changedTouches.length !== 1) return;
+		const dx = e.changedTouches[0].clientX - startX;
+		const dy = e.changedTouches[0].clientY - startY;
+		isSwiping = false;
+
+		if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+
+		if (dx < 0) {
+			nextImg(imgActual);
+		} else {
+			prevImg(imgActual);
+		}
+	}, { passive: true });
 }
 
 /*******************************************
@@ -132,6 +217,53 @@ function desempatar(){
 		juegoEmpezado = 0;
 		mostrarJuego(2);
 	});
+}
+
+function iniciarInstruccionesMemotest() {
+	const popup = document.getElementById('popupInstruccionesJuego');
+	if (!popup) return;
+
+	const botonInfo = document.getElementById('btnInfoJuego');
+	const botonCerrar = document.getElementById('cerrarInstruccionesJuego');
+
+	function abrirInstrucciones() {
+		popup.setAttribute('aria-hidden', 'false');
+		if (botonInfo) botonInfo.setAttribute('aria-expanded', 'true');
+	}
+
+	function cerrarInstrucciones() {
+		popup.setAttribute('aria-hidden', 'true');
+		if (botonInfo) botonInfo.setAttribute('aria-expanded', 'false');
+	}
+
+	function alternarInstrucciones() {
+		if (popup.getAttribute('aria-hidden') === 'true') {
+			abrirInstrucciones();
+		} else {
+			cerrarInstrucciones();
+		}
+	}
+
+	if (botonInfo) {
+		botonInfo.addEventListener('click', alternarInstrucciones);
+	}
+
+	if (botonCerrar) {
+		botonCerrar.addEventListener('click', cerrarInstrucciones);
+	}
+
+	document.addEventListener('keydown', function (e) {
+		if (e.key === 'i' || e.key === 'I') {
+			e.preventDefault();
+			alternarInstrucciones();
+		}
+
+		if (e.key === 'Escape' && popup.getAttribute('aria-hidden') === 'false') {
+			cerrarInstrucciones();
+		}
+	});
+
+	abrirInstrucciones();
 }
 
 function mostrarResultadoFinal(){
@@ -329,6 +461,9 @@ function animarScroll(pos){
 // ===== Menú Hamburguesa =====
 
 document.addEventListener('DOMContentLoaded', function () {
+	iniciarSwipeGaleria();
+	iniciarCierreGaleriaFuera();
+	iniciarInstruccionesMemotest();
 	const hamburger = document.querySelector('.hamburger');
 	const menu = document.querySelector('.menu');
 	document.body.classList.remove('menu-open');
