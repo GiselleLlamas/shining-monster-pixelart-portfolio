@@ -114,7 +114,8 @@
 
   #pantallaArcade2 {
     top: 81px; /* 161×0.5 */
-    left: calc(50% - 88px); /* 175×0.5 */
+    left: 50%;              /* screen centre = viewport centre */
+    transform: translateX(-50%);
   }
 
   #pantallaArcade1 {
@@ -149,14 +150,14 @@
   #chicoArcade {
     width: 189px; /* 378 × 0.5 */
     left: calc(50% - 278px); /* 555 × 0.5 */
-    bottom: -68px; /* 135 × 0.5, covers max parallax lift 0.18 × 363 = 65px */
+    bottom: -90px; /* max parallax lift 0.18×363=65px; 90-65=25px safe margin */
   }
 
   /* girl2.png at 0.5× — swapped to RIGHT of cabinet */
   #chicaArcade {
     width: 119px; /* 238 × 0.5 */
     left: calc(50% + 113px); /* 225 × 0.5 */
-    bottom: -68px;
+    bottom: -90px;
   }
 }
 
@@ -171,7 +172,15 @@
   }
 
   #pantallaArcade1 {
-    display: none;
+    top: 64px;              /* pixel-measured screen top at 0.4× */
+    left: 50%;              /* screen centre = viewport centre */
+    transform: translateX(-50%);
+    bottom: auto;
+    display: block;         /* re-enable: hidden by default at this breakpoint */
+  }
+
+  #lineasPantalla img {
+    width: 140px; /* pixel-measured screen width at 0.4× */
   }
 
   #screenGradiente {
@@ -183,7 +192,8 @@
 
   #pantallaArcade2 {
     top: 64px;
-    left: calc(50% - 70px);
+    left: 50%;              /* screen centre = viewport centre */
+    transform: translateX(-50%);
   }
 
   #outWorld img {
@@ -193,13 +203,13 @@
   #chicoArcade {
     width: 151px; /* 378 × 0.4 */
     left: calc(50% - 222px); /* 555 × 0.4 */
-    bottom: -55px; /* 135 × 0.4, covers max parallax lift 0.18 × 291 = 52px */
+    bottom: -75px; /* max parallax lift 0.18×291=52px; 75-52=23px safe margin */
   }
 
   #chicaArcade {
     width: 95px; /* 238 × 0.4 */
     left: calc(50% + 90px); /* 225 × 0.4 */
-    bottom: -55px;
+    bottom: -75px;
   }
 
   #contenedorArcade img {
