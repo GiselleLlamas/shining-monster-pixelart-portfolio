@@ -149,6 +149,26 @@ function iniciarSwipeGaleria(){
 	}, { passive: true });
 }
 
+function iniciarProteccionImagenes(){
+	document.addEventListener('contextmenu', function (e) {
+		if (e.target.closest('img')) {
+			e.preventDefault();
+		}
+	}, { capture: true });
+
+	document.addEventListener('dragstart', function (e) {
+		if (e.target.closest('img')) {
+			e.preventDefault();
+		}
+	}, { capture: true });
+
+	document.addEventListener('selectstart', function (e) {
+		if (e.target.closest('img')) {
+			e.preventDefault();
+		}
+	}, { capture: true });
+}
+
 /*******************************************
 ********************************************
 *******************************************/
@@ -508,6 +528,7 @@ function animarScroll(pos){
 // ===== Menú Hamburguesa =====
 
 document.addEventListener('DOMContentLoaded', function () {
+	iniciarProteccionImagenes();
 	iniciarSwipeGaleria();
 	iniciarCierreGaleriaFuera();
 	iniciarInstruccionesMemotest();

@@ -1,0 +1,21 @@
+# robots.txt
+# This website and all artwork, illustrations, pixel art, designs, text, and media
+# are protected by copyright owned by Giselle Llamas and, where applicable,
+# by Giselle Llamas' clients, commissioners, collaborators, and/or the relevant
+# business owners for whom the work was created, unless stated otherwise.
+# Automated scraping, crawling, dataset harvesting, mirroring, and reuse of site
+# content are expressly discouraged and not authorized.
+# No content from this site may be used for AI training, machine learning,
+# generative AI development, foundation model training, dataset creation,
+# automated extraction, or AI scraping of any kind.
+# Such use is expressly forbidden without prior written permission and may
+# constitute copyright infringement and other violations of applicable law.
+
+User-agent: *
+Disallow: /
+
+# Copyright notice: Giselle Llamas. All rights reserved.
+# Additional rights may belong to Giselle Llamas' clients, commissioners,
+# collaborators, and/or the relevant business owners.
+# No permission is granted to copy, scrape, train on, archive, or redistribute
+# the content of this site without prior written consent.
