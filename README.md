@@ -1,4 +1,3 @@
-pixel-syndrome-portfolio
 # Giselle Llamas - Pixel Art & Illustration Portfolio
 
 This repository contains the source code for the personal portfolio website of Giselle Llamas, a multimedia artist and illustrator. The site is a fully custom, responsive single-page application (SPA)-style website built with a focus on a unique retro/pixel-art aesthetic.
