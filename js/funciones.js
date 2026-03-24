@@ -27,6 +27,58 @@ function topFunction() {
 	});
 }
 
+// ===== Image Loading Hints (site-wide) =====
+(function () {
+    var firstNonLogoKeptEager = false;
+
+    function shouldSkipLazy(img) {
+        var src = (img.getAttribute('src') || '').toLowerCase();
+        return src.indexOf('ps-logo.png') !== -1;
+    }
+
+    function applyHints(img) {
+        if (!img || img.tagName !== 'IMG') return;
+
+        if (!img.getAttribute('decoding')) {
+            img.setAttribute('decoding', 'async');
+        }
+
+        if (img.getAttribute('loading')) return;
+        if (shouldSkipLazy(img)) return;
+
+        if (!firstNonLogoKeptEager) {
+            firstNonLogoKeptEager = true; // keep one likely above-the-fold image eager
+            return;
+        }
+
+        img.setAttribute('loading', 'lazy');
+    }
+
+    function applyAll(root) {
+        if (!root) return;
+        if (root.tagName === 'IMG') applyHints(root);
+        root.querySelectorAll && root.querySelectorAll('img').forEach(applyHints);
+    }
+
+    // Apply to current DOM
+    applyAll(document);
+
+    // Apply as parser/app scripts add images
+    var observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (m) {
+            m.addedNodes.forEach(function (n) {
+                if (n.nodeType === 1) applyAll(n);
+            });
+        });
+    });
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+
+    window.addEventListener('load', function () {
+        applyAll(document);
+        observer.disconnect();
+    });
+}());
+
 // ===== Galeria ==== 
 
 let imgActual = 1;
