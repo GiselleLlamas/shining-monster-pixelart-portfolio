@@ -99,11 +99,117 @@
 
 
 /* --------------------------------------------------------------------------
-   HOME — content section below parallax
-   (parallax layers use intentional absolute pixel positioning — left alone)
+   HOME — parallax hero layers + content section below
    -------------------------------------------------------------------------- */
+
+/* Hero layer overrides at tablet/large-phone (≤768 px) */
 @media (max-width: 768px) {
-  /* Let the section grow beyond the fixed 700px when content stacks */
+  #parallaxHome {
+    height: 363px; /* exact display height of cabinet at 0.5× scale */
+  }
+
+  #outWorld img {
+    width: 112px; /* scaled to screen height 146px */
+  }
+
+  #pantallaArcade2 {
+    top: 81px; /* 161×0.5 */
+    left: calc(50% - 88px); /* 175×0.5 */
+  }
+
+  #pantallaArcade1 {
+    top: 81px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: auto;
+  }
+
+  #screenGradiente {
+    top: 81px;
+    left: calc(50% - 88px);
+    width: 175px;  /* 350×0.5 */
+    height: 142px; /* 283×0.5 */
+  }
+
+  #lineasPantalla img {
+    width: 175px; /* 350×0.5 */
+  }
+
+  #contenedorArcade img {
+    width: 282px; /* 0.5× × 1.3 */
+  }
+
+  #poster {
+    width: 160px;
+    right: 5%;
+    top: 5%;
+  }
+
+  /* guy2.png at 0.5× — swapped to LEFT of cabinet */
+  #chicoArcade {
+    width: 189px; /* 378 × 0.5 */
+    left: calc(50% - 278px); /* 555 × 0.5 */
+    bottom: -68px; /* 135 × 0.5, covers max parallax lift 0.18 × 363 = 65px */
+  }
+
+  /* girl2.png at 0.5× — swapped to RIGHT of cabinet */
+  #chicaArcade {
+    width: 119px; /* 238 × 0.5 */
+    left: calc(50% + 113px); /* 225 × 0.5 */
+    bottom: -68px;
+  }
+}
+
+/* Extra-small phones (≤480 px): simplify hero further */
+@media (max-width: 480px) {
+  #parallaxHome {
+    height: 291px; /* exact display height of cabinet at ~0.4× scale */
+  }
+
+  #poster {
+    display: none;
+  }
+
+  #pantallaArcade1 {
+    display: none;
+  }
+
+  #screenGradiente {
+    top: 64px; /* 161×0.4 */
+    left: calc(50% - 70px); /* 175×0.4 */
+    width: 140px;  /* 350×0.4 */
+    height: 113px; /* 283×0.4 */
+  }
+
+  #pantallaArcade2 {
+    top: 64px;
+    left: calc(50% - 70px);
+  }
+
+  #outWorld img {
+    width: 87px; /* scaled to screen height 113px */
+  }
+
+  #chicoArcade {
+    width: 151px; /* 378 × 0.4 */
+    left: calc(50% - 222px); /* 555 × 0.4 */
+    bottom: -55px; /* 135 × 0.4, covers max parallax lift 0.18 × 291 = 52px */
+  }
+
+  #chicaArcade {
+    width: 95px; /* 238 × 0.4 */
+    left: calc(50% + 90px); /* 225 × 0.4 */
+    bottom: -55px;
+  }
+
+  #contenedorArcade img {
+    width: 226px; /* ~0.4× × 1.3 */
+  }
+
+}
+
+@media (max-width: 768px) {
+  /* Let the section grow beyond the fixed height when content stacks */
   #maincont {
     height: auto;
   }

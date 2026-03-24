@@ -458,6 +458,53 @@ function animarScroll(pos){
 	$("#contenidoProyectos").animate({ scrollTop: pos }, 1000); 
 }
 
+// ===== Parallax Hero (Home page) =====
+// Applies a subtle per-layer vertical translate driven by page scroll.
+// Uses the CSS `translate` individual-transform property so it never
+// conflicts with the `transform: translateX(-50%)` centering on layers.
+// Does nothing when prefers-reduced-motion is set.
+
+(function () {
+	var layerDefs = [
+		{ sel: '#pantallaArcade1',  factor: 0.08 },
+		{ sel: '#chicosArcade',     factor: 0.18 }
+	];
+
+	var layers = [];
+	var raf = null;
+	var lastY = 0;
+	var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	var heroEl = null;
+
+	function init() {
+		if (reducedMotion) return;
+		heroEl = document.getElementById('parallaxHome');
+		layerDefs.forEach(function (def) {
+			var el = document.querySelector(def.sel);
+			if (el) layers.push({ el: el, factor: def.factor });
+		});
+		if (layers.length === 0) return;
+		window.addEventListener('scroll', onScroll, { passive: true });
+	}
+
+	function onScroll() {
+		/* Clamp to hero height so translate never exceeds factor×heroHeight.
+		   This keeps feet below overflow:hidden even at full-page scroll. */
+		var maxY = heroEl ? heroEl.offsetHeight : window.scrollY;
+		lastY = Math.min(window.scrollY, maxY);
+		if (!raf) raf = requestAnimationFrame(update);
+	}
+
+	function update() {
+		raf = null;
+		layers.forEach(function (layer) {
+			layer.el.style.translate = '0px ' + -(lastY * layer.factor) + 'px';
+		});
+	}
+
+	document.addEventListener('DOMContentLoaded', init);
+}());
+
 // ===== Menú Hamburguesa =====
 
 document.addEventListener('DOMContentLoaded', function () {

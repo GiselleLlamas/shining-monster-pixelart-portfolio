@@ -1945,128 +1945,160 @@ blockquote {
 #maincont{
 	width: 100%;
 	position: relative;
-	height:700px;
-
+	height: auto;
 }
 
-#parallaxHome{
+/* ==========================================
+   HOME HERO — Edge-to-edge parallax stage
+   All layers visible at first paint.
+   Subtle depth motion driven by page scroll
+   via JS (prefers-reduced-motion respected).
+   ========================================== */
+
+#parallaxHome {
 	position: relative;
- 	perspective: 1px;
-  	overflow-x: hidden;
-  	overflow-y: auto;
-  	height: 550px;
+	/* Full-bleed escape from the 1024px #standard wrapper */
+	width: 100vw;
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+	height: 728px; /* exact display height of arcadeAlone at 1.3× scale (564×1.3 ratio) */
+	overflow: hidden;
 }
 
-/* OCULTO LA BARRA DE SCROLL DEL PARALLAX */
+/* --- Layer 1: Background wall (fondoArcade 1920×1080) --- */
 
-#parallaxHome::-webkit-scrollbar {
-	width: 0 !important;
-}
-#parallaxHome {
-	overflow: -moz-scrollbars-none;
-}
-#parallaxHome {
-	-ms-overflow-style: none; 
-}
-
-/* FIN DE ESTILO BARRA SCROLL */
-
-#fondoArcade{
+#fondoArcade {
 	position: absolute;
-	top:0;
-	left: 0;
+	inset: 0;
 	z-index: 1;
-	transform: translate3D(-2050px, -1200px, -4px);
 }
 
-#imagenFondoArcade{
-	width: 570%;
-	height: auto;
+#imagenFondoArcade {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center top;
+	display: block;
+	image-rendering: pixelated;
 }
 
-#poster{
+#poster {
 	position: absolute;
-	width:1000px;
+	width: 320px;
 	height: auto;
-	top:38%;
-	left:30%;
+	top: 5%;
+	right: 15%;
+	z-index: 2;
+	image-rendering: pixelated;
 }
 
-#pantallaArcade1{
+/* --- Layer 2: Game world (otherworld 276×360) --- */
+
+#pantallaArcade2 {
 	position: absolute;
-	top:-550px;
+	top: 161px;
+	left: calc(50% - 175px); /* left edge of screen opening (pixel-measured) */
+	z-index: 4; /* top screen layer, above gradient and decorfondo */
+	/* no will-change — no JS translate; scrolls at page speed like the cabinet */
+}
+
+#outWorld {
+	position: relative;
+}
+
+#outWorld img {
+	width: 217px; /* scaled to fit screen height (283px), aspect 276:360 */
+	height: auto;
+	display: block;
+	image-rendering: pixelated;
+}
+
+/* --- Layer 2b: Screen gradient background --- */
+
+#screenGradiente {
+	position: absolute;
+	top: 161px;       /* pixel-measured from arcadeAlone.png at 1.3× scale */
+	left: calc(50% - 175px); /* screen left edge = cabinet centre − 175px */
+	width: 350px;     /* pixel-measured screen opening width */
+	height: 283px;    /* pixel-measured screen opening height */
+	background: linear-gradient(to bottom, #112244 0%, #03090f 100%);
+	z-index: 2;
+}
+
+/* --- Layer 3: Decorative circuit lines (decorfondo 400×300) --- */
+
+#pantallaArcade1 {
+	position: absolute;
+	top: 161px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 3;
+	will-change: translate;
+}
+
+#lineasPantalla {
+	position: relative;
+}
+
+#lineasPantalla img {
+	width: 350px; /* pixel-measured screen width */
+	height: auto;
+	display: block;
+	image-rendering: pixelated;
+}
+
+/* --- Layer 4: Arcade cabinet (arcadeAlone 434×560) ---
+   Sits outside #parallaxHome so overflow:hidden can't clip it.
+   top:0 anchors the screen/pigeon art to the hero top;
+   the base (728-600=128px) hangs naturally below the hero
+   and is revealed as the user scrolls down the page.       --- */
+
+#contenedorArcade {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 5; /* above all screen content, below characters */
+}
+
+#contenedorArcade img {
+	width: 564px; /* 434 × 1.3 — 30% larger */
+	height: auto;
+	display: block;
+	image-rendering: pixelated;
+}
+
+/* --- Layer 5: Characters --- */
+
+#chicosArcade {
+	position: absolute;
+	bottom: 0;
 	left: 0;
-	z-index: 100;
-	width:1900px;
-	height:1500px;
-	background-image: linear-gradient(#3f1212, #1a0823, #031d03);
-	transform: translate3D(0, 0, -3px);
+	width: 100%;
+	z-index: 6; /* in front of cabinet */
+	will-change: translate;
+	pointer-events: none;
 }
 
-#pantallaArcade2{
+/* guy2.png 270×600 — swapped to LEFT of cabinet, pulled further out */
+#chicoArcade {
 	position: absolute;
-	top:-220px;
-	left:750px;
-	z-index: 100;
-	width:1900px;
-	height:1500px;
-	transform: translate3D(0, 0, -2px);
-}
-
-#outWorld img{
-	width:250%;
-}
-
-#outWorld{
-	position: absolute;
-	top:0;
-	left:0;
-}
-
-#lineasPantalla{
-	position: absolute;
-	top:420px;
-	left:300px;
-}
-#lineasPantalla img{
-	width: 250%;
+	bottom: -135px; /* feet extend 135px below hero; overflow:hidden clips them.
+	                   max parallax lift = 0.18 × 728 = 131px → feet stay hidden */
+	left: calc(50% - 555px);
+	width: 378px; /* 270 × 1.4 */
 	height: auto;
+	image-rendering: pixelated;
 }
 
-#contenedorArcade{
+/* girl2.png 170×450 — swapped to RIGHT of cabinet, pulled further out */
+#chicaArcade {
 	position: absolute;
-	top:-350px;
-	left: 100px;
-	z-index: 200;
-	transform: translate3D(0px, 0, -1px);
-
-}
-#contenedorArcade img{
-	width: 200%;
-}
-
-#chicosArcade{
-	position: absolute;
-	top: 290px;
-	left: 260px;
-	z-index: 300;
-	transform: translate3D(0px, 0, -0.8px);
-}
-
-#chicoArcade{
-	position: absolute;
-	top:95px;
-	left: 0;
-	width: 170px;
+	bottom: -135px;
+	left: calc(50% + 225px);
+	width: 238px; /* 170 × 1.4 */
 	height: auto;
-}
-
-#chicaArcade{
-	position: absolute;
-	top:140px;
-	left: 860px;
-	width: 114px;
-	height: auto;
+	image-rendering: pixelated;
 }
 
 #contenidoTextoHome{
