@@ -1,0 +1,30 @@
+# Cloudflare Pages — Cache-Control headers
+# HTML always revalidates so visitors see updates on re-deploy immediately.
+# CSS, JS, and images use a 1-week cache (604800 s) — pragmatic for stable
+# filenames without versioning. A new Cloudflare Pages deploy busts the CDN
+# edge cache automatically; this controls the browser/client cache.
+
+# HTML — always check for updates
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# CSS — 1 week
+/css/*
+  Cache-Control: public, max-age=604800
+
+# JavaScript — 1 week
+/js/*
+  Cache-Control: public, max-age=604800
+
+# Images — 1 week (covers /img/, /section/img/, and /section/sub/img/)
+/img/*
+  Cache-Control: public, max-age=604800
+
+/*/img/*
+  Cache-Control: public, max-age=604800
+
+/*/*/img/*
+  Cache-Control: public, max-age=604800
