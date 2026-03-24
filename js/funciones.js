@@ -27,6 +27,78 @@ function topFunction() {
 	});
 }
 
+function resolveElement(target) {
+	if (!target) return null;
+	if (typeof target === 'string') return document.querySelector(target);
+	return target;
+}
+
+function setHtml(target, html) {
+	const el = resolveElement(target);
+	if (!el) return;
+	el.innerHTML = html;
+}
+
+function getFadeDuration(speed) {
+	if (typeof speed === 'number') return speed;
+	if (speed === 'slow') return 600;
+	if (speed === 'fast') return 200;
+	return 300;
+}
+
+function fadeIn(target, speed, callback) {
+	const el = resolveElement(target);
+	if (!el) {
+		if (typeof callback === 'function') callback();
+		return;
+	}
+
+	const duration = getFadeDuration(speed);
+	const computed = window.getComputedStyle(el);
+	if (computed.display === 'none') {
+		el.style.display = el.dataset.fadeDisplay || '';
+		if (window.getComputedStyle(el).display === 'none') {
+			el.style.display = 'block';
+		}
+	}
+
+	el.style.transition = 'none';
+	el.style.opacity = '0';
+
+	requestAnimationFrame(function () {
+		el.style.transition = 'opacity ' + duration + 'ms ease';
+		el.style.opacity = '1';
+	});
+
+	window.setTimeout(function () {
+		el.style.transition = '';
+		if (typeof callback === 'function') callback();
+	}, duration + 20);
+}
+
+function fadeOut(target, speed, callback) {
+	const el = resolveElement(target);
+	if (!el) {
+		if (typeof callback === 'function') callback();
+		return;
+	}
+
+	const duration = getFadeDuration(speed);
+	const computed = window.getComputedStyle(el);
+	if (computed.display !== 'none') {
+		el.dataset.fadeDisplay = computed.display;
+	}
+
+	el.style.transition = 'opacity ' + duration + 'ms ease';
+	el.style.opacity = '0';
+
+	window.setTimeout(function () {
+		el.style.transition = '';
+		el.style.display = 'none';
+		if (typeof callback === 'function') callback();
+	}, duration + 20);
+}
+
 // ===== Image Loading Hints (site-wide) =====
 (function () {
     var firstNonLogoKeptEager = false;
@@ -86,13 +158,13 @@ let imgActual = 1;
 function textoAparece(texto){
 	const varTexto = '#' + texto;
 	//console.log(varTexto)
-	$(varTexto).fadeIn('fast');
+	fadeIn(varTexto, 'fast');
 }
 
 function textoDesaparece(texto){
 	const varTexto = '#' + texto;
 	//console.log(varTexto)
-	$(varTexto).fadeOut('fast');
+	fadeOut(varTexto, 'fast');
 }
 
 function prevImg(varImg){
@@ -125,17 +197,17 @@ function nextImg(varImg){
 }
 
 function apareceGaleria(varImg){
-	$('#fondoGaleria').fadeIn('fast');
+	fadeIn('#fondoGaleria', 'fast');
 	imgActual = varImg;
 	let contenidoHtml = '<img src="img/img' + imgActual + '.png" alt="Imagen de galer\u00eda, ilustraci\u00f3n creada por Giselle Llamas." />';
 	document.getElementById('contenedorFotoPopUp').innerHTML = '';
 	document.getElementById('contenedorFotoPopUp').innerHTML = contenidoHtml;
-	$('#popUpGaleria').fadeIn('slow');
+	fadeIn('#popUpGaleria', 'slow');
 }
 
 function desapareceGaleria(){
-	$('#fondoGaleria').fadeOut('slow');
-	$('#popUpGaleria').fadeOut('fast');
+	fadeOut('#fondoGaleria', 'slow');
+	fadeOut('#popUpGaleria', 'fast');
 }
 
 function iniciarCierreGaleriaFuera(){
@@ -289,14 +361,14 @@ function mostrarMovimientos(){
 		texto = "<h2>&nbsp;</h2>";
 	}
 	
-	$("#muestraMov").html(texto);
+	setHtml('#muestraMov', texto);
 	
 }
 
 function desempatar(){
-	$('#contenedorResultadoDosJugadores').fadeOut('fast', function (){
+	fadeOut('#contenedorResultadoDosJugadores', 'fast', function (){
 		const texto = '';
-		$("#contenedorResultadoDosJugadores").html(texto);
+		setHtml('#contenedorResultadoDosJugadores', texto);
 		juegoEmpezado = 0;
 		mostrarJuego(2);
 	});
@@ -376,14 +448,14 @@ function mostrarResultadoFinal(){
 		texto = texto + '<div class="volverJugar" onclick="location.reload();"><p>Terminar</p></div>';
 	}
 	
-	$("#turnoJugador").html('&nbsp;');
+	setHtml('#turnoJugador', '&nbsp;');
 	
-	$("#contenedorResultadoDosJugadores").html(texto);
+	setHtml('#contenedorResultadoDosJugadores', texto);
 	
 	setTimeout(function () {
-		$("#grillaJuego").fadeOut('fast');
+		fadeOut('#grillaJuego', 'fast');
 
-		$('#contenedorResultadoDosJugadores').fadeIn('slow');
+		fadeIn('#contenedorResultadoDosJugadores', 'slow');
 
 	}, 600);
 	
@@ -398,7 +470,7 @@ function mostrarJuego(jugadores){
 	
 	
 	if(juegoEmpezado == 0){
-		$("#menuInicial").fadeOut('fast');
+		fadeOut('#menuInicial', 'fast');
 		juegoEmpezado = 1;
 		
 		if(cantJugadores == 2){
@@ -406,13 +478,13 @@ function mostrarJuego(jugadores){
 			jugadorActual = 1;
 			
 		const textoMostrarTurno = '<h2>Turno Jugador 1</h2><img src="img/unJugador.png" alt="un jugador" />';
-			$("#mostrarTurno").html(textoMostrarTurno);
+			setHtml('#mostrarTurno', textoMostrarTurno);
 			
-			$("#mostrarTurno").fadeIn('fast');
+			fadeIn('#mostrarTurno', 'fast');
 			
 			setTimeout(function () {
-				$("#mostrarTurno").fadeOut('fast', function(){
-					$("#turnoJugador").html('Turno Jugador 1');
+				fadeOut('#mostrarTurno', 'fast', function(){
+					setHtml('#turnoJugador', 'Turno Jugador 1');
 				});
 			}, 1500);
 			
@@ -422,13 +494,13 @@ function mostrarJuego(jugadores){
 		jugadorActual = 2;
 		
 		const textoMostrarTurno = '<h2>Turno Jugador 2</h2><img src="img/jugadorDos.png" alt="un jugador" />';
-		$("#mostrarTurno").html(textoMostrarTurno);
+		setHtml('#mostrarTurno', textoMostrarTurno);
 
-		$("#mostrarTurno").fadeIn('fast');
+		fadeIn('#mostrarTurno', 'fast');
 			
 		setTimeout(function () {
-			$("#mostrarTurno").fadeOut('fast', function(){
-				$("#turnoJugador").html('Turno Jugador 2');
+			fadeOut('#mostrarTurno', 'fast', function(){
+				setHtml('#turnoJugador', 'Turno Jugador 2');
 			});
 		}, 1500);
 		
@@ -437,7 +509,7 @@ function mostrarJuego(jugadores){
 	mezclarCartas(cartas);
 	let contenido = "";
 	
-	$("#grillaJuego").html(contenido);
+	setHtml('#grillaJuego', contenido);
 	
 	let idCarta = 0;
 	for (let i = 0; i < cartas.length; i++) {
@@ -463,15 +535,15 @@ function mostrarJuego(jugadores){
 		idCarta++;
 	}
 	
-	$("#grillaJuego").html(contenido);	
+	setHtml('#grillaJuego', contenido);	
 	
 	if(cantJugadores == 2){
 		setTimeout(function () {
-			$("#grillaJuego").fadeIn('fast');
+			fadeIn('#grillaJuego', 'fast');
 			mostrarMovimientos();
 		}, 1500);	
 	}else{
-		$("#grillaJuego").fadeIn('fast');
+		fadeIn('#grillaJuego', 'fast');
 	}
 	
 	
@@ -480,7 +552,7 @@ function mostrarJuego(jugadores){
 
 function mostrarCarta(numeroCarta, numeroMatch){
 	const idCarta = "#carta" + numeroCarta; 
-	$(idCarta).fadeOut('fast');
+	fadeOut(idCarta, 'fast');
 	if(paso == 0){
 		primerMatch = numeroMatch;
 		primeraCarta = numeroCarta;
@@ -490,8 +562,8 @@ function mostrarCarta(numeroCarta, numeroMatch){
 			const cartaAnterior = "#carta" + primeraCarta;
 			const cartaActual = "#carta" + numeroCarta;
 			setTimeout(function () {
-				$(cartaAnterior).fadeIn('fast');
-				$(cartaActual).fadeIn('fast');
+				fadeIn(cartaAnterior, 'fast');
+				fadeIn(cartaActual, 'fast');
 			}, 600);
 			
 		}else{
@@ -505,19 +577,19 @@ function mostrarCarta(numeroCarta, numeroMatch){
 	if(pares == 0){
 		if(cantJugadores == 1){
 			setTimeout(function () {
-				$("#grillaJuego").fadeOut('slow');
+				fadeOut('#grillaJuego', 'slow');
 
-				$('#movimientos1').html(movimientos);
+				setHtml('#movimientos1', movimientos);
 
-				$('#contenedorResultadoUnJugador').fadeIn('fast');
+				fadeIn('#contenedorResultadoUnJugador', 'fast');
 
 			}, 600);
 		}else{
-			$("#turnoJugador").html('&nbsp;');
+			setHtml('#turnoJugador', '&nbsp;');
 			if(jugadorActual == 1){
 				movimientosJug1 = movimientos;
 				setTimeout(function () {
-					$("#grillaJuego").fadeOut('fast', function(){
+					fadeOut('#grillaJuego', 'fast', function(){
 						mostrarJuego(2);
 					});
 				}, 600);
@@ -538,7 +610,9 @@ function mostrarCarta(numeroCarta, numeroMatch){
 *******************************************/
 
 function animarScroll(pos){
-	$("#contenidoProyectos").animate({ scrollTop: pos }, 1000); 
+	const contenedor = document.getElementById('contenidoProyectos');
+	if (!contenedor) return;
+	contenedor.scrollTo({ top: pos, behavior: 'smooth' });
 }
 
 // ===== Parallax Hero (Home page) =====
