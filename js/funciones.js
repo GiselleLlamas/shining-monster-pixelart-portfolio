@@ -169,6 +169,17 @@ function iniciarProteccionImagenes(){
 	}, { capture: true });
 }
 
+function actualizarCopyrightFooter(){
+	const anioActual = new Date().getFullYear();
+
+	document.querySelectorAll('footer').forEach(function (footer) {
+		const parrafos = footer.querySelectorAll('p');
+		if (parrafos.length < 2) return;
+
+		parrafos[parrafos.length - 1].textContent = '© ' + anioActual + ' Giselle Llamas';
+	});
+}
+
 /*******************************************
 ********************************************
 *******************************************/
@@ -529,6 +540,7 @@ function animarScroll(pos){
 
 document.addEventListener('DOMContentLoaded', function () {
 	iniciarProteccionImagenes();
+	actualizarCopyrightFooter();
 	iniciarSwipeGaleria();
 	iniciarCierreGaleriaFuera();
 	iniciarInstruccionesMemotest();
