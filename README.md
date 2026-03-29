@@ -2,6 +2,8 @@
 
 This repository contains the source code for the personal portfolio website of Giselle Llamas, a multimedia artist and illustrator. The site is a fully custom, responsive single-page application (SPA)-style website built with a focus on a unique retro/pixel-art aesthetic.
 
+<img width="1900" height="1354" alt="Image responsive pixelart website" src="https://github.com/user-attachments/assets/15c33d78-d3e3-41e1-9c59-168e2c2be518" />
+
 ---
 
 ## About The Project
@@ -72,6 +74,10 @@ shining-monster-pixelart-portfolio/
 ├── index.html         # Homepage
 └── robots.txt         # Search engine crawler directives
 ```
+
+## 📄 License
+
+Do not use/copy or plagiarize the code for these exercises for any work in your College or University, Personal site, or to feed this work to AI/ML. This is a project intended to be used as a showcase of my responsive website programming capabilities and foundational Javascript Knowledge. It is not allowed to use this code for any other purposes than educational and it is suggested to be used as a reference. In a standard "how to read code and understand the logic" style of application. Thanks for checking it out!
 
 ---
 
